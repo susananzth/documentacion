@@ -1,0 +1,23 @@
+html body {
+    display: block;
+}
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    -moz-transform: rotate(45deg); /* FF3.5+ */
+    -o-transform: rotate(45deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
+    -ms-transform: rotate(45deg); /* IE9 */
+    transform: rotate(45deg);
+    transition: all 0.4s ease;
+}
+.collapsed .arrow{
+    -moz-transform: rotate(-45deg); /* FF3.5+ */
+    -o-transform: rotate(-45deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
+    -ms-transform: rotate(-45deg); /* IE9 */
+    transform: rotate(-45deg);
+    transition: all 0.4s ease;
+}
