@@ -14,16 +14,11 @@
         <h1>CSS</h1>
         <em>Documentación frontend - CSS</em>
 
-        <button class="btn btn-outline-primary float-end collapsed" type="button" 
-            data-bs-toggle="collapse" data-bs-target=".multi-collapse" aria-expanded="false" 
-            aria-controls="requisites content projects certifications related sources">
-            Contraer todo
-            <i class="arrow"></i>
-        </button>
+        <div id="btnCollapse"></div>
 
         <div class="row">
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#requisites" aria-expanded="false" 
@@ -31,7 +26,7 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="requisites">
+                        <ul class="border-2 collapse multi-collapse" id="requisites">
                             <li>A</li>
                             <li>B</li>
                         </ul>
@@ -39,7 +34,7 @@
                 </ul>
             </div>
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#content" aria-expanded="false" 
@@ -47,7 +42,7 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="content">
+                        <ul class="border-2 collapse multi-collapse" id="content">
                             <li>
                                 <button class="accordion-button collapsed" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#anatomy" aria-expanded="false" 
@@ -55,7 +50,7 @@
                                     <i class="ps-2"></i>
                                     <i class="arrow"></i>
                                 </button>
-                                <div class="collapse multi-collapse" id="anatomy">
+                                <div class="collapse" id="anatomy">
                                     <h6>Selectores, propiedades y valores</h6>
                                     <p>
                                         Antes de empezar a escribir código CSS, debemos conocer la anatomía de una declaración de estilos.
@@ -107,7 +102,7 @@
                                     <i class="ps-2"></i>
                                     <i class="arrow"></i>
                                 </button>
-                                <div class="collapse multi-collapse" id="selectors">
+                                <div class="collapse" id="selectors">
                                     <h6>Cuáles son los selectores básicos</h6>
                                     <p>
                                         Un selector básico es la mínima expresión CSS para colocar estilos.
@@ -120,7 +115,7 @@
                                         </pre>
                                     </p>
                                     <h6>Tipos de selectores básicos</h6>
-                                    <ol>
+                                    <ol class="border-3">
                                         <li>
                                             <strong>Selector de tipo</strong>: Selecciona todos los elementos que coincidan con el nombre de la etiqueta HTML.
                                             <pre>
@@ -232,6 +227,82 @@
                                             </pre>
                                         </li>
                                     </ol>
+                                    <h6>Selectores combinadores</h6>
+                                    <p>
+                                        Un selector combinador es la unión de dos o más selectores básicos.
+                                        <pre>
+                                            <code class="language-css">
+                                                selector1 selector2 selector3 {
+                                                    /* Estilos */
+                                                }
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Tipos de selectores combinadores</h6>
+                                    <ol class="border-3">
+                                        <li>
+                                            <strong>Combinador de descendientes</strong>: 
+                                            Selecciona todos los elementos del selector de la derecha que son hijos 
+                                            del selector de la izquierda, independientemente de la profundidad. 
+                                            Estos selectores están separados por un espacio.
+                                            <pre>
+                                                <code class="language-css">
+                                                    padre hijos {
+                                                        /* Todos los hijos del padre */
+                                                    }
+                                                    div p{
+                                                        /* Todos los hijos &lt;p&gt; de &lt;div&gt;*/
+                                                    }
+                                                    .container img{
+                                                        /* Todos los hijos &lt;img&gt; de la clase "container"*/
+                                                    }
+                                                </code>
+                                            </pre>
+                                        </li>
+                                        <li>
+                                            <strong>Combinador de elemento adyacente</strong>: 
+                                            Selecciona todos los elementos del selector de la derecha que están 
+                                            adyacente al selector de la izquierda. Estos selectores están separados por +.
+                                            Adyacente significa que comparten el mismo padre y está situado inmediatamente 
+                                            hacia abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; 
+                                            está adyacente a &lt;h1&gt; y &lt;p&gt; está adyacente a &lt;div&gt;. Sin embargo, &lt;h1&gt; 
+                                            no está adyacente a &lt;div&gt; y &lt;div&gt; no está adyacente a &lt;p&gt;.
+                                            <pre>
+                                                <code class="language-css">
+                                                    elemento + adyacente {
+                                                        /* Elementos adyacentes */
+                                                    }
+                                                    div + p{
+                                                        /* Todos los &lt;p&gt; adyacentes a &lt;div&gt;*/
+                                                    }
+                                                    .container + img{
+                                                        /* Todos los &lt;img&gt; adyacentes a la clase "container"*/
+                                                    }
+                                                </code>
+                                            </pre>
+                                        </li>
+                                        <li>
+                                            <strong>Combinador general de hermanos</strong>:
+                                            Selecciona todos los elementos del selector de la derecha que son hermanos 
+                                            del selector de la izquierda. Estos selectores están separados por ~.
+                                            Hermanos significa que comparten el mismo padre y están situados hacia 
+                                            abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; y &lt;p&gt; 
+                                            son hermanos de &lt;h1&gt;, pero &lt;h1&gt; no es hermano de &lt;div&gt; y &lt;p&gt;.
+                                            <pre>
+                                                <code class="language-css">
+                                                    elemento ~ hermanos {
+                                                        /* Elementos hermanos */
+                                                    }
+                                                    div ~ p{
+                                                        /* Todos los &lt;p&gt; hermanos de &lt;div&gt;*/
+                                                    }
+                                                    .container ~ img{
+                                                        /* Todos los &lt;img&gt; hermanos de la clase "container"*/
+                                                    }
+                                                </code>
+                                            </pre>
+                                        </li>
+                                    </ol>
                                 </div>
                             </li>
                         </ul>
@@ -239,7 +310,7 @@
                 </ul>
             </div>
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#projects" aria-expanded="false" 
@@ -247,7 +318,7 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="projects">
+                        <ul class="border-2 collapse multi-collapse" id="projects">
                             <li>A</li>
                             <li>B</li>
                         </ul>
@@ -255,7 +326,7 @@
                 </ul>
             </div>
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#certifications" aria-expanded="false" 
@@ -263,7 +334,7 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="certifications">
+                        <ul class="border-2 collapse multi-collapse" id="certifications">
                             <li>A</li>
                             <li>B</li>
                         </ul>
@@ -271,7 +342,7 @@
                 </ul>
             </div>
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#related" aria-expanded="false" 
@@ -279,7 +350,7 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="related">
+                        <ul class="border-2 collapse multi-collapse" id="related">
                             <li>A</li>
                             <li>B</li>
                         </ul>
@@ -287,7 +358,7 @@
                 </ul>
             </div>
             <div class="col-12 col-lg-8">
-                <ul>
+                <ul class="border-1">
                     <li>
                         <button class="accordion-button collapsed" type="button" 
                             data-bs-toggle="collapse" data-bs-target="#sources" aria-expanded="false" 
@@ -295,120 +366,19 @@
                             <i class="ps-2"></i>
                             <i class="arrow"></i>
                         </button>
-                        <ul class="collapse multi-collapse" id="sources">
-                            <li>A</li>
-                            <li>B</li>
+                        <ul class="border-2 collapse multi-collapse" id="sources">
+                            <li>
+                                <a href="https://platzi.com/cursos/frontend-developer/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    Curso de Frontend Developer | Platzi
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    
-    <h3></h3>
-    <p>
-        El selector define el elemento o conjunto de elementos HTML a los cuales se añadirán estilos. 
-        Existen nombres de colores propios de CSS que puedes explorar. 
-        A continuación veamos más sobre selectores.
-    </p>
-
-    
-Cuáles son los selectores combinadores
-Un selector combinador es la unión de dos o más selectores básicos.
-
-selector1 selector2 selector3 {
-/* Estilos */
-}
-Tipos de selectores combinadores
-1. Combinador de descendientes
-Selecciona todos los elementos del selector de la derecha que son hijos del selector de la izquierda, independientemente de la profundidad. Estos selectores están separados por un espacio.
-
-padre hijos {
-/* Todos los hijos del padre */
-}
-
-div p{
-/* Todos los hijos <p> de <div>*/
-}
-
-.container img{
-/* Todos los hijos <img> de la clase "container"*/
-}
-Desafío del combinador de descendientes
-Intenta colocar un color de letra a todas las etiquetas <li> que son hijos de la clase "container".
-
-Desafío combinador de descendientes
-
-Solución al desafío
-
-2. Combinador de hijo directo
-Selecciona todos los elementos del selector de la derecha que son hijos directos del selector de la izquierda. Estos selectores están separados por >.
-
-padre > hijos_directos {
-/* Todos los hijos directos del padre */
-}
-
-div > p{
-/* Todos los hijos directos <p> de <div>*/
-}
-
-.container > img{
-/* Todos los hijos directos <img> de la clase "container"*/
-}
-Desafío de combinador de hijo directo
-Intenta colocar un color de letra a todos las etiquetas <p> que son hijos directos de la clase "container".
-
-Desafío combinador de hijo directo
-
-Solución al desafío
-
-3. Combinador de elemento adyacente
-Selecciona todos los elementos del selector de la derecha que están adyacente al selector de la izquierda. Estos selectores están separados por +.
-
-elemento + adyacente {
-/* Elementos adyacentes */
-}
-
-div + p{
-/* Todos los <p> adyacentes a <div>*/
-}
-
-.container + img{
-/* Todos los <img> adyacentes a la clase "container"*/
-}
-Adyacente significa que comparten el mismo padre y está situado inmediatamente hacia abajo de otro elemento. Por ejemplo, en el siguiente código, <div> está adyacente a <h1> y <p> está adyacente a <div>. Sin embargo, <h1> no está adyacente a <div> y <div> no está adyacente a <p>.
-
-<!--archivo HTML -->
-<h1>Soy un título </h1>
-<div>Soy un div</div>
-<p>Soy un párrafo</p>
-Desafío de combinador de elemento adyacente
-Intenta colocar un color de letra a todos las etiquetas <p> que están adyacente a las etiquetas <div>.
-
-Desafío combinador de elemento adyacente
-
-Solución al desafío
-
-4. Combinador general de hermanos
-Selecciona todos los elementos del selector de la derecha que son hermanos del selector de la izquierda. Estos selectores están separados por ~.
-
-elemento ~ hermanos {
-/* Elementos hermanos */
-}
-
-div ~ p{
-/* Todos los <p> hermanos de <div>*/
-}
-
-.container ~ img{
-/* Todos los <img> hermanos de la clase "container"*/
-}
-Hermanos significa que comparten el mismo padre y están situados hacia abajo de otro elemento. Por ejemplo, en el siguiente código, <div> y <p> son hermanos de <h1>, pero <h1> no es hermano de <div> y <p>.
-
-<!--archivo HTML -->
-<h1>Soy un título </h1>
-<div>Soy un div</div>
-<p>Soy un párrafo</p>
 
     <div id="footer"></div>
     <script type="module" src="/src/main.jsx"></script>

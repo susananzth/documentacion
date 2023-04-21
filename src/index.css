@@ -21,3 +21,12 @@ html body {
     transform: rotate(-45deg);
     transition: all 0.4s ease;
 }
+ul.border-1, ol.border-1 {
+    border-left: 0.5px hotpink solid;
+}
+ul.border-2, ol.border-2 {
+    border-left: 0.5px #fa8ec4 dashed;
+}
+ul.border-3, ol.border-3 {
+    border-left: 0.5px #f9b8d8 dotted;
+}
