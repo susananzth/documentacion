@@ -1,32 +1,52 @@
 html body {
     display: block;
 }
+
+.btn-primary {
+    --bs-btn-color: var(--bs-white);
+}
+
 .arrow {
     border: solid black;
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
-    -moz-transform: rotate(45deg); /* FF3.5+ */
-    -o-transform: rotate(45deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(45deg);  /* Saf3.1+, Chrome */
-    -ms-transform: rotate(45deg); /* IE9 */
+    -moz-transform: rotate(45deg);
+    /* FF3.5+ */
+    -o-transform: rotate(45deg);
+    /* Opera 10.5 */
+    -webkit-transform: rotate(45deg);
+    /* Saf3.1+, Chrome */
+    -ms-transform: rotate(45deg);
+    /* IE9 */
     transform: rotate(45deg);
     transition: all 0.4s ease;
 }
-.collapsed .arrow{
-    -moz-transform: rotate(-45deg); /* FF3.5+ */
-    -o-transform: rotate(-45deg);  /* Opera 10.5 */
-    -webkit-transform: rotate(-45deg);  /* Saf3.1+, Chrome */
-    -ms-transform: rotate(-45deg); /* IE9 */
+
+.collapsed .arrow {
+    -moz-transform: rotate(-45deg);
+    /* FF3.5+ */
+    -o-transform: rotate(-45deg);
+    /* Opera 10.5 */
+    -webkit-transform: rotate(-45deg);
+    /* Saf3.1+, Chrome */
+    -ms-transform: rotate(-45deg);
+    /* IE9 */
     transform: rotate(-45deg);
     transition: all 0.4s ease;
 }
-ul.border-1, ol.border-1 {
+
+ul.border-1,
+ol.border-1 {
     border-left: 0.5px hotpink solid;
 }
-ul.border-2, ol.border-2 {
+
+ul.border-2,
+ol.border-2 {
     border-left: 0.5px #fa8ec4 dashed;
 }
-ul.border-3, ol.border-3 {
+
+ul.border-3,
+ol.border-3 {
     border-left: 0.5px #f9b8d8 dotted;
 }

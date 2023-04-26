@@ -1,3 +1,42 @@
-@import "bootstrap/scss/bootstrap";
-
 @import "@fortawesome/fontawesome-free/css/all.css";
+// scss-docs-start color-variables
+$blue:    #87ceeb !default;
+$indigo:  #5C33F6 !default;
+$purple:  #8843F2 !default;
+$pink:    #EF2F88 !default;
+$red:     #E7455F !default;
+$orange:  #F47340 !default;
+$yellow:  #FFCD00 !default;
+$green:   #00AF91 !default;
+$teal:    #4CD3C2 !default;
+$cyan:    #0A97B0 !default;
+
+$white-color:     #FFF;
+$light-color:     #ebe3f8;
+$dark-color:      #1d0d35;
+$gray-color:      #6c757d;
+// scss-docs-end color-variables
+// scss-docs-start theme-color-variables
+$primary:       $pink !default;
+$secondary:     $purple !default;
+$success:       $green !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $red !default;
+$light:         $light-color !default;
+$dark:          $dark-color !default;
+// scss-docs-end theme-color-variables
+
+// scss-docs-start theme-colors-map
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// Import all of Bootstrap's CSS
+@import "bootstrap/scss/bootstrap";
