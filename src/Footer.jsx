@@ -23,7 +23,7 @@ function Footer() {
                         <a className="nav-link" href="https://susananzth.com/#portfolio">Proyectos</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Blog</a>
+                        <a className="nav-link" href="https://susananzth.com/documentacion">Blog</a> 
                     </li>
                     <li className="nav-item d-none d-md-inline-block">
                         <a className="nav-link" href="https://susananzth.com/#contact">Contacto</a>
