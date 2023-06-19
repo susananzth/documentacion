@@ -2,11 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import * as bootstrap from 'bootstrap'
 import './scss/styles.scss'
+import './index.css'
 import Nav from './Nav'
 import Sidebar from './Sidebar'
 import Footer from './Footer'
 import BtnCollapse from './BtnCollapse'
-import './index.css'
 
 ReactDOM.createRoot(document.getElementById('nav')).render(
   <React.StrictMode>
