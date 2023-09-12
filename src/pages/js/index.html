@@ -459,32 +459,6 @@
                             <li>
                                 <button class="accordion-button collapsed" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
-                                    aria-controls="variable">Propiedades o funciones
-                                    <i class="ps-2"></i>
-                                    <i class="arrow"></i>
-                                </button>
-                                <div class="collapse" id="variable">
-                                    <h6>.length</h6>
-                                    <p>
-                                        Se utiliza para contar los caracteres de una cadena de texto o cantidad de elementos de un array.
-                                    </p>
-                                    <p>
-                                        En el caso de los caracteres, tambien contará los espacios en blanco:
-                                        <pre>
-                                            <code class="language-js">
-                                                const miTexto = "Cantidad de caracteres.";
-                                                console.log(miTexto.length); // Mostrará: 26.
-
-                                                const miArray = [654, 97, 321];
-                                                console.log(miArray.length); // Mostrará: 3.
-                                            </code>
-                                        </pre>
-                                    </p>
-                                </div>
-                            </li>
-                            <li>
-                                <button class="accordion-button collapsed" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
                                     aria-controls="variable">Notación de corchetes en Strings
                                     <i class="ps-2"></i>
                                     <i class="arrow"></i>
@@ -517,6 +491,184 @@
                                                 let miTexto = "Susana";
                                                 miTexto[0] = "Z"; // Mostrará un error.
                                                 miTexto = "Zusana"; // Forma correcta.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Arrays
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <p>
+                                        Los arrays son un tipo de variable que permite guardar varias variables de diferentes tipos.
+                                        <pre>
+                                            <code class="language-js">
+                                                const miArray = ["Palabra", "Una frase larga", 1, 2.35];
+                                                const unArrayDentro = [["Primer Array"], ["Segundo array"]];
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Notación de corchetes en Arrays</h6>
+                                    <p>
+                                        Al igual que en los Strings, en los arrays tambien se puede acceder a su contenido 
+                                        indicando la posición con corchetes.
+                                        <pre>
+                                            <code class="language-js">
+                                                const array = [50, 60, 70];
+                                                console.log(array[0]); // Mostrará: 50.
+                                                const data = array[1];
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Modificar un array mediante el índice</h6>
+                                    <p>
+                                        A diferencia que los Strings, en los arrays se puede modificar el contenido 
+                                        indicando la posición con corchetes.
+                                        <pre>
+                                            <code class="language-js">
+                                                const miArray = [50, 40, 30];
+                                                miArray[0] = 15; // Modifica el elemento que está en la posición '0'.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Acceder a un array multidimensional mediante el índice</h6>
+                                    <p>
+                                        Un array multidimensional es un array de arrays.
+                                        <pre>
+                                            <code class="language-js">
+                                                const arrayMulti = [
+                                                    [1, 2, 3],
+                                                    [4, 5, 6],
+                                                    [7, 8, 9],
+                                                    [[10, 11, 12], 13, 14]
+                                                ];
+
+                                                const primerNivel = arrayMulti[2]; // Almacena: [7, 8, 9].
+                                                const segundoNivel = arrayMulti[1][0]; // Almacena: 4
+                                                const tercerNivel = arrayMulti[3][0][1]; // Almacena: 11
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Propiedades o funciones nativas
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>.length</h6>
+                                    <p>
+                                        Se utiliza para contar los caracteres de una cadena de texto o cantidad de elementos de un array.
+                                    </p>
+                                    <p>
+                                        En el caso de los caracteres, tambien contará los espacios en blanco:
+                                        <pre>
+                                            <code class="language-js">
+                                                const miTexto = "Cantidad de caracteres.";
+                                                console.log(miTexto.length); // Mostrará: 26.
+
+                                                const miArray = [654, 97, 321];
+                                                console.log(miArray.length); // Mostrará: 3.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>.push()</h6>
+                                    <p>
+                                        Se utiliza para insertar uno o muchos elementos al final de un array.
+                                        <pre>
+                                            <code class="language-js">
+                                                const array1 = [1, 2, 3];
+                                                array1.push(4, 5); // Queda: array1 = [1, 2, 3, 4, 5];
+
+                                                const array2 = ["Stimpson", "J", "cat"];
+                                                array2.push(["happy", "joy"]); // Queda: ["Stimpson", "J", "cat", "happy", "joy"];
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>.unshift()</h6>
+                                    <p>
+                                        Se utiliza para insertar uno o muchos elementos al principio de un array.
+                                        <pre>
+                                            <code class="language-js">
+                                                const array1 = [1, 2, 3];
+                                                array1.unshift(4, 5); // Queda: array1 = [4, 5, 1, 2, 3];
+
+                                                const array2 = ["Stimpson", "J", "cat"];
+                                                array2.unshift(["happy", "joy"]); // Queda: ["happy", "joy", "Stimpson", "J", "cat"];
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>.pop()</h6>
+                                    <p>
+                                        Se utiliza para eliminar el último elemento de un array.
+                                        <pre>
+                                            <code class="language-js">
+                                                const miArray = [1, 4, 6];
+                                                const elemento = miArray.pop();
+                                                console.log(miArray); // Mostrará el array modificado: [1, 4].
+                                                console.log(elemento); // Mostrará el elemento eliminado: 6.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>.shift()</h6>
+                                    <p>
+                                        Se utiliza para eliminar el primer elemento de un array.
+                                        <pre>
+                                            <code class="language-js">
+                                                const miArray = [1, 4, 6];
+                                                const elemento = miArray.shift();
+                                                console.log(miArray); // Mostrará el array modificado: [4, 6].
+                                                console.log(elemento); // Mostrará el elemento eliminado: 1.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Funciones, reutilización de código
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Declarar y llamar una función</h6>
+                                    <p>
+                                        Javascript permite crear funciones personalizadas para poder reutilizar 
+                                        codigo.
+                                        <pre>
+                                            <code class="language-js">
+                                                // Se declara la función:
+                                                function nombreDeFuncion() {
+                                                    console.log("Holis");
+                                                }
+
+                                                // Se llama la función:
+                                                nombreDeFuncion();
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Funciones con parámetros</h6>
+                                    <p>
+                                        Se puede enviar variables que se utilizaran dentro de la función, 
+                                        a estas variables se le llama parámetros.
+                                        <pre>
+                                            <code class="language-js">
+                                                // Se declara la función:
+                                                function miFuncion(param1, param2) {
+                                                    console.log(param1, param2);
+                                                  }
+
+                                                // Se llama la función:
+                                                miFuncion("Hola", 2); // Mostrará: "Hola", 2.
                                             </code>
                                         </pre>
                                     </p>
