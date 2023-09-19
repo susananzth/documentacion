@@ -665,10 +665,95 @@
                                                 // Se declara la función:
                                                 function miFuncion(param1, param2) {
                                                     console.log(param1, param2);
-                                                  }
+                                                }
 
                                                 // Se llama la función:
                                                 miFuncion("Hola", 2); // Mostrará: "Hola", 2.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Funciones con retorno</h6>
+                                    <p>
+                                        Se puede enviar variables que se utilizaran dentro de la función, 
+                                        a estas variables se le llama parámetros.
+                                        <pre>
+                                            <code class="language-js">
+                                                // Se declara la función:
+                                                function sumarTres(num) {
+                                                    return num + 3;
+                                                }
+                                                  
+                                                const retorno = sumarTres(5);
+
+                                                // Se llama la función:
+                                                console.log(retorno); // Mostrará: 8.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Scope
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Scope global y Funciones</h6>
+                                    <p>
+                                        Scope se refiere a la capacidad de visibilidad de la variable. Cuando una variable 
+                                        es global, puede ser consultada en todo el código. Las variables creadas con 
+                                        <span class="badge text-bg-secondary">let</span> y <span class="badge text-bg-secondary">const</span> 
+                                        son autimáticamente globales mientras el codigo se esté ejecutando.
+                                        <pre>
+                                            <code class="language-js">
+                                                const global = "Hola";
+
+                                                // Se declara la función:
+                                                function nombreDeFuncion() {
+                                                    console.log(global);
+                                                }
+
+                                                // Se llama la función:
+                                                nombreDeFuncion();
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Scope local y Funciones</h6>
+                                    <p>
+                                        Scope se refiere a la capacidad de visibilidad de la variable que 
+                                        puede ser consultada en su zona local del código.
+                                        <pre>
+                                            <code class="language-js">
+                                                // Se declara la función:
+                                                function nombreDeFuncion() {
+                                                    const loc = "foo";
+                                                    console.log(loc);
+                                                }
+                                                  
+                                                // Se llama la función:
+                                                nombreDeFuncion();
+                                                console.log(loc);
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Scope local vs Scope global</h6>
+                                    <p>
+                                        Scope se refiere a la capacidad de visibilidad de la variable que 
+                                        puede ser consultada en su zona local del código.
+                                        <pre>
+                                            <code class="language-js">
+                                                const miVar = "Sombrero";
+                                                // Se declara la función:
+                                                function nombreDeFuncion() {
+                                                    const miVar = "Cabeza";
+                                                    return miVar;
+                                                }
+
+                                                // Se llama la función:
+                                                nombreDeFuncion();
+                                                console.log(miVar); // Mostrará: Sombrero.
                                             </code>
                                         </pre>
                                     </p>
