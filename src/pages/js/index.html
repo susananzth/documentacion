@@ -759,6 +759,159 @@
                                     </p>
                                 </div>
                             </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Módulos
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Sintaxis</h6>
+                                    <p>
+                                        Palabras reservadas para importar y exportar fragmentos de codigo como módulos. 
+                                        En archivos de javascript vanilla, se debe crear el archivo package.json y agregar 
+                                        la linea "type": "module" para que acepte los módulos.
+                                        <pre>
+                                            <code class="language-js">
+                                                // Declarar un modulo a exportar
+                                                // Nombre del archivo '/modulo_nuevo.js'
+                                                const hola = () => {
+                                                    console.log('Hola, soy un módulo');
+                                                }
+
+                                                // Sintaxis para exportar el fragmento de código
+                                                export default hola;
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                // Sintaxis para importar un modulo desde el archivo
+                                                import hola from './modulo_nuevo.js'
+
+                                                // Instancia del objeto
+                                                hola();
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Clases
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Sintaxis</h6>
+                                    <p>
+                                        Concepto
+                                        <pre>
+                                            <code class="language-js">
+                                                //Declara la clase
+                                                class Usuario {};
+
+                                                // Instancia del objeto
+                                                const nuevoUsuario = new Usuario();
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                //Declara la clase
+                                                class Usuario {
+                                                    saludos() {
+                                                        return "Hola";
+                                                    }
+                                                };
+
+                                                // Instancia del objeto
+                                                const objeto = new Usuario();
+
+                                                console.log(objeto.saludos()); // Mostrará: Hola.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Herencias</h6>
+                                    <p>
+                                        Concepto
+                                        <pre>
+                                            <code class="language-js">
+                                                //Declara la clase
+                                                class Usuario {
+                                                    // Constructor
+                                                    constructor() {
+                                                        console.log("Me ejecuto solo cuando llaman a la clase")
+                                                    }
+
+                                                    saludos() {
+                                                        return "Hola";
+                                                    }
+                                                };
+
+                                                // Instancia del objeto
+                                                const objeto = new Usuario();
+                                                // Mostrará: Me ejecuto solo cuando llaman a la clase.
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                //Declara la clase
+                                                class Usuario {
+                                                    // Constructor
+                                                    constructor(nombre) {
+                                                        this.nombre = nombre;
+                                                    }
+
+                                                    fragmento() {
+                                                        return "Hola";
+                                                    }
+                                                    saludos() {
+                                                        return `${this.fragmento} ${this.nombre}`;
+                                                    }
+                                                };
+
+                                                // Instancia del objeto
+                                                const objeto = new Usuario('Susana');
+                                                // Mostrará: Hola Susana.
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                //Declara la clase
+                                                class Usuario {
+                                                    // Constructor
+                                                    constructor(nombre, edad) {
+                                                        this.nombre = nombre;
+                                                        this.edad = edad;
+                                                    }
+
+                                                    fragmento() {
+                                                        return "Hola";
+                                                    }
+
+                                                    saludos() {
+                                                        return `${this.fragmento} ${this.name}`;
+                                                    }
+
+                                                    get uEdad() {
+                                                        return this.edad;
+                                                    }
+
+                                                    set uEdad(n) {
+                                                        this.edad = n;
+                                                    }
+                                                };
+
+                                                // Instancia del objeto
+                                                const objeto = new Usuario('Susana', 31);
+                                                console.log(object.uEdad); // Mostrará: 31.
+                                                console.log(object.uEdad = 30); // Mostrará: 30.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -824,7 +977,13 @@
                             <li>
                                 <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" 
                                     target="_blank" rel="noopener noreferrer">
-                                    Javascript algorithms and data structures | Freecodecamp
+                                    <span class="badge text-bg-info">09/2023</span> Javascript algorithms and data structures | Freecodecamp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/ecmascript-6/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso de ECMAScript: Historia y Versiones de JavaScript | Platzi
                                 </a>
                             </li>
                         </ul>
