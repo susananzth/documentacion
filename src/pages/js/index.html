@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Javascript | Susananzth</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/androidstudio.min.css">
 </head>
 <body>
@@ -44,6 +45,49 @@
                             <i class="arrow"></i>
                         </button>
                         <ul class="border-2 collapse multi-collapse" id="content">
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Datos y tipos de datos
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Datos</h6>
+                                    <p>
+                                        Un dato es una porción de información muy concreta y específica 
+                                        que nos permite tomar decisiones, a través de diferentes operaciones y estructuras.
+                                    </p>
+                                    <p>
+                                        Los datos hacen parte de un algoritmo en una estructura más grande. 
+                                        También son la base sobre la cual partimos y llegamos, y además componen 
+                                        todas las estructuras para que puedan funcionar.
+                                    </p>
+                                    <h6>Tipos de datos</h6>
+                                    <ul>
+                                        <li>
+                                            Tipo texto <span class="badge text-bg-secondary">string</span>: 
+                                            El tipo de dato texto consiste en un conjunto de caracteres. Los caracteres pueden 
+                                            ser letras, números, símbolos, espacios e incluso emojis
+                                        </li>
+                                        <li>
+                                            Tipo numérico <span class="badge text-bg-secondary">number</span>: 
+                                            son la representación de los números en un dato. A través de estos podemos realizar 
+                                            operaciones matemáticas básicas. Estos se dividen en dos tipos: enteros y flotantes.
+                                        </li>
+                                        <li>
+                                            Tipo numérico entero <span class="badge text-bg-secondary">integers</span> y 
+                                            <span class="badge text-bg-secondary">bigint</span>: Los tipos de datos enteros 
+                                            consisten en la representación del número sin la parte decimal.
+                                        </li>
+                                        <li>
+                                            Tipo numérico decimal o flotantes <span class="badge text-bg-secondary">decimal</span> y 
+                                            <span class="badge text-bg-secondary">float</span>: Los tipos de datos flotantes consisten 
+                                            en la representación del número con la parte decimal.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
                             <li>
                                 <button class="accordion-button collapsed" type="button" 
                                     data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
@@ -178,6 +222,32 @@
                                     <i class="arrow"></i>
                                 </button>
                                 <div class="collapse" id="operation">
+                                    <h6>Operaciones con tipos de datos numéricos</h6>
+                                    <p>
+                                        Dependiendo del lenguaje de programación, la operación entre tipos de datos 
+                                        numéricos puede variar.
+                                    </p>
+                                    <p>
+                                        En JavaScript, no existe distinción entre enteros y flotantes, por lo que sus operaciones 
+                                        entre ambos darán como resultado un tipo de dato numérico
+                                    </p>
+                                    <p>
+                                        En Python, si existe distinción entre enteros y flotantes, pero podemos operar ambos con 
+                                        prioridad a los flotantes, es decir, si existe una operación entre un entero y un entero, 
+                                        el resultado será de tipo entero, pero si existe una operación entre un flotante y un 
+                                        entero, el resultado será de tipo flotante.
+                                    </p>
+                                    <p>
+                                        En C++, si existe distinción entre enteros y flotantes, pero este lenguaje no admite operaciones 
+                                        entre diferentes tipos de datos, inclusive si ambos son de tipo numérico. Lo que se debe 
+                                        realizar es una conversión de tipos, ya sea de entero a flotante o viceversa, de esta 
+                                        manera obtendremos un tipo de dato específico.
+                                    </p>
+                                    <p>
+                                        En conclusión, dependiendo del lenguaje de programación, la operación entre diferentes tipos 
+                                        de datos puede ser válida o no. Sin embargo, debes tener claro la diferencia entre cada 
+                                        tipo de dato numérico.
+                                    </p>
                                     <li>
                                         <strong>Suma</strong>
                                         <p>
@@ -350,7 +420,7 @@
                                             En el caso que se desee concatenar o unir mas de una cadena de texto o variable, 
                                             se utiliza el operador de la suma <span class="badge text-bg-secondary">+</span>, 
                                             <span class="badge text-bg-secondary">+=</span>, sólo que en el caso de que 
-                                            las variables no sean de tipo <span class="badge text-bg-secondary">Number</span>, 
+                                            las variables no sean de tipo numérico <span class="badge text-bg-secondary">Number</span>, 
                                             se unirán más no se sumarán:
                                             <pre>
                                                 <code class="language-js">
@@ -491,6 +561,136 @@
                                                 let miTexto = "Susana";
                                                 miTexto[0] = "Z"; // Mostrará un error.
                                                 miTexto = "Zusana"; // Forma correcta.
+                                            </code>
+                                        </pre>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Boleanos
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <p>
+                                        Los tipos de datos booleanos consisten en representar la lógica binaria, únicamente dos valores 1 y 0.
+                                    </p>
+                                    <p>
+                                        En Javascript las variables boleanas se escriben como true o false (Verdadero o falso) sin comillas, 
+                                        son mutualmente excluyente. Si se sscribe con comillas "true" y "false" serán considerados valores 
+                                        tipo string por Javascript.
+                                        <pre>
+                                            <code class="language-js">
+                                                const esVerdadero = false;
+                                                const esDeDia = true;
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <p>
+                                        En otros lenguajes de programación, esta representación binaria puede ser verdadero (`1`) y falso (`0`), 
+                                        o true y false .
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Condicionales
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <p>
+                                        Los condicionales son estructuras de control que te permiten evaluar diferentes 
+                                        expresiones como verdadero o falso y realizar determinadas acciones.
+                                    </p>
+                                    <p>
+                                        Los condicionales son estructuras de control que te permiten evaluar diferentes 
+                                        expresiones como verdadero o falso y realizar determinadas acciones.
+                                    </p>
+                                    <p>
+                                        Existen tres tipos de condicionales:
+                                    </p>
+                                    <h6>IF ELSE</h6>
+                                    <p>
+                                        Un condicional <span class="badge text-bg-secondary">if</span> evalúa una expresión si 
+                                        es verdadera.La palabra reservada <span class="badge text-bg-secondary">else</span> 
+                                        evalúa cuando la expresión del <span class="badge text-bg-secondary">if</span> es falsa, 
+                                        pero no es obligatorio colocarlo.
+                                        <pre>
+                                            <code class="language-js">
+                                                if (true) {
+                                                    // Se ejecuta la declaración
+                                                }
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                function test (miCondicion) {
+                                                    if (miCondicion) {
+                                                      return "Es verdadero";
+                                                    }
+                                                    return "Es falso";
+                                                }
+
+                                                test(true);
+                                                test(false);
+                                            </code>
+                                        </pre>
+                                        <pre>
+                                            <code class="language-js">
+                                                var edad = 35;
+                                                if (edad >= 18) {
+                                                    console.log("Puedes conducir");
+                                                } else {
+                                                    console.log("No puedes conducir");
+                                                }
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Anidar condicionales</h6>
+                                    <p>
+                                        En el caso que haya más condiciones a evaluar, se pueden emplear las palabras reservadas 
+                                        <span class="badge text-bg-secondary">else if</span> junto a la condición a ejecutar. Evalua la 
+                                        primera condición, luego la segunda, etc, hasta que consiga la condición con valor sea verdadero.
+                                    </p>
+                                    <pre>
+                                        <code class="language-js">
+                                            if (condicion1) {
+                                                // Bloque 1
+                                             } elseif (condicion2){
+                                                 // Bloque 2
+                                             } elseif (condicion3){
+                                                // Bloque 3
+                                             } else {
+                                                 // Bloque else
+                                             }
+                                        </code>
+                                    </pre>
+                                    <h6>switch</h6>
+                                    <h6>try / catch</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <button class="accordion-button collapsed" type="button" 
+                                    data-bs-toggle="collapse" data-bs-target="#variable" aria-expanded="false" 
+                                    aria-controls="variable">Operadores
+                                    <i class="ps-2"></i>
+                                    <i class="arrow"></i>
+                                </button>
+                                <div class="collapse" id="variable">
+                                    <h6>Operadores de igualdad</h6>
+                                    <p>
+                                        El operador de igualdad <span class="badge text-bg-secondary">==</span> compara 
+                                        dos valores y devuelve true (si) son equivalentes o false (no)
+                                        <pre>
+                                            <code class="language-js">
+                                                1   ==  1  // true
+                                                1   ==  2  // false
+                                                1   == '1' // true
+                                                "3" ==  3  // true
                                             </code>
                                         </pre>
                                     </p>
@@ -942,8 +1142,30 @@
                             <i class="arrow"></i>
                         </button>
                         <ul class="border-2 collapse multi-collapse" id="certifications">
-                            <li>A</li>
-                            <li>B</li>
+                            <li>
+                                <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Javascript algorithms and data structures | Freecodecamp
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/ecmascript-6/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso de ECMAScript: Historia y Versiones de JavaScript | Platzi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/basico-javascript/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso básico de Javascript | Platzi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/pensamiento-logico-estructuras/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones | Platzi
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -986,6 +1208,18 @@
                                     <span class="badge text-bg-info">09/2023</span> Curso de ECMAScript: Historia y Versiones de JavaScript | Platzi
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/basico-javascript/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso básico de Javascript | Platzi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://platzi.com/cursos/pensamiento-logico-estructuras/" 
+                                    target="_blank" rel="noopener noreferrer">
+                                    <span class="badge text-bg-info">09/2023</span> Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones | Platzi
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -995,7 +1229,8 @@
 
     <div id="footer"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>
