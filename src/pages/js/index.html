@@ -604,13 +604,74 @@
                                     <h6>Operadores de igualdad</h6>
                                     <p>
                                         El operador de igualdad <span class="badge text-bg-secondary">==</span> compara 
-                                        dos valores y devuelve true (si) son equivalentes o false (no)
+                                        dos valores y devuelve true (si) son equivalentes o false (no).
                                         <pre>
                                             <code class="language-js">
                                                 1   ==  1  // true
                                                 1   ==  2  // false
                                                 1   == '1' // true
                                                 "3" ==  3  // true
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Operadores de igualdad estricta</h6>
+                                    <p>
+                                        A diferencia del operador de igualdad, el de igualdad estricta 
+                                        <span class="badge text-bg-secondary">===</span> compara 
+                                        dos valores y devuelve true (si) sólo si son del mismo tipo de datos y son equivalentes o false (no)
+                                        <pre>
+                                            <code class="language-js">
+                                                3 ===  3  // true
+                                                3 === '3' // false
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <p>
+                                        3 == '3'devuelve trueporque JavaScript realiza la conversión de tipos de cadena a número. 
+                                        3 === '3'devuelve falseporque los tipos son diferentes y no se realiza la conversión de tipos.
+                                    </p>
+                                    <h6>Operadores de desigualdad y desigualdad estricta</h6>
+                                    <p>
+                                        Lo contrario a igualdad e igualdad estricta y se utilizan los operadores 
+                                        <span class="badge text-bg-secondary">!=</span> y <span class="badge text-bg-secondary">!==</span> 
+                                        respectivamente.
+                                        <pre>
+                                            <code class="language-js">
+                                                1 !=  2    // true
+                                                1 != "1"   // false
+                                                1 != '1'   // false
+                                                1 != true  // false
+                                                0 != false // false
+
+                                                3 !==  3  // false
+                                                3 !== '3' // true
+                                                4 !==  3  // true
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Operadores de mayor que</h6>
+                                    <p>
+                                        El operador mayor que <span class="badge text-bg-secondary">></span> compara los valores de dos números. 
+                                        Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
+                                        <pre>
+                                            <code class="language-js">
+                                                5   >  3  // true
+                                                7   > '3' // true
+                                                2   >  3  // false
+                                                '1' >  9  // false
+                                            </code>
+                                        </pre>
+                                    </p>
+                                    <h6>Operadores de mayor o igual que</h6>
+                                    <p>
+                                        El operador mayor o igual que <span class="badge text-bg-secondary">>=</span> compara los valores de dos números. 
+                                        Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
+                                        <pre>
+                                            <code class="language-js">
+                                                5   >  3  // true
+                                                7   > '3' // true
+                                                2   >  3  // false
+                                                '1' >  9  // false
                                             </code>
                                         </pre>
                                     </p>
