@@ -480,6 +480,18 @@
         3 === '3' // devuelve false porque los tipos son diferentes y no se realiza la conversión de tipos.
     </code>
 </pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaIgualdadEstricta(valor) {
+            if (valor === 10) {
+                return "Es igual";
+            }
+            return "No es igual";
+        }
+
+        pruebaIgualdadEstricta(10);
+    </code>
+</pre>
                                                 
                                             </div>
                                         </li>
@@ -501,19 +513,46 @@
         4 !==  3  // true
     </code>
 </pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function PruebaDesigualdadStricta(valor) {
+            if (valor !== 10) {
+               return "No es igual";
+            }
+            return "Es igual";
+        }
+
+        PruebaDesigualdadStricta(10);
+    </code>
+</pre>
                                             </div>
                                         </li>
                                         <li>
                                             <h6 class="pt-2">Operadores de mayor que</h6>
                                             <div class="border border-primary rounded pt-2 px-3">
-                                                El operador mayor que <kbd>></kbd> compara los valores de dos números. 
+                                                El operador mayor que <kbd>&gt;</kbd> compara los valores de dos números. 
                                                 Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
 <pre class="m-0">
     <code class="rounded language-js">
-        5   >  3  // true
-        7   > '3' // true
-        2   >  3  // false
-        '1' >  9  // false
+        5   &gt;  3  // true
+        7   &gt; '3' // true
+        2   &gt;  3  // false
+        '1' &gt;  9  // false
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaMayorQue(valor) {
+            if (valor &gt; 100) {
+                return "Mayor que 100";
+            }
+            if (valor &gt; 10) {
+                return "Mayor que 10";
+            }
+            return "Menor de 10";
+        }
+
+        pruebaMayorQue(10);
     </code>
 </pre>
                                             </div>
@@ -522,14 +561,197 @@
                                             <h6 class="pt-2">Operadores de mayor o igual que</h6>
                                             <div class="border border-primary rounded pt-2 px-3">
                                                 
-                                                El operador mayor o igual que <kbd>>=</kbd> compara los valores de dos números. 
-                                                Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
+                                                El operador mayor o igual que <kbd>&gt;=</kbd> compara los valores de dos números. 
+                                                Si el número de la izquierda es mayor o igual que el número de la derecha, devuelve true. De lo contrario, regresa false.
 <pre class="m-0">
     <code class="rounded language-js">
-        5   >  3  // true
-        7   > '3' // true
-        2   >  3  // false
-        '1' >  9  // false
+        6   &gt;=  6  // true
+        7   &gt;= '3' // true
+        2   &gt;=  3  // false
+        '7' &gt;=  9  // false
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaMayorOIgualQue(valor) {
+            if (valor &gt;= 20) {
+                return "Mayor o igual que 20";
+            }
+            if (valor &gt;= 10) {
+                return "Mayor o igual que 10";
+            }
+            return "Menor que 10";
+        }
+
+        pruebaMayorOIgualQue(10);
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">Operadores de menor o menor igual que</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                El operador menor o menor igual que <kbd>&lt;</kbd> y <kbd>&lt;=</kbd> respectivamente compara los valores de dos números. 
+                                                Si el número de la izquierda es menor o igual que el número de la derecha, devuelve true. De lo contrario, regresa false.
+<pre class="m-0">
+    <code class="rounded language-js">
+        2 &lt; 5 // true
+        '3' &lt; 7 // true
+        5 &lt; 5 // false
+        3 &lt; 2 // false
+        '8' &lt; 4 // false
+
+        4 &lt;= 5 // true
+        '7' &lt;= 7 // true
+        5 &lt;= 5 // true
+        3 &lt;= 2 // false
+        '8' &lt;= 4 // false
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaMenorQue(valor) {
+            if (valor &lt; 25) {
+                return "Menor que 25";
+            }
+            if (valor &lt;= 55) {
+                return "Menor o igual que 55";
+            }
+            return "Mayor que 55";
+        }
+
+        pruebaMenorQue(10);
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">Operador disyunción lógico</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                El operador de disyunción o (AND) <kbd>&&</kbd> devuelve verdadero, si y solo si ambas expresiones son verdadero. 
+                                                Se lee de la siguiente manera: “La expresión 1 es verdadero <kbd>Y</kbd> la expresión 2 es verdadero, entonces es verdadero”.
+                                                <table class="table border rounded my-2 w-50">
+                                                    <thead>
+                                                        <tr class="table-primary">
+                                                            <th>Expresión 1</td>
+                                                            <th>Expresión 2</td>
+                                                            <th>1 && 2</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>true</td>
+                                                            <td>true</td>
+                                                            <td>true</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>true</td>
+                                                            <td>false</td>
+                                                            <td>false</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>false</td>
+                                                            <td>true</td>
+                                                            <td>false</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>false</td>
+                                                            <td>false</td>
+                                                            <td>false</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Compara un numero que sea mayor a 5 Y menor que 10.
+        if (numero &gt; 5 && numero &lt; 10) {
+            return "Si";
+          }
+        return "No";
+
+        var a = 15
+        var b = 5
+
+        (a &gt;= 10) && (a &lt;= 20) // true
+        (b &gt;= 10) && (b &lt;= 20) // false
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Compara un numero que sea mayor a 5 Y menor que 10.
+        function pruebaLogica(valor) {
+            if (valor &lt;= 50 && valor &gt; 25) {
+                return "Si";
+            }
+            return "No";
+        }
+
+        pruebaLogica(10);
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">Operador de unión lógico</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                El operador de unión u OR <kbd>||</kbd> devuelve verdadero, si y solo si, alguna expresión es verdadero. 
+                                                Se lee de la siguiente manera: “La expresión 1 es verdadero <kbd>O</kbd>: la expresión 2 es verdadero, entonces es verdadero”.
+                                                <table class="table border rounded my-2 w-50">
+                                                    <thead>
+                                                        <tr class="table-primary">
+                                                            <th>Expresión 1</td>
+                                                            <th>Expresión 2</td>
+                                                            <th>1 || 2</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>true</td>
+                                                            <td>true</td>
+                                                            <td>true</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>true</td>
+                                                            <td>false</td>
+                                                            <td>true</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>false</td>
+                                                            <td>true</td>
+                                                            <td>true</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>false</td>
+                                                            <td>false</td>
+                                                            <td>false</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Compara un numero que sea mayor a 5 Y menor que 10.
+        if (numero &gt; 5 && numero &lt; 10) {
+            return "Si";
+          }
+        return "No";
+
+        var a = 15
+        var b = 5
+
+        (a &gt;= 10) || (a &lt;= 20) // true
+        (b &gt;= 10) || (b &lt;= 20) // false
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaLogica(val) {
+            if (val &lt; 10 || val &gt; 20) {
+                return "Afuera";
+            }
+            return "Adentro";
+        }
+
+        pruebaLogica(15);
     </code>
 </pre>
                                             </div>
