@@ -1224,6 +1224,20 @@
                                             </div>
                                         </li>
                                         <li>
+                                            <h6 class="pt-2">.at()</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Acceder al último elemento de un array sin necesidad de saber la cantidad de elementos que tiene.
+
+<pre class="m-0">
+    <code class="rounded language-js">
+        const array = [1,2,3,4];
+        console.log(array[array.length -1]); // Mostrará: 4
+        console.log(array.at(-1)); // Mostrará: 4
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
                                             <h6 class="pt-2">Set() y .add()</h6>
                                             <div class="border border-primary rounded pt-2 px-3">
                                                 Se utiliza .add() para agregar elementos a un objeto de tipo Set().
@@ -1306,8 +1320,22 @@
     <code class="rounded language-js">
         const cadena = 'Holis';
 
-        console.log(cadena.padStart(10. '!!')); // Mostrará: '!!!!!Holis'.
-        console.log(cadena.padEnd(10. '!!')); // Mostrará: 'Holis!!!!!'.
+        console.log(cadena.padStart(10, '!!')); // Mostrará: '!!!!!Holis'.
+        console.log(cadena.padEnd(10, '!!')); // Mostrará: 'Holis!!!!!'.
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">String.replace()</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Se utiliza String.replace() y String.replaceAll() para reemplazar un valor en una cadena de caracteres, se le indican dos parámetros, 
+                                                el primero será la cadena o caracter a buscar, y el otro parámetro será el reemplazo.
+<pre class="m-0">
+    <code class="rounded language-js">
+        const cadena = 'Holis';
+
+        console.log(cadena.replace('H', '¡H')); // Mostrará: '¡Holis'.
     </code>
 </pre>
                                             </div>
@@ -1476,7 +1504,25 @@
 
         // Se pasan en un array todas las promesas
         Promise.allSettled([promesaUno, promesaDos, promesatres])
-            then(response => console.log(response));
+            .then(response => console.log(response));
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">.any()</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Uso de promise any .
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Se declaran las funciones de promesa:
+        const promesaUno = new Promise((resolve, reject) => reject('Reject'));
+        const promesaDos = new Promise((resolve, reject) => resolve('Resolve'));
+        const promesatres = new Promise((resolve, reject) => resolve('Resolve 2'));
+
+        // Se pasan en un array todas las promesas
+        Promise.any([promesaUno, promesaDos, promesatres])
+            .then(response => console.log(response));
     </code>
 </pre>
                                             </div>
@@ -1661,6 +1707,31 @@
             &lt;script type="module" src="miApp.js"&gt;&lt;/script&gt;
         &lt;/body&gt;
         &lt;/html&gt;
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2">Top level await</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Uso de await en modulos para esperar la respuesta.
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Archivo products.js
+        import fetch from "node-fetch"; // npm install node-fetch
+
+        const response = await fetch('https://api.escuelajs.co/api/v1/products');
+        const products = await response.json();
+
+        export { products };
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        // Archivo index.js
+        import { products } from "./products.js";
+
+        console.log(products);
     </code>
 </pre>
                                             </div>
@@ -1853,6 +1924,43 @@
     </code>
 </pre>
                                             </div>
+                                        </li>
+                                        <li>
+                                            <h6>Private</h6>
+                                            Añadiendo el simbolo <kbd>#</kbd> se convierte en funciones privadad para uso solo de la clase.
+<pre class="m-0">
+    <code class="rounded language-js">
+        //Declara la clase
+        class Usuario {
+            // Constructor
+            constructor(nombre, edad) {
+                this.nombre = nombre;
+                this.edad = edad;
+            }
+
+            #fragmento() {
+                return "Hola";
+            }
+
+            saludos() {
+                return `${this.fragmento} ${this.name}`;
+            }
+
+            get #uEdad() {
+                return this.edad;
+            }
+
+            set #uEdad(n) {
+                this.edad = n;
+            }
+        };
+
+        // Instancia del objeto
+        const objeto = new Usuario('Susana', 31);
+        console.log(object.uEdad); // Mostrará: 31.
+        console.log(object.uEdad = 30); // Mostrará: 30.
+    </code>
+</pre>
                                         </li>
                                     </ul>
                                 </div>
