@@ -849,12 +849,53 @@
         }
     </code>
 </pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        function pruebaNumero(numero) {
+            if (numero < 5) {
+              return "Es menor que 5";
+            } else if (numero < 10) {
+              return "Es menor que 10";
+            } else if (numero < 15) {
+              return "Es menor que 15";
+            } else if (numero < 20) {
+              return "Es menor que 20";
+            } else {
+              return "Es mayor o igual a 20";
+            }
+          }
+          
+          pruebaNumero(7);
+    </code>
+</pre>
                                                 </div>
                                             </li>
                                             <li>
                                                 <h6 class="pt-2">switch</h6>
                                                 <div class="border border-primary rounded pt-2 px-3">
-                                                    <kbd></kbd>
+                                                    Una sentencia <kbd>switch</kbd> compara el valor para las sentencias case las cuales 
+                                                    definen varios posibles valores. Cualquier sentencia válida JavaScript puede ser 
+                                                    ejecutada dentro de un bloque <kbd>case</kbd> y se ejecutará desde el primer valor de coincidencia 
+                                                    case hasta que un <kbd>break</kbd> sea encontrado. La declaración <kbd>default</kbd> 
+                                                    debe ser el último caso, cuando no se encuentre declaraciones <kbd>case</kbd> como el <kbd>else</kbd>.
+<pre class="m-0">
+    <code class="rounded language-js">
+        switch (fruta) {
+        case "Parchita":
+            console.log("La fruta es una parchita");
+            break;
+        case "nispero":
+            console.log("La fruta es un níspero");
+            break;
+        }
+        default:
+            console.log("Otra fruta");
+        break;
+    </code>
+</pre>
+                                                    Los valores en las sentencias <kbd>case</kbd> se prueban con igualdad estricta (===). 
+                                                    El <kbd>break</kbd> le dice a JavaScript que deje de ejecutar declaraciones. Si se omite 
+                                                    <kbd>break</kbd>, se ejecutara la siguiente sentencia.
                                                 </div>
                                             </li>
                                             <li>
