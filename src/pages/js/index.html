@@ -782,6 +782,83 @@
                             <li class="accordion-item">
                                 <h2 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" data-bs-target="#objects" aria-expanded="false"  
+                                        aria-controls="objects">Objects
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="objects">
+                                    <ul class="list-unstyled accordion-body">
+                                        <li>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Los <kbd>objetos</kbd> son similares a los <kbd>arrays</kbd>, excepto que en lugar de usar 
+                                                índices para acceder y modificar sus datos, accedes a los datos en <kbd>objetos</kbd> a través de 
+                                                propiedades (<kbd>properties</kbd>).
+<pre class="m-0">
+    <code class="rounded language-js">
+        const cat = {
+            "name": "Whiskers",
+            "legs": 4,
+            "tails": 1,
+            "enemies": ["Water", "Dogs"]
+        };
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                                Hay dos maneras de acceder a las propiedades de un objeto: notación de puntos (.) y 
+                                                notación de corchetes ([]), similar a un arreglo.
+<pre class="m-0">
+    <code class="rounded language-js">
+        const myObj = {
+            prop1: "val1",
+            prop2: "val2"
+        };
+
+        const prop1val = myObj.prop1;
+        const prop2val = myObj.prop2;
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        const myObj = {
+            "Space Name": "Kirk",
+            "More Space": "Spock",
+            "NoSpace": "USS Enterprise"
+        };
+
+        myObj["Space Name"];
+        myObj['More Space'];
+        myObj["NoSpace"];
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h6 class="pt-2"> Verifica las propiedades de un objeto</h6>
+                                            <div class="border border-primary rounded pt-2 px-3">
+                                            Para verificar si una propiedad de un objeto dado existe o no, puedes utilizar el método 
+                                            <kbd>.hasOwnProperty().someObject.hasOwnProperty(someProperty)</kbd>
+                                            devuelve <kbd>true</kbd> o <kbd>false</kbd>, dependiendo si la propiedad es encontrada en el objeto o no.
+<pre class="m-0">
+    <code class="rounded language-js">
+        function checkForProperty(object, property) {
+            return object.hasOwnProperty(property);
+        }
+          
+        checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); // true
+        checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false
+    </code>
+</pre>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" 
                                         data-bs-toggle="collapse" data-bs-target="#conditionals" aria-expanded="false"  
                                         aria-controls="conditionals">Condicionales
                                     </button>
@@ -896,6 +973,25 @@
                                                     Los valores en las sentencias <kbd>case</kbd> se prueban con igualdad estricta (===). 
                                                     El <kbd>break</kbd> le dice a JavaScript que deje de ejecutar declaraciones. Si se omite 
                                                     <kbd>break</kbd>, se ejecutara la siguiente sentencia.
+                                                    <p>
+                                                        Si la sentencia <kbd>break</kbd> es omitida en un caso <kbd>case</kbd> de una sentencia <kbd>switch</kbd>, 
+                                                        las siguientes sentencias <kbd>case</kbd> serán ejecutadas hasta encontrar un <kbd>break</kbd>. 
+                                                        Si tienes múltiples entradas con la misma salida, puedes representarlas en una sentencia <kbd>switch</kbd> como esta
+                                                    </p>
+<pre class="m-0">
+    <code class="rounded language-js">
+        let resultado = "";
+        switch (valor) {
+            case 1:
+            case 2:
+            case 3:
+                resultado = "1, 2, ó 3";
+                    break;
+            case 4:
+                resultado = "Solo 4";
+        }
+    </code>
+</pre>
                                                 </div>
                                             </li>
                                             <li>
