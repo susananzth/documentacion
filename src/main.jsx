@@ -1,24 +1,41 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import * as React from 'react'
+import * as ReactDOM from 'react-dom/client'
+import { createHashRouter, RouterProvider } from 'react-router-dom'
 import * as bootstrap from 'bootstrap'
 import './scss/styles.scss'
 import './index.css'
-import Nav from './Nav'
-import Sidebar from './Sidebar'
-import Footer from './Footer'
 
-ReactDOM.createRoot(document.getElementById('nav')).render(
+import Fundamental from './pages/fundamental'
+import Html from './pages/html'
+import Css from './pages/css'
+import Javascript from './pages/javascript'
+import DataScience from './pages/data_science'
+
+const router = createHashRouter([
+  {
+    path: '/fundamental',
+    element:<Fundamental />
+  },
+  {
+    path: '/html',
+    element:<Html />
+  },
+  {
+    path: '/css',
+    element:<Css />
+  },
+  {
+    path: '/javascript',
+    element:<Javascript />
+  },
+  {
+    path: '/data_science',
+    element:<DataScience />
+  },
+])
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Nav />
-  </React.StrictMode>,
-)
-ReactDOM.createRoot(document.getElementById('sidebar')).render(
-  <React.StrictMode>
-    <Sidebar />
-  </React.StrictMode>,
-)
-ReactDOM.createRoot(document.getElementById('footer')).render(
-  <React.StrictMode>
-    <Footer />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
