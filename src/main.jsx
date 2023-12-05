@@ -13,6 +13,10 @@ import DataScience from './pages/data_science'
 
 const router = createHashRouter([
   {
+    path: '/',
+    element:<Fundamental />
+  },
+  {
     path: '/fundamental',
     element:<Fundamental />
   },

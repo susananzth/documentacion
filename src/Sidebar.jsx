@@ -5,6 +5,9 @@ function Sidebar() {
     return (
         <ul className="list-group">
             <li className="list-group-item">
+                <Link to='/' className="nav-link">Documentación</Link>
+            </li>
+            <li className="list-group-item">
                 <Link to='/fundamental' className="nav-link">Fundamentos</Link>
             </li>
             <li className="list-group-item">
