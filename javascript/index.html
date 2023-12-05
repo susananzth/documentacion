@@ -1043,7 +1043,7 @@
 <pre class="m-0">
     <code class="rounded language-js">
         var edad = 35;
-        if (edad >= 18) {
+        if (edad &gt;= 18) {
             console.log("Puedes conducir");
         } else {
             console.log("No puedes conducir");
@@ -1062,12 +1062,23 @@
     <code class="rounded language-js">
         if (condicion1) {
             // Bloque 1
-        } elseif (condicion2){
+        } else if (condicion2){
             // Bloque 2
-        } elseif (condicion3){
+        } else if (condicion3){
             // Bloque 3
         } else {
             // Bloque else
+        }
+    </code>
+</pre>
+<pre class="m-0">
+    <code class="rounded language-js">
+        if (numero &gt; 15) {
+            return "Mayor que 15";
+        } else if (numero &lt; 5) {
+            return "menor que 5";
+        } else {
+            return "Entre 5 y 15";
         }
     </code>
 </pre>

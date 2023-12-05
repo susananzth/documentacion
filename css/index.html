@@ -5,384 +5,372 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSS | Susananzth</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/androidstudio.min.css">
 </head>
 <body>
     <div id="nav"></div>
     <div class="container">
+        <div id="sidebar" class="my-5"></div>
         <h1>CSS</h1>
         <em>Documentación frontend - CSS</em>
 
-        <div id="btnCollapse"></div>
-
-        <div class="row">
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#requisites" aria-expanded="false" 
-                            aria-controls="requisites">Pre - Requisitos
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="requisites">
-                            <li>A</li>
-                            <li>B</li>
-                        </ul>
-                    </li>
-                </ul>
+        <div class="accordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#requisites" aria-expanded="false"  
+                        aria-controls="requisites">Pre - Requisitos
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="requisites">
+                    <ul class="list-unstyled accordion-body">
+                        <li>
+                            <a href="https://www.notion.so/Inicial-Pre-Work-6eb2d09a63a84b5e8e06983cfa3983ce" target="_blank" rel="noopener noreferrer">
+                                Pre - Work
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#content" aria-expanded="false" 
-                            aria-controls="content">Contenido
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="content">
-                            <li>
-                                <button class="accordion-button collapsed" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#anatomy" aria-expanded="false" 
-                                    aria-controls="anatomy">Anatomía de una declaración CSS
-                                    <i class="ps-2"></i>
-                                    <i class="arrow"></i>
-                                </button>
-                                <div class="collapse" id="anatomy">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#content" aria-expanded="false"  
+                        aria-controls="content">Contenido
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="content">
+                    <div class="accordion-body">
+                        <ul class="list-unstyled accordion">
+                            <li class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" data-bs-target="#anatomy" aria-expanded="false"  
+                                        aria-controls="anatomy">Anatomía de una declaración CSS
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="anatomy">
                                     <h6>Selectores, propiedades y valores</h6>
-                                    <p>
-                                        Antes de empezar a escribir código CSS, debemos conocer la anatomía de una declaración de estilos.
-                                    </p>
-                                    
+                                    Antes de empezar a escribir código CSS, debemos conocer la anatomía de una declaración de estilos.
                                     <h6>Qué es una declaración de CSS</h6>
-                                    <p>
-                                        Una declaración de CSS es un bloque que especifica el conjunto de estilos que 
-                                        se añadirán a un elemento HTML. Su estructura contiene lo siguiente:
-                                        <ul>
-                                            <li><strong>Selector</strong>: define el elemento o conjunto de elementos a los cuales se añadirán los estilos.</li>
-                                            <li><strong>Propiedad</strong>: es el nombre del estilo de CSS.</li>
-                                            <li><strong>Valor</strong>: es el valor que tomará la propiedad.</li>
-                                        </ul>
-                                    </p>
-                                    
+                                    Una declaración de CSS es un bloque que especifica el conjunto de estilos que 
+                                    se añadirán a un elemento HTML. Su estructura contiene lo siguiente:
+                                    <ul>
+                                        <li><strong>Selector</strong>: define el elemento o conjunto de elementos a los cuales se añadirán los estilos.</li>
+                                        <li><strong>Propiedad</strong>: es el nombre del estilo de CSS.</li>
+                                        <li><strong>Valor</strong>: es el valor que tomará la propiedad.</li>
+                                    </ul>
                                     <h6>Qué son comentarios de CSS</h6>
-                                    <p>
-                                        Los comentarios de CSS consisten en señalar algo que se ignorará. 
-                                        Para establecer un comentario CSS se lo envuelve entre /* y */, independiente de la cantidad de líneas.
-                                    </p>
-                                    
+                                    Los comentarios de CSS consisten en señalar algo que se ignorará. 
+                                    Para establecer un comentario CSS se lo envuelve entre /* y */, independiente de la cantidad de líneas.
                                     <h6>Propiedades iniciales de CSS</h6>
-                                    <p>
-                                        Antes de empezar con CSS utilizaremos algunas propiedades de CSS.
-                                        <ul>
-                                            <li><strong>color</strong>: establece el color del texto de un elemento.</li>
-                                            <li><strong>background-color</strong>: establece un color de fondo al elemento.</li>
-                                            <li><strong>font-size</strong>: establece el tamaño de la fuente.</li>
-                                            <li><strong>width</strong>: establece la anchura de un elemento.</li>
-                                            <li><strong>height</strong>: establece la altura de un elemento.</li>
-                                        </ul>
-                                    </p>
-                                    
+                                    Antes de empezar con CSS utilizaremos algunas propiedades de CSS.
+                                    <ul>
+                                        <li><strong>color</strong>: establece el color del texto de un elemento.</li>
+                                        <li><strong>background-color</strong>: establece un color de fondo al elemento.</li>
+                                        <li><strong>font-size</strong>: establece el tamaño de la fuente.</li>
+                                        <li><strong>width</strong>: establece la anchura de un elemento.</li>
+                                        <li><strong>height</strong>: establece la altura de un elemento.</li>
+                                    </ul>
                                     <h6>Medidas iniciales</h6>
-                                    <p>
-                                        Estas son las medidas iniciales que debes conocer para establecer tamaños de elementos o de tipografía:
-                                        <ul>
-                                            <li><strong>px</strong>: establece una longitud de píxeles.</li>
-                                            <li><strong>%</strong>: establece un porcentaje con respecto a una medida base.</li>
-                                        </ul>
-                                    </p>
+                                    Estas son las medidas iniciales que debes conocer para establecer tamaños de elementos o de tipografía:
+                                    <ul>
+                                        <li><strong>px</strong>: establece una longitud de píxeles.</li>
+                                        <li><strong>%</strong>: establece un porcentaje con respecto a una medida base.</li>
+                                    </ul>
                                 </div>
                             </li>
-                            <li>
-                                <button class="accordion-button collapsed" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#selectors" aria-expanded="false" 
-                                    aria-controls="selectors">Tipos de selectores
-                                    <i class="ps-2"></i>
-                                    <i class="arrow"></i>
-                                </button>
-                                <div class="collapse" id="selectors">
+                            <li class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" 
+                                        data-bs-toggle="collapse" data-bs-target="#selectors" aria-expanded="false"  
+                                        aria-controls="selectors">Selectores
+                                    </button>
+                                </h2>
+                                <div class="accordion-collapse collapse" id="selectors">
                                     <h6>Cuáles son los selectores básicos</h6>
-                                    <p>
+                                    <div class="border border-primary rounded pt-2 px-3">
                                         Un selector básico es la mínima expresión CSS para colocar estilos.
-                                        <pre>
-                                            <code class="language-css">
-                                                selector {
-                                                    /* Estilos */
-                                                }
-                                            </code>
-                                        </pre>
-                                    </p>
+<pre>
+    <code class="language-css">
+        selector {
+            /* Estilos */
+        }
+    </code>
+</pre>
+                                    </div>
                                     <h6>Tipos de selectores básicos</h6>
-                                    <ol class="border-3">
-                                        <li>
-                                            <strong>Selector de tipo</strong>: Selecciona todos los elementos que coincidan con el nombre de la etiqueta HTML.
-                                            <pre>
-                                                <code class="language-css">
-                                                    div {
-                                                        /* Todos los div en el documento */
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Selector de clase</strong>: Selecciona todos los elementos que coincidan con las etiquetas HTML que contengan el atributo class.
-                                            <pre>
-                                                <code class="language-html">
-                                                    &lt;!-- archivo HTML --&gt;
-                                                    &lt;div class=&quot;card&quot;&gt; Soy una carta &lt;/div&gt;
-                                                    &lt;button id=&quot;eliminar&quot;&gt; Eliminar  &lt;/button&gt;
-                                                </code>
-                                            </pre>
-                                            Para seleccionar estos elementos, se empieza por un punto . y seguido el valor exacto del atributo 
-                                            class de la etiqueta. Puede ser cualquier valor que desees colocar.
-                                            <pre>
-                                                <code class="language-css">
-                                                    /* archivo CSS */
-                                                    .card {
-                                                        /* Todas las etiquetas con la clase "card" */
-                                                    }
-                                                    #eliminar {
-                                                        /* La única etiqueta con el id "eliminar" */
-                                                    }
-                                                </code>
-                                            </pre>
-                                            Puede existir más de un valor dentro del atributo class separados por espacios.
-                                            <pre>
-                                                <code class="language-html">
-                                                    &lt;!-- archivo HTML --&gt;
-                                                    &lt;div class=&quot;card card1&quot;&gt; Soy una carta &lt;/div&gt;
-                                                    &lt;div class=&quot;card card2&quot;&gt; Soy una carta &lt;/div&gt;
-                                                </code>
-                                            </pre>
-                                            <pre>
-                                                <code class="language-css">
-                                                    /* archivo CSS */
-                                                    .card {
-                                                        /* Todas las etiquetas con la clase "card" */
-                                                    }
-                                                    
-                                                    .card1 {
-                                                        /* Todas las etiquetas con la clase "card1" */
-                                                    }
-                                                    
-                                                    .card2 {
-                                                        /* Todas las etiquetas con la clase "card2" */
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Selector de identificador único (id)</strong>:
-                                            Selecciona el único elemento que coincida con la etiqueta HTML que contenga el 
-                                            atributo id. Solo puede existir un valor id para todo el documento.
-                                            <pre>
-                                                <code class="language-html">
-                                                    &lt;!-- archivo HTML --&gt;
-                                                    &lt;button id=&quot;eliminar&quot;&gt; Eliminar  &lt;/button&gt;
-                                                </code>
-                                            </pre>
-                                            Para seleccionar el elemento, se empieza por el símbolo de hashtag # y 
-                                            seguido el valor exacto del atributo id de la etiqueta. Puede ser cualquier valor que desees colocar.
-                                            <pre>
-                                                <code class="language-css">
-                                                    /* archivo CSS */
-                                                    #eliminar {
-                                                        /* La única etiqueta con el id "eliminar" */
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Selector de atributo</strong>:
-                                            Selecciona los elementos que coincidan con la etiqueta HTML que contenga el atributo y valor especificado.
-                                            <pre>
-                                                <code class="language-html">
-                                                    &lt;!-- archivo HTML --&gt;
-                                                    &lt;a href=&quot;https://susananzth.com&quot;&gt; Ir a Susananzth &lt;/a&gt;
-                                                </code>
-                                            </pre>
-                                            Para seleccionar los elementos, se empieza por el nombre de la etiqueta, seguido de 
-                                            corchetes [] que contiene el atributo y valor especificado.
-                                            <pre>
-                                                <code class="language-css">
-                                                    /* archivo CSS */
-                                                    a[href=""https://susananzth.com"] {
-                                                        /* Todas las etiquetas <a> con una propiedad href con valor "https://susananzth.com" */
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Selector universal</strong>:
-                                            Selecciona todos los elementos del documento mediante un asterisco *.
-                                            <pre>
-                                                <code class="language-css">
-                                                    /* archivo CSS */
-                                                    * {
-                                                        /* Todos los elementos */
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                    </ol>
+                                    <div class="border border-primary rounded pt-2 px-3">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <strong>Selector de tipo</strong>: Selecciona todos los elementos que coincidan con el nombre de la etiqueta HTML.
+<pre>
+    <code class="language-css">
+        div {
+            /* Todos los div en el documento */
+        }
+    </code>
+</pre>
+                                            </li>
+                                            <li>
+                                                <strong>Selector de clase</strong>: Selecciona todos los elementos que coincidan con las etiquetas HTML que contengan el atributo class.
+<pre>
+    <code class="language-html">
+        &lt;!-- archivo HTML --&gt;
+        &lt;div class=&quot;card&quot;&gt; Soy una carta &lt;/div&gt;
+        &lt;button id=&quot;eliminar&quot;&gt; Eliminar  &lt;/button&gt;
+    </code>
+</pre>
+                                                Para seleccionar estos elementos, se empieza por un punto . y seguido el valor exacto del atributo 
+                                                class de la etiqueta. Puede ser cualquier valor que desees colocar.
+        <pre>
+        <code class="language-css">
+            /* archivo CSS */
+            .card {
+                /* Todas las etiquetas con la clase "card" */
+            }
+            #eliminar {
+                /* La única etiqueta con el id "eliminar" */
+            }
+        </code>
+        </pre>
+                                                Puede existir más de un valor dentro del atributo class separados por espacios.
+        <pre>
+        <code class="language-html">
+            &lt;!-- archivo HTML --&gt;
+            &lt;div class=&quot;card card1&quot;&gt; Soy una carta &lt;/div&gt;
+            &lt;div class=&quot;card card2&quot;&gt; Soy una carta &lt;/div&gt;
+        </code>
+        </pre>
+        <pre>
+        <code class="language-css">
+            /* archivo CSS */
+            .card {
+                /* Todas las etiquetas con la clase "card" */
+            }
+            
+            .card1 {
+                /* Todas las etiquetas con la clase "card1" */
+            }
+            
+            .card2 {
+                /* Todas las etiquetas con la clase "card2" */
+            }
+        </code>
+        </pre>
+                                            </li>
+                                            <li>
+                                                <strong>Selector de identificador único (id)</strong>:
+                                                Selecciona el único elemento que coincida con la etiqueta HTML que contenga el 
+                                                atributo id. Solo puede existir un valor id para todo el documento.
+<pre>
+    <code class="language-html">
+        &lt;!-- archivo HTML --&gt;
+        &lt;button id=&quot;eliminar&quot;&gt; Eliminar  &lt;/button&gt;
+    </code>
+</pre>
+                                                Para seleccionar el elemento, se empieza por el símbolo de hashtag # y 
+                                                seguido el valor exacto del atributo id de la etiqueta. Puede ser cualquier valor que desees colocar.
+<pre>
+    <code class="language-css">
+        /* archivo CSS */
+        #eliminar {
+            /* La única etiqueta con el id "eliminar" */
+        }
+    </code>
+</pre>
+                                            </li>
+                                            <li>
+                                                <strong>Selector de atributo</strong>:
+                                                Selecciona los elementos que coincidan con la etiqueta HTML que contenga el atributo y valor especificado.
+<pre>
+    <code class="language-html">
+        &lt;!-- archivo HTML --&gt;
+        &lt;a href=&quot;https://susananzth.com&quot;&gt; Ir a Susananzth &lt;/a&gt;
+    </code>
+</pre>
+                                                Para seleccionar los elementos, se empieza por el nombre de la etiqueta, seguido de 
+                                                corchetes [] que contiene el atributo y valor especificado.
+<pre>
+    <code class="language-css">
+        /* archivo CSS */
+        a[href=""https://susananzth.com"] {
+            /* Todas las etiquetas <a> con una propiedad href con valor "https://susananzth.com" */
+        }
+    </code>
+</pre>
+                                            </li>
+                                            <li>
+                                                <strong>Selector universal</strong>:
+                                                Selecciona todos los elementos del documento mediante un asterisco *.
+<pre>
+    <code class="language-css">
+        /* archivo CSS */
+        * {
+            /* Todos los elementos */
+        }
+    </code>
+</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
                                     <h6>Selectores combinadores</h6>
-                                    <p>
+                                    <div class="border border-primary rounded pt-2 px-3">
                                         Un selector combinador es la unión de dos o más selectores básicos.
-                                        <pre>
-                                            <code class="language-css">
-                                                selector1 selector2 selector3 {
-                                                    /* Estilos */
-                                                }
-                                            </code>
-                                        </pre>
-                                    </p>
+<pre>
+    <code class="language-css">
+        selector1 selector2 selector3 {
+            /* Estilos */
+        }
+    </code>
+</pre>
+                                    </div>
                                     <h6>Tipos de selectores combinadores</h6>
-                                    <ol class="border-3">
-                                        <li>
-                                            <strong>Combinador de descendientes</strong>: 
-                                            Selecciona todos los elementos del selector de la derecha que son hijos 
-                                            del selector de la izquierda, independientemente de la profundidad. 
-                                            Estos selectores están separados por un espacio.
-                                            <pre>
-                                                <code class="language-css">
-                                                    padre hijos {
-                                                        /* Todos los hijos del padre */
-                                                    }
-                                                    div p{
-                                                        /* Todos los hijos &lt;p&gt; de &lt;div&gt;*/
-                                                    }
-                                                    .container img{
-                                                        /* Todos los hijos &lt;img&gt; de la clase "container"*/
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Combinador de elemento adyacente</strong>: 
-                                            Selecciona todos los elementos del selector de la derecha que están 
-                                            adyacente al selector de la izquierda. Estos selectores están separados por +.
-                                            Adyacente significa que comparten el mismo padre y está situado inmediatamente 
-                                            hacia abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; 
-                                            está adyacente a &lt;h1&gt; y &lt;p&gt; está adyacente a &lt;div&gt;. Sin embargo, &lt;h1&gt; 
-                                            no está adyacente a &lt;div&gt; y &lt;div&gt; no está adyacente a &lt;p&gt;.
-                                            <pre>
-                                                <code class="language-css">
-                                                    elemento + adyacente {
-                                                        /* Elementos adyacentes */
-                                                    }
-                                                    div + p{
-                                                        /* Todos los &lt;p&gt; adyacentes a &lt;div&gt;*/
-                                                    }
-                                                    .container + img{
-                                                        /* Todos los &lt;img&gt; adyacentes a la clase "container"*/
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                        <li>
-                                            <strong>Combinador general de hermanos</strong>:
-                                            Selecciona todos los elementos del selector de la derecha que son hermanos 
-                                            del selector de la izquierda. Estos selectores están separados por ~.
-                                            Hermanos significa que comparten el mismo padre y están situados hacia 
-                                            abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; y &lt;p&gt; 
-                                            son hermanos de &lt;h1&gt;, pero &lt;h1&gt; no es hermano de &lt;div&gt; y &lt;p&gt;.
-                                            <pre>
-                                                <code class="language-css">
-                                                    elemento ~ hermanos {
-                                                        /* Elementos hermanos */
-                                                    }
-                                                    div ~ p{
-                                                        /* Todos los &lt;p&gt; hermanos de &lt;div&gt;*/
-                                                    }
-                                                    .container ~ img{
-                                                        /* Todos los &lt;img&gt; hermanos de la clase "container"*/
-                                                    }
-                                                </code>
-                                            </pre>
-                                        </li>
-                                    </ol>
+                                    <div class="border border-primary rounded pt-2 px-3">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <strong>Combinador de descendientes</strong>: 
+                                                Selecciona todos los elementos del selector de la derecha que son hijos 
+                                                del selector de la izquierda, independientemente de la profundidad. 
+                                                Estos selectores están separados por un espacio.
+<pre>
+    <code class="language-css">
+        padre hijos {
+            /* Todos los hijos del padre */
+        }
+        div p{
+            /* Todos los hijos &lt;p&gt; de &lt;div&gt;*/
+        }
+        .container img{
+            /* Todos los hijos &lt;img&gt; de la clase "container"*/
+        }
+    </code>
+</pre>
+                                            </li>
+                                            <li>
+                                                <strong>Combinador de elemento adyacente</strong>: 
+                                                Selecciona todos los elementos del selector de la derecha que están 
+                                                adyacente al selector de la izquierda. Estos selectores están separados por +.
+                                                Adyacente significa que comparten el mismo padre y está situado inmediatamente 
+                                                hacia abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; 
+                                                está adyacente a &lt;h1&gt; y &lt;p&gt; está adyacente a &lt;div&gt;. Sin embargo, &lt;h1&gt; 
+                                                no está adyacente a &lt;div&gt; y &lt;div&gt; no está adyacente a &lt;p&gt;.
+<pre>
+    <code class="language-css">
+        elemento + adyacente {
+            /* Elementos adyacentes */
+        }
+        div + p{
+            /* Todos los &lt;p&gt; adyacentes a &lt;div&gt;*/
+        }
+        .container + img{
+            /* Todos los &lt;img&gt; adyacentes a la clase "container"*/
+        }
+    </code>
+</pre>
+                                            </li>
+                                            <li>
+                                                <strong>Combinador general de hermanos</strong>:
+                                                Selecciona todos los elementos del selector de la derecha que son hermanos 
+                                                del selector de la izquierda. Estos selectores están separados por ~.
+                                                Hermanos significa que comparten el mismo padre y están situados hacia 
+                                                abajo de otro elemento. Por ejemplo, en el siguiente código, &lt;div&gt; y &lt;p&gt; 
+                                                son hermanos de &lt;h1&gt;, pero &lt;h1&gt; no es hermano de &lt;div&gt; y &lt;p&gt;.
+<pre>
+    <code class="language-css">
+        elemento ~ hermanos {
+            /* Elementos hermanos */
+        }
+        div ~ p{
+            /* Todos los &lt;p&gt; hermanos de &lt;div&gt;*/
+        }
+        .container ~ img{
+            /* Todos los &lt;img&gt; hermanos de la clase "container"*/
+        }
+    </code>
+</pre>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </div>
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#projects" aria-expanded="false" 
-                            aria-controls="projects">Proyectos - Ejercicios
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="projects">
-                            <li>A</li>
-                            <li>B</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#projects" aria-expanded="false"  
+                        aria-controls="projects">Proyectos - Ejercicios
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="projects">
+                    <ul class="list-unstyled accordion-body">
+                        <li>A</li>
+                        <li>B</li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#certifications" aria-expanded="false" 
-                            aria-controls="certifications">Certificaciones
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="certifications">
-                            <li>A</li>
-                            <li>B</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#certifications" aria-expanded="false"  
+                        aria-controls="certifications">Certificaciones
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="certifications">
+                    <ul class="list-unstyled accordion-body">
+                        <li>
+                            <a href="https://platzi.com/cursos/html-practico/" 
+                                target="_blank" rel="noopener noreferrer">
+                                <span class="badge text-bg-info">10/2023</span> Curso Práctico de HTML y CSS | Platzi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#related" aria-expanded="false" 
-                            aria-controls="related">Enlaces relacionados
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="related">
-                            <li>A</li>
-                            <li>B</li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#sources" aria-expanded="false"  
+                        aria-controls="sources">Fuentes
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="sources">
+                    <ul class="list-unstyled accordion-body">
+                        <li>
+                            <a href="https://platzi.com/cursos/html-practico/" 
+                                target="_blank" rel="noopener noreferrer">
+                                <span class="badge text-bg-info">10/2023</span> Curso Práctico de HTML y CSS | Platzi
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col-12 col-lg-8">
-                <ul class="border-1">
-                    <li>
-                        <button class="accordion-button collapsed" type="button" 
-                            data-bs-toggle="collapse" data-bs-target="#sources" aria-expanded="false" 
-                            aria-controls="sources">Fuentes
-                            <i class="ps-2"></i>
-                            <i class="arrow"></i>
-                        </button>
-                        <ul class="border-2 collapse multi-collapse" id="sources">
-                            <li>
-                                <a href="https://platzi.com/cursos/frontend-developer/" 
-                                    target="_blank" rel="noopener noreferrer">
-                                    Curso de Frontend Developer | Platzi
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" data-bs-target="#links" aria-expanded="false"  
+                        aria-controls="links">Enlaces relacionados
+                    </button>
+                </h2>
+                <div class="accordion-collapse collapse" id="links">
+                    <ul class="list-unstyled accordion-body">
+                        <li>A</li>
+                        <li>B</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
     <div id="footer"></div>
     <script type="module" src="/src/main.jsx"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>
