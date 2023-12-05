@@ -1385,121 +1385,108 @@ export default function Route() {
                             </AccordionItem>
                         </li>
                         <li className="accordion">
-                                <AccordionItem id="class" title="Clases">
-                                    <li>
-                                        <div className="border border-primary rounded pt-2 px-3">
-                                            Concepto
-                                            <Code>
-                                                //Declara la clase
-                                                className Usuario {};
-
-                                                // Instancia del objeto
-                                                const nuevoUsuario = new Usuario();
-
-                                                {/*
-                                                //Declara la clase
-                                                className Usuario {
-                                                    saludos() {
-                                                        return "Hola";
-                                                    }
-                                                };
-
-                                                // Instancia del objeto
-                                                const objeto = new Usuario();
-
-                                                console.log(objeto.saludos()); // Mostrará: Hola.
-                                                */}
-                                            </Code>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h6 className="pt-2">Herencias</h6>
-                                        <div className="border border-primary rounded pt-2 px-3">
-                                            Concepto
-                                            <Code>
-                                                {/*
-                                                //Declara la clase
-                                                className Usuario {
-                                                    // Constructor
-                                                    constructor() {
-                                                        console.log("Me ejecuto solo cuando llaman a la clase")
-                                                    }
-
-                                                    saludos() {
-                                                        return "Hola";
-                                                    }
-                                                };
-
-                                                // Instancia del objeto
-                                                const objeto = new Usuario();
-                                                */}
-                                                // Mostrará: Me ejecuto solo cuando llaman a la clase.
-
-                                                {/*
-                                                //Declara la clase
-                                                className Usuario {
-                                                    // Constructor
-                                                    constructor(nombre) {
-                                                        this.nombre = nombre;
-                                                    }
-
-                                                    fragmento() {
-                                                        return "Hola";
-                                                    }
-                                                    saludos() {
-                                                        return `${this.fragmento} ${this.nombre}`;
-                                                    }
-                                                };
-
-                                                // Instancia del objeto
-                                                const objeto = new Usuario('Susana');
-                                                // Mostrará: Hola Susana.
-                                                */}
-
-                                                {/*
-                                                //Declara la clase
-                                                className Usuario {
-                                                    // Constructor
-                                                    constructor(nombre, edad) {
-                                                        this.nombre = nombre;
-                                                        this.edad = edad;
-                                                    }
-
-                                                    fragmento() {
-                                                        return "Hola";
-                                                    }
-
-                                                    saludos() {
-                                                        return `${this.fragmento} ${this.name}`;
-                                                    }
-
-                                                    get uEdad() {
-                                                        return this.edad;
-                                                    }
-
-                                                    set uEdad(n) {
-                                                        this.edad = n;
-                                                    }
-                                                };
-
-                                                // Instancia del objeto
-                                                const objeto = new Usuario('Susana', 31);
-                                                console.log(object.uEdad); // Mostrará: 31.
-                                                console.log(object.uEdad = 30); // Mostrará: 30.
-                                                */}
-                                            </Code>
-                                        </div>
-                                    </li>
-                                </AccordionItem>
-                        </li>
-                        <li className="accordion">
-                            <AccordionItem id="custom" title="Custom">
+                            <AccordionItem id="class" title="Clases">
                                 <li>
-                                    <h6>Title</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Concepto
                                         <Code>
-                                            code
+                                            //Declara la clase
+                                            className Usuario {};
+
+                                            // Instancia del objeto
+                                            const nuevoUsuario = new Usuario();
+
+                                            {/*
+                                            //Declara la clase
+                                            className Usuario {
+                                                saludos() {
+                                                    return "Hola";
+                                                }
+                                            };
+
+                                            // Instancia del objeto
+                                            const objeto = new Usuario();
+
+                                            console.log(objeto.saludos()); // Mostrará: Hola.
+                                            */}
+                                        </Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Herencias</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Concepto
+                                        <Code>
+                                            {/*
+                                            //Declara la clase
+                                            className Usuario {
+                                                // Constructor
+                                                constructor() {
+                                                    console.log("Me ejecuto solo cuando llaman a la clase")
+                                                }
+
+                                                saludos() {
+                                                    return "Hola";
+                                                }
+                                            };
+
+                                            // Instancia del objeto
+                                            const objeto = new Usuario();
+                                            */}
+                                            // Mostrará: Me ejecuto solo cuando llaman a la clase.
+
+                                            {/*
+                                            //Declara la clase
+                                            className Usuario {
+                                                // Constructor
+                                                constructor(nombre) {
+                                                    this.nombre = nombre;
+                                                }
+
+                                                fragmento() {
+                                                    return "Hola";
+                                                }
+                                                saludos() {
+                                                    return `${this.fragmento} ${this.nombre}`;
+                                                }
+                                            };
+
+                                            // Instancia del objeto
+                                            const objeto = new Usuario('Susana');
+                                            // Mostrará: Hola Susana.
+                                            */}
+
+                                            {/*
+                                            //Declara la clase
+                                            className Usuario {
+                                                // Constructor
+                                                constructor(nombre, edad) {
+                                                    this.nombre = nombre;
+                                                    this.edad = edad;
+                                                }
+
+                                                fragmento() {
+                                                    return "Hola";
+                                                }
+
+                                                saludos() {
+                                                    return `${this.fragmento} ${this.name}`;
+                                                }
+
+                                                get uEdad() {
+                                                    return this.edad;
+                                                }
+
+                                                set uEdad(n) {
+                                                    this.edad = n;
+                                                }
+                                            };
+
+                                            // Instancia del objeto
+                                            const objeto = new Usuario('Susana', 31);
+                                            console.log(object.uEdad); // Mostrará: 31.
+                                            console.log(object.uEdad = 30); // Mostrará: 30.
+                                            */}
                                         </Code>
                                     </div>
                                 </li>

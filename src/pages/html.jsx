@@ -1,6 +1,9 @@
 import Nav from '../Nav'
 import Sidebar from '../Sidebar'
 import Footer from '../Footer'
+import TitleSubtitle from '../components/TitleSubtitle'
+import AccordionItem from '../components/AccordionItem'
+import Code from '../components/Code'
 
 export default function Route() {
     return (
@@ -8,7 +11,10 @@ export default function Route() {
             <Nav />
             <div className="container">
                 <Sidebar className="my-5" />
-                <h1>¿Que es HTML?</h1>
+                <TitleSubtitle 
+                    title='¿Que es HTML?'
+                    subTitle=''
+                />
                 <p>Consultar los siguientes enlaces para documentación:
                     <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Getting_started" 
                         target="_blank" rel="noopener noreferrer"></a>
@@ -23,7 +29,7 @@ export default function Route() {
                     Todos realizan esta compilación de manera diferente, pero con el mismo resultado, 
                     es decir, convierten los archivos a píxeles.
 
-                    <p>Proceso de renderizado del motor del navegador</p>
+                    Proceso de renderizado del motor del navegador
                     El motor del navegador realiza 5 pasos o procesos para compilar 
                     nuestro código hasta el renderizado por pantalla. Estos pasos son los siguientes:
 
@@ -109,7 +115,6 @@ export default function Route() {
                 Los comentarios de HTML consiste en señalar algo que se ignorará. Para establecer 
                 un comentario HTML se lo envuelve entre &lt;!-- y --&gt;, independiente de la cantidad de 
                 líneas.
-                
             </div>
             <Footer />
         </div>
