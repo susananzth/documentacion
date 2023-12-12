@@ -1,6 +1,6 @@
-function Code({language = 'language-js', children}) {
+function Code({language = 'javascript', children}) {
     return (
-        <pre className="m-0">
+        <pre className="my-1">
             <code className={`rounded ${language}`}>
                 {children}
             </code>

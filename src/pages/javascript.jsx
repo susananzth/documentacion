@@ -1,11 +1,19 @@
+
+import hljs from 'highlight.js'
+import { useEffect } from 'react'
 import Nav from '../Nav'
 import Sidebar from '../Sidebar'
 import Footer from '../Footer'
 import TitleSubtitle from '../components/TitleSubtitle'
 import AccordionItem from '../components/AccordionItem'
 import Code from '../components/Code'
+import Link from '../components/Link'
 
 export default function Route() {
+    useEffect(() => {
+        hljs.highlightAll();
+    }, []);
+
     return (
         <div>
             <Nav />
@@ -31,16 +39,14 @@ export default function Route() {
                                     <h6>Comentarios</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Para el comentatio de una línea se utiliza los símbolos <kbd>//</kbd>:
-                                        <Code>
-                                            // This is an in-line comment.
-                                        </Code>
+<Code>{`// This is an in-line comment.`}</Code>
                                         Para el comentatio de varias línea se utiliza los símbolos 
                                         <kbd>/*</kbd> para iniciar bloque de comantatio y 
                                         <kbd>*/</kbd> para cerrar el bloque de comentario:
-                                        <Code>
-                                            /* This is a 
-                                            multi-line comment */
-                                        </Code>
+<Code>
+{`/* This is a 
+multi-line comment */`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -53,59 +59,57 @@ export default function Route() {
                                         <kbd>symbol</kbd>, <kbd>bigint</kbd>, <kbd>number</kbd>, <kbd>decimal</kbd>, and 
                                         <kbd>object</kbd>. We tell JavaScript to create or declare a variable by putting the 
                                         palabra <kbd>var</kbd> in front of it, like so:
-                                        <Code>
-                                            var miNombre;
-                                        </Code>
+<Code>{`var miNombre;`}</Code>
                                         Para nombrar variables hay que tener en cuenta que son <em>case sensitive</em>, por lo que
                                         si nombramos una variable como <kbd>MYVAR</kbd> 
                                         no será lo mismo que <kbd>MyVar</kbd> ni 
                                         <kbd>myvar</kbd>. Es buena practica direfenciar los nombres de 
                                         las variables y mantener el estandar de <em>camelCase.</em>
-                                        <Code>
-                                            var unaVariable;
-                                            var otroNombreDeVariable;
-                                            var esteNombreDeVariableEsMuyLargo;
-                                        </Code>
+<Code>
+{`var unaVariable;
+var otroNombreDeVariable;
+var esteNombreDeVariableEsMuyLargo;`}
+</Code>
                                         Para asignar un valor a una variable, se puede realizar de varias formas:
-                                        <Code>
-                                            var miNumero; // Primero se declara,
-                                            miNumero = 5; // Luego se asigna con el operador '='.
+<Code>
+{`var miNumero; // Primero se declara,
+miNumero = 5; // Luego se asigna con el operador '='.
 
-                                            var miNombre = "Susana"; // se declara y se asigna el valor en la misma línea.
-                                        </Code>
+var miNombre = "Susana"; // se declara y se asigna el valor en la misma línea.`}
+</Code>
                                             Con la declaracion de variables utilizando la palabra 
                                             <kbd>var</kbd>, podemor reescribir o reasignar
                                             el valor de la variable:
-                                        <Code>
-                                            var miVar = 5; // Se declara y asigna el valor '5'
-                                            var miNumero; // Se declara una nueva variable
-                                            miNumero = miVar; // Se asigna el valor de la vieja variable a la nueva.
-                                            console.log([miVar, miNumero]); // Se imprimirá en consola: [5, 5] -&gt; Tipo array
+<Code>
+{`var miVar = 5; // Se declara y asigna el valor '5'
+var miNumero; // Se declara una nueva variable
+miNumero = miVar; // Se asigna el valor de la vieja variable a la nueva.
+console.log([miVar, miNumero]); // Se imprimirá en consola: [5, 5] -> Tipo array
 
-                                            var nombre = "James"; // Se declara y asigna el valor 'James'
-                                            var nombre = "David"; // Se re-declara y asigna el valor 'David'
-                                            console.log(nombre); // // Se imprimirá en consola: 'David' -&gt; tipo String
-                                            // Se imprime el segundo valor asignado ya que se está redeclarando la variable (Borrón y cuenta nueva).
-                                        </Code>
+var nombre = "James"; // Se declara y asigna el valor 'James'
+var nombre = "David"; // Se re-declara y asigna el valor 'David'
+console.log(nombre); // // Se imprimirá en consola: 'David' -> tipo String
+// Se imprime el segundo valor asignado ya que se está redeclarando la variable (Borrón y cuenta nueva).`}
+</Code>
                                     </div>
                                     <div className="border border-primary rounded my-2 pt-2 px-3">
                                         <u>Palabra reservada (<em>keywork</em>)<kbd>let</kbd></u>: 
                                         Para prevenir el error de re-declarar la misma variable, se puede utilizar la 
                                         palabra <kbd>let</kbd>. De esta forma, saldrá un error en la consola:
-                                        <Code>
-                                            let nombre = "James";
-                                            let nombre = "David";
-                                        </Code>
+<Code>
+{`let nombre = "James";
+let nombre = "David";`}
+</Code>
                                     </div>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         <u>Palabra reservada (<em>keywork</em>)<kbd>conts</kbd></u>: 
                                         En ES6, se puede declarar variables de solo lectura con la palabra <kbd>const</kbd>. 
                                         Esta tiene todas las cualidades que <kbd>let</kbd> con el plus que no se puede cambiar 
                                         el valor porque es solo lectura:
-                                        <Code>
-                                            const FAV_PET = "Cats";
-                                            FAV_PET = "Dogs"; // Dará un error en consola.
-                                        </Code>
+<Code>
+{`const FAV_PET = "Cats";
+FAV_PET = "Dogs"; // Dará un error en consola.`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -117,11 +121,11 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Las cadenas de texto (<em>String</em>) se escriben con comillas simples 
                                         <kbd>' '</kbd> o con comillas dobles <kbd>" "</kbd>:
-                                        <Code>
-                                            const doubleQuoteStr = "Esto es un texto"; 
-                                            const singleQuoteStr = 'Esto es un texto';
-                                            const conversation = 'Finn exclaims to Jake, "Algebraic!"';
-                                        </Code>
+<Code>
+{`const doubleQuoteStr = "Esto es un texto"; 
+const singleQuoteStr = 'Esto es un texto';
+const conversation = 'Finn exclaims to Jake, "Algebraic!"';`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -131,10 +135,10 @@ export default function Route() {
                                         declara la cadena de texto dentro del mismo texto, para que esto no de error, se utiliza 
                                         la siguiente sintaxis para que la comilla sea considerada parte de la cadena de texto 
                                         y no sea interpretado como que la cadena llegue a ese punto:
-                                        <Code>
-                                            const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
-                                            console.log(sampleStr); // Mostrará: Alan said, "Peter is learning JavaScript".
-                                        </Code>
+<Code>
+{`const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
+console.log(sampleStr); // Mostrará: Alan said, "Peter is learning JavaScript".`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -192,100 +196,100 @@ export default function Route() {
                                     <h6 className="pt-2">Suma</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>+</kbd>:
-                                        <Code>
-                                            const operacion = 5 + 10;
-                                            console.log(operacion); // El resultado será 15.
-                                        </Code>
+<Code>
+{`const operacion = 5 + 10;
+console.log(operacion); // El resultado será 15.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Asignación compuesta con suma</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>+=</kbd>:
-                                        <Code>
-                                            let operacion = 1;
-                                            operacion += 5;
-                                            console.log(operacion); // El resultado será 6.
-                                        </Code>
+<Code>
+{`let operacion = 1;
+operacion += 5;
+console.log(operacion); // El resultado será 6.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Resta</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>-</kbd>:
-                                        <Code>
-                                            const operacion = 12 - 6;
-                                            console.log(operacion); // El resultado será 6.
-                                        </Code>
+<Code>
+{`const operacion = 12 - 6;
+console.log(operacion); // El resultado será 6.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Asignacion compuesta con resta</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>-=</kbd>:
-                                        <Code>
-                                            let operacion = 5;
-                                            operacion -= 5;
-                                            console.log(operacion); // El resultado será 0.
-                                        </Code>
+<Code>
+{`let operacion = 5;
+operacion -= 5;
+console.log(operacion); // El resultado será 0.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Multiplicación</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>*</kbd>:
-                                        <Code>
-                                            const operacion = 2 * 3;
-                                            console.log(operacion); // El resultado será 6.
+<Code>
+{`const operacion = 2 * 3;
+console.log(operacion); // El resultado será 6.
 
-                                            const producto = 2.1 * 5.2; // Multiplicación de decimales
-                                            console.log(producto); // El resultado será 10.920000000000002.
-                                        </Code>
+const producto = 2.1 * 5.2; // Multiplicación de decimales
+console.log(producto); // El resultado será 10.920000000000002.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Asignacion compuesta con multiplicación</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>*=</kbd>:
-                                        <Code>
-                                            let operacion = 5;
-                                            operacion *= 2;
-                                            console.log(operacion); // El resultado será 10.
-                                        </Code>
+<Code>
+{`let operacion = 5;
+operacion *= 2;
+console.log(operacion); // El resultado será 10.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">División</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>/</kbd>:
-                                        <Code>
-                                            const operacion = 4 / 2;
-                                            console.log(operacion); // El resultado será 2.
+<Code>
+{`const operacion = 4 / 2;
+console.log(operacion); // El resultado será 2.
 
-                                            const cociente = 9.2 / 2.1; // División de decimales
-                                            console.log(cociente); // El resultado será 4.3809523809523805.
-                                        </Code>
+const cociente = 9.2 / 2.1; // División de decimales
+console.log(cociente); // El resultado será 4.3809523809523805.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Asignacion compuesta con división</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>/=</kbd>:
-                                        <Code>
-                                            let operacion = 10;
-                                            operacion /= 2;
-                                            console.log(operacion); // El resultado será 5.
-                                        </Code>
+<Code>
+{`let operacion = 10;
+operacion /= 2;
+console.log(operacion); // El resultado será 5.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Resto de división</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza el operador <kbd>%</kbd>:
-                                        <Code>
-                                            const operacion = 17 % 2;
-                                            console.log(operacion); // El resultado será 1.
-                                        </Code>
+<Code>
+{`const operacion = 17 % 2;
+console.log(operacion); // El resultado será 1.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -293,17 +297,17 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Para incrementar el valor de una variable se puede hacer de dor formas:
                                         Para imcrementar de 1 en 1, se utiliza el operador <kbd>++</kbd>:
-                                        <Code>
-                                            let miVar = 5;
-                                            miVar++;
-                                            console.log(miVar); // El resultado será 6.
-                                        </Code>
+<Code>
+{`let miVar = 5;
+miVar++;
+console.log(miVar); // El resultado será 6.`}
+</Code>
                                         Para imcrementar de n en n, se utiliza el operador <kbd>+n</kbd>:
-                                        <Code>
-                                            let miVar = 5;
-                                            miVar+3;
-                                            console.log(miVar); // El resultado será 8.
-                                        </Code>
+<Code>
+{`let miVar = 5;
+miVar+3;
+console.log(miVar); // El resultado será 8.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -311,17 +315,17 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Para restar el valor de una variable se puede hacer de dor formas:
                                         Para restar de 1 en 1, se utiliza el operador <kbd>--</kbd>:
-                                        <Code>
-                                            let miVar = 5;
-                                            miVar--;
-                                            console.log(miVar); // El resultado será 4.
-                                        </Code>
+<Code>
+{`let miVar = 5;
+miVar--;
+console.log(miVar); // El resultado será 4.`}
+</Code>
                                         Para restar de n en n, se utiliza el operador <kbd>-n</kbd>:
-                                        <Code>
-                                            let miVar = 5;
-                                            miVar-2;
-                                            console.log(miVar); // El resultado será 3.
-                                        </Code>
+<Code>
+{`let miVar = 5;
+miVar-2;
+console.log(miVar); // El resultado será 3.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -331,25 +335,25 @@ export default function Route() {
                                         se utiliza el operador de la suma <kbd>+</kbd> o <kbd>+=</kbd>, sólo que en el caso de que 
                                         las variables no sean de tipo numérico <kbd>Number</kbd>, 
                                         se unirán más no se sumarán:
-                                        <Code>
-                                            const miSuma = '5' + 10; // Nótese que el 5 es un String.
-                                            console.log(miSuma); // El resultado será 510.
+<Code>
+{`const miSuma = '5' + 10; // Nótese que el 5 es un String.
+console.log(miSuma); // El resultado será 510.
 
-                                            const cadenaTexto = "I come first. " + "I come second.";
-                                            console.log(cadenaTexto); // El resultado: 'I come first. I come second.'.
+const cadenaTexto = "I come first. " + "I come second.";
+console.log(cadenaTexto); // El resultado: 'I come first. I come second.'.
 
-                                            let cadenaDos = "I come first. ";
-                                            cadenaDos += "I come second.";
-                                            console.log(cadenaDos); // El resultado: 'I come first. I come second.'.
+let cadenaDos = "I come first. ";
+cadenaDos += "I come second.";
+console.log(cadenaDos); // El resultado: 'I come first. I come second.'.
 
-                                            let primerTexto  = "I come first. ";
-                                            let seguntoTexto = "I come second.";
-                                            console.log(primerTexto += seguntoTexto); // El resultado: 'I come first. I come second.'.
+let primerTexto  = "I come first. ";
+let seguntoTexto = "I come second.";
+console.log(primerTexto += seguntoTexto); // El resultado: 'I come first. I come second.'.
 
-                                            const nombre = "freeCodeCamp";
-                                            const texto = "Hello, our name is " + nombre + ", how are you?";
-                                            console.log(texto); // El resultado: 'Hello, our name is freeCodeCamp, how are you?'.
-                                        </Code>
+const nombre = "freeCodeCamp";
+const texto = "Hello, our name is " + nombre + ", how are you?";
+console.log(texto); // El resultado: 'Hello, our name is freeCodeCamp, how are you?'.`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -361,12 +365,12 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador de igualdad <kbd>==</kbd> compara 
                                         dos valores y devuelve true (si) son equivalentes o false (no).
-                                        <Code>
-                                            1   ==  1  // true
-                                            1   ==  2  // false
-                                            1   == '1' // true
-                                            "3" ==  3  // true
-                                        </Code>
+<Code>
+{`1   ==  1  // true
+1   ==  2  // false
+1   == '1' // true
+"3" ==  3  // true`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -374,10 +378,10 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         A diferencia del operador de igualdad, el de igualdad estricta <kbd>===</kbd> compara 
                                         dos valores y devuelve true (si) sólo si son del mismo tipo de datos y son equivalentes o false (no)
-                                        <Code>
-                                            3 ===  3  // devuelve true porque JavaScript realiza la conversión de tipos de cadena a número. 
-                                            3 === '3' // devuelve false porque los tipos son diferentes y no se realiza la conversión de tipos.
-                                        </Code>
+<Code>
+{`3 ===  3  // devuelve true porque JavaScript realiza la conversión de tipos de cadena a número. 
+3 === '3' // devuelve false porque los tipos son diferentes y no se realiza la conversión de tipos.`}
+</Code>
                                         
                                     </div>
                                 </li>
@@ -386,17 +390,17 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Lo contrario a igualdad e igualdad estricta y se utilizan los operadores 
                                         <kbd>!=</kbd> y <kbd>!==</kbd> respectivamente.
-                                        <Code>
-                                            1 !=  2    // true
-                                            1 != "1"   // false
-                                            1 != '1'   // false
-                                            1 != true  // false
-                                            0 != false // false
+<Code>
+{`1 !=  2    // true
+1 != "1"   // false
+1 != '1'   // false
+1 != true  // false
+0 != false // false
 
-                                            3 !==  3  // false
-                                            3 !== '3' // true
-                                            4 !==  3  // true
-                                        </Code>
+3 !==  3  // false
+3 !== '3' // true
+4 !==  3  // true`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -404,12 +408,12 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador mayor que <kbd>&gt;</kbd> compara los valores de dos números. 
                                         Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
-                                        <Code>
-                                            5   &gt;  3  // true
-                                            7   &gt; '3' // true
-                                            2   &gt;  3  // false
-                                            '1' &gt;  9  // false
-                                        </Code>
+<Code>
+{`5   &gt;  3  // true
+7   &gt; '3' // true
+2   &gt;  3  // false
+'1' &gt;  9  // false`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -418,22 +422,22 @@ export default function Route() {
                                         
                                         El operador mayor o igual que <kbd>&gt;=</kbd> compara los valores de dos números. 
                                         Si el número de la izquierda es mayor que el número de la derecha, devuelve true. De lo contrario, regresa false.
-                                        <Code>
-                                            5   &gt;  3  // true
-                                            7   &gt; '3' // true
-                                            2   &gt;  3  // false
-                                            '1' &gt;  9  // false
-                                        </Code>
+<Code>
+{`5   &gt;  3  // true
+7   &gt; '3' // true
+2   &gt;  3  // false
+'1' &gt;  9  // false`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Operador de exponencia</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador para calcular la potencia de un número es <kbd>**</kbd>.
-                                        <Code>
-                                            const resultado = 3 ** 4;
-                                            console.log(resultado); // Mostrará: 81.
-                                        </Code>
+<Code>
+{`const resultado = 3 ** 4;
+console.log(resultado); // Mostrará: 81.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -441,7 +445,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador condicional (ternario) es el único operador en JavaScript que tiene tres operandos. 
                                         Este operador se usa con frecuencia como atajo para la instrucción if.
-                                        <Code>
+                                        <Code>{``}
                                             // condición ? expr1 : expr2;
 
                                             const condicion = true;
@@ -455,7 +459,7 @@ export default function Route() {
                                         El operador nullish coalescing <kbd>??</kbd> (de coalescencia nula) 
                                         es un operador lógico que retorna el operando de lado derecho cuando el operando de lado izquierdo es 
                                         null o undefined, y en caso contrario retorna el operando de lado izquierdo.
-                                        <Code>
+                                        <Code>{``}
                                             const condicion = null;
                                             condicion ?? 'Mostrar este texto en su lugar'; // Mostrará: 'Mostrar este texto en su lugar'.
 
@@ -469,7 +473,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador para validar si existe la propiedad de un array u objeto es <kbd>?</kbd>
                                         y se coloca después del nombre de la variable a consultar:
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const usuarios = {
                                                 Susana: { pais: 'VE', edad: 31},
@@ -493,7 +497,7 @@ export default function Route() {
                                         de los elementos desde el cero '0' y no desde el uno '1'.
                                         Para acceder a la posición de una letra de una cadena de texto, se puede utilizar los corchetes 
                                         para mostrar el caracter en esa posición específica:
-                                        <Code>
+                                        <Code>{``}
                                             const miTexto = "Cantidad de caracteres.";
                                             console.log(miTexto[0]); // Mostrará: C.
                                             console.log(miTexto[2]); // Mostrará: n.
@@ -507,7 +511,7 @@ export default function Route() {
                                         En JavaScript, los Strings son inmutables, lo que significa que 
                                         no se puede modificar una vez se haya creado, se tendría que reemplazar 
                                         todo el contenido de la variable. Por ejemplo:
-                                        <Code>
+                                        <Code>{``}
                                             let miTexto = "Susana";
                                             miTexto[0] = "Z"; // Mostrará un error.
                                             miTexto = "Zusana"; // Forma correcta.
@@ -523,7 +527,7 @@ export default function Route() {
                                         En Javascript las variables boleanas se escriben como <kbd>true</kbd> o <kbd>false</kbd> (Verdadero o falso) sin comillas, 
                                         son mutualmente excluyente. Si se sscribe con comillas <kbd>"true"</kbd> y <kbd>"false"</kbd> serán considerados valores 
                                         tipo string por Javascript.
-                                        <Code>
+                                        <Code>{``}
                                             const esVerdadero = false;
                                             const esDeDia = true;
                                         </Code>
@@ -538,7 +542,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Separador de números con guión bajo <kbd>_</kbd> para que se lea más facil en el código, 
                                         pero no afecta su representación en el calculo de valores:
-                                        <Code>
+                                        <Code>{``}
                                             const unNumeroSeparado = 100_000_000_000_000;
                                             // Mostrará: 100000000000000 sin los guines bajos.
                                             console.log(unNumeroSeparado);
@@ -549,7 +553,7 @@ export default function Route() {
                                     <h6>BigInt</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         En Javascript lse puede representar numeros grandes con BigInt.
-                                        <Code>
+                                        <Code>{``}
                                             const unNumeroGrande = 402938420492409240238420n; // Se puede representarcon una 'n' al final del número.
                                             const otroNumeroGrande = BigInt(23948240982409273520372); // Se puede utilizar esta otra forma.
                                             console.log(unNumeroGrande);
@@ -564,7 +568,7 @@ export default function Route() {
                                 <li>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Los arrays son un tipo de variable que permite guardar varias variables de diferentes tipos.
-                                        <Code>
+                                        <Code>{``}
                                             const miArray = ["Palabra", "Una frase larga", 1, 2.35];
                                             const unArrayDentro = [["Primer Array"], ["Segundo array"]];
                                         </Code>
@@ -575,7 +579,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Al igual que en los Strings, en los arrays tambien se puede acceder a su contenido 
                                         indicando la posición con corchetes.
-                                        <Code>
+                                        <Code>{``}
                                             const array = [50, 60, 70];
                                             console.log(array[0]); // Mostrará: 50.
                                             const data = array[1];
@@ -587,7 +591,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         A diferencia que los Strings, en los arrays se puede modificar el contenido 
                                         indicando la posición con corchetes.
-                                        <Code>
+                                        <Code>{``}
                                             const miArray = [50, 40, 30];
                                             miArray[0] = 15; // Modifica el elemento que está en la posición '0'.
                                         </Code>
@@ -597,7 +601,7 @@ export default function Route() {
                                     <h6 className="pt-2">Acceder a un array multidimensional mediante el índice</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Un array multidimensional es un array de arrays.
-                                        <Code>
+                                        <Code>{``}
                                             const arrayMulti = [
                                                 [1, 2, 3],
                                                 [4, 5, 6],
@@ -620,43 +624,151 @@ export default function Route() {
                                         Los <kbd>objetos</kbd> son similares a los <kbd>arrays</kbd>, excepto que en lugar de usar 
                                         índices para acceder y modificar sus datos, accedes a los datos en <kbd>objetos</kbd> a través de 
                                         propiedades (<kbd>properties</kbd>).
-                                        <Code>
-                                            {/* const cat = {
-                                                "name": "Whiskers",
-                                                "legs": 4,
-                                                "tails": 1,
-                                                "enemies": ["Water", "Dogs"]
-                                            }; */}
-                                        </Code>
+<Code>
+{`const cat = {
+    "name": "Whiskers",
+    "legs": 4,
+    "tails": 1,
+    "enemies": ["Water", "Dogs"]
+};`}
+</Code>
+                                        A veces, es posible que desees almacenar datos en una estructura de datos flexible. Un objeto de 
+                                        JavaScript es una forma de manejar datos flexibles. Permiten combinaciones arbitrarias de cadenas, 
+                                        números, booleanos, arreglos, funciones, y objetos.
+<Code>
+{`const miMusica = [
+  {
+    "artist": "Daft Punk",
+    "title": "Homework",
+    "release_year": 1997,
+    "formats": [ 
+      "CD", 
+      "Cassette", 
+      "LP"
+    ],
+    "gold": true
+  }
+];`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                    Los objetos pueden contener tanto objetos anidados como así también arreglos anidados. 
+                                    De manera similar a como se accede a los objetos anidados, la notación de corchetes 
+                                    de arreglos puede ser encadenada para acceder a arreglos anidados.
+<Code>
+{`const ourPets = [
+    {
+        animalType: "cat",
+        names: [
+        "Meowzer",
+        "Fluffy",
+        "Kit-Cat"
+        ]
+    },
+    {
+        animalType: "dog",
+        names: [
+        "Spot",
+        "Bowser",
+        "Frankie"
+        ]
+    }
+];
+
+ourPets[0].names[1];
+ourPets[1].names[0];`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Hay dos maneras de acceder a las propiedades de un objeto: notación de puntos (.) y 
-                                        notación de corchetes ([]), similar a un arreglo.
-                                        <Code>
-                                            {/*
-                                            const myObj = {
-                                                prop1: "val1",
-                                                prop2: "val2"
-                                            };
-                                            */}
+                                        notación de corchetes ([]), similar a un arreglo. En uso de corchetes se puede utilizar 
+                                        cuando la llave o clave de la propiedad tiene espacios en su nombre, Ejemplo: myObj["Space Name"];
+<Code>
+{`const myObj = {
+    prop1: "val1",
+    prop2: "val2"
+};
 
-                                            const prop1val = myObj.prop1;
-                                            const prop2val = myObj.prop2;
+const prop1val = myObj.prop1;
+const prop2val = myObj.prop2;
 
-                                            {/*
-                                            const myObj = {
-                                                "Space Name": "Kirk",
-                                                "More Space": "Spock",
-                                                "NoSpace": "USS Enterprise"
-                                            };
-                                            */}
+const myObj = {
+    "Space Name": "Kirk",
+    "More Space": "Spock",
+    "NoSpace": "USS Enterprise"
+};
 
-                                            myObj["Space Name"];
-                                            myObj['More Space'];
-                                            myObj["NoSpace"];
-                                        </Code>
+myObj["Space Name"];
+myObj['More Space'];
+myObj["NoSpace"];
+
+// Otro ejemplo:
+const ourStorage = {
+    "desk": {
+        "drawer": "stapler"
+    },
+    "cabinet": {
+        "top drawer": { 
+        "folder1": "a file",
+        "folder2": "secrets"
+        },
+        "bottom drawer": "soda"
+    }
+};
+ourStorage.cabinet["top drawer"].folder2;
+ourStorage.desk.drawer;`}
+</Code>
+Completa la función utilizando las reglas siguientes para modificar el objeto pasado a la función.
+
+Tu función debe devolver siempre el objeto records completo.
+Si value es una cadena vacía, elimina la propiedad prop dada del álbum.
+Si prop no es tracks y value no es una cadena vacía, asigna el value a la prop de ese álbum.
+Si prop es tracks y value no es una cadena vacía, agrega value al final del array de tracks existentes del álbum. Primero, si el álbum no tiene una propiedad tracks, asigne un array vacío. Luego añade el valor como el último elemento en el array de pistas del álbum.
+<Code>
+{`// Configuración
+const recordCollection = {
+  2548: {
+    albumTitle: 'Slippery When Wet',
+    artist: 'Bon Jovi',
+    tracks: ['Let It Rock', 'You Give Love a Bad Name']
+  },
+  2468: {
+    albumTitle: '1999',
+    artist: 'Prince',
+    tracks: ['1999', 'Little Red Corvette']
+  },
+  1245: {
+    artist: 'Robert Palmer',
+    tracks: []
+  },
+  5439: {
+    albumTitle: 'ABBA Gold'
+  }
+};
+
+// Cambia solo el código debajo de esta línea
+function updateRecords(records, id, prop, value) {
+    if (value == '') {
+        delete records[id][prop];
+    } 
+    if (prop != 'tracks' && value != '') {
+        records[id][prop] = value;
+    }
+    if (prop == 'tracks' && value != '') {
+        if (!records[id].hasOwnProperty(prop)) {
+            records[id][prop] = [];
+        }
+        records[id][prop].push(value);
+    }
+    return records;
+}
+
+updateRecords(recordCollection, 5439, 'artist', 'ABBA');`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -665,16 +777,14 @@ export default function Route() {
                                     Para verificar si una propiedad de un objeto dado existe o no, puedes utilizar el método 
                                     <kbd>.hasOwnProperty().someObject.hasOwnProperty(someProperty)</kbd>
                                     devuelve <kbd>true</kbd> o <kbd>false</kbd>, dependiendo si la propiedad es encontrada en el objeto o no.
-                                    <Code>
-                                        {/*
-                                        function checkForProperty(object, property) {
-                                            return object.hasOwnProperty(property);
-                                        }
-                                        
-                                        checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); // true
-                                        checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false
-                                        */}
-                                    </Code>
+<Code>
+{`function checkForProperty(object, property) {
+    return object.hasOwnProperty(property);
+}
+
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'top'); // true
+checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -691,7 +801,7 @@ export default function Route() {
                                             Un condicional <kbd>if</kbd> evalúa una expresión si es verdadera. 
                                             La palabra reservada <kbd>else</kbd> evalúa cuando la expresión del 
                                             <kbd>if</kbd> es falsa, pero no es obligatorio colocarlo.
-                                            <Code>
+                                            <Code>{``}
                                                 {/*
                                                 if (true) {
                                                     // Se ejecuta la declaración
@@ -723,7 +833,7 @@ export default function Route() {
                                             En el caso que haya más condiciones a evaluar, se pueden emplear las palabras reservadas 
                                             <kbd>else if</kbd> junto a la condición a ejecutar. Evalua la primera condición, luego la 
                                             segunda, etc, hasta que consiga la condición con valor sea verdadero.
-                                            <Code>
+                                            <Code>{``}
                                                 if (condicion1) {
                                                     // Bloque 1
                                                 } elseif (condicion2){
@@ -762,7 +872,7 @@ export default function Route() {
                                             ejecutada dentro de un bloque <kbd>case</kbd> y se ejecutará desde el primer valor de coincidencia 
                                             case hasta que un <kbd>break</kbd> sea encontrado. La declaración <kbd>default</kbd> 
                                             debe ser el último caso, cuando no se encuentre declaraciones <kbd>case</kbd> como el <kbd>else</kbd>.
-                                            <Code>
+                                            <Code>{``}
                                                 {/*
                                                 switch (fruta) {
                                                 case "Parchita":
@@ -785,7 +895,7 @@ export default function Route() {
                                                 las siguientes sentencias <kbd>case</kbd> serán ejecutadas hasta encontrar un <kbd>break</kbd>. 
                                                 Si tienes múltiples entradas con la misma salida, puedes representarlas en una sentencia <kbd>switch</kbd> como esta
                                             </p>
-                                            <Code>
+                                            <Code>{``}
                                                 {/*
                                                 let resultado = "";
                                                 switch (valor) {
@@ -805,7 +915,7 @@ export default function Route() {
                                         <h6 className="pt-2">try / catch</h6>
                                         <div className="border border-primary rounded pt-2 px-3">
                                             Manejo de errores
-                                            <Code>
+                                            <Code>{``}
                                                 {/*
                                                 // Se declara la función:
                                                 try {
@@ -827,7 +937,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para contar los caracteres de una cadena de texto o cantidad de elementos de un array.
                                         En el caso de los caracteres, tambien contará los espacios en blanco:
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const miTexto = "Cantidad de caracteres.";
                                             console.log(miTexto.length); // Mostrará: 26.
@@ -842,7 +952,7 @@ export default function Route() {
                                     <h6 className="pt-2">.push()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para insertar uno o muchos elementos al final de un array.
-                                        <Code>
+                                        <Code>{``}
                                             const array1 = [1, 2, 3];
                                             array1.push(4, 5); // Queda: array1 = [1, 2, 3, 4, 5];
 
@@ -855,7 +965,7 @@ export default function Route() {
                                     <h6 className="pt-2">.unshift()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para insertar uno o muchos elementos al principio de un array.
-                                        <Code>
+                                        <Code>{``}
                                             const array1 = [1, 2, 3];
                                             array1.unshift(4, 5); // Queda: array1 = [4, 5, 1, 2, 3];
 
@@ -868,7 +978,7 @@ export default function Route() {
                                     <h6 className="pt-2">.pop()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para eliminar el último elemento de un array.
-                                        <Code>
+                                        <Code>{``}
                                             const miArray = [1, 4, 6];
                                             const elemento = miArray.pop();
                                             console.log(miArray); // Mostrará el array modificado: [1, 4].
@@ -880,7 +990,7 @@ export default function Route() {
                                     <h6 className="pt-2">.shift()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para eliminar el primer elemento de un array.
-                                        <Code>
+                                        <Code>{``}
                                             const miArray = [1, 4, 6];
                                             const elemento = miArray.shift();
                                             console.log(miArray); // Mostrará el array modificado: [4, 6].
@@ -893,7 +1003,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza .include() para consultar si dentro de un array está el valor buscado.
                                         Es case sensitive, es decir, los valores tipo string debe ser exactamente igual para que dé el resultado deseado.
-                                        <Code>
+                                        <Code>{``}
                                             let numeros = [1, 2, 3, 4, 5];
                                             console.log(numeros.include(1)); // Mostrará: true.
                                             console.log(numeros.include(9)); // Mostrará: false.
@@ -904,17 +1014,17 @@ export default function Route() {
                                     <h6 className="pt-2">.flat(), .flatMap(), trimStart() y trimEnd()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza .flat() para aplanar una matris o arreglo de varios niveles.
-                                        <Code>
+                                        <Code>{``}
                                             const array = [1,1,2,3,4, [1,3,5,6,[1,2,4]]];
                                             console.log(array.flat(3));
                                         </Code>
                                         Se utiliza .flatMap() para aplanar una matris o arreglo de varios niveles y realizar ecuaciones en el proceso.
-                                        <Code>
+                                        <Code>{``}
                                             const array2 = [1,2,3,4,5];
                                             console.log(array2.flatMap(value =&lt; [value, value * 2]));
                                         </Code>
                                         Se utiliza .trimStart() y trimEnd() para quitar espacios en blanco antes o después de un string respectivamente.
-                                        <Code>
+                                        <Code>{``}
                                             const textoConEspacios = '      Hola      ';
                                             console.log(textoConEspacios.trimStart); // Mostrará: 'Hola      '.
                                             console.log(textoConEspacios.trimEnd); // Mostrará: '      Hola'.
@@ -925,7 +1035,7 @@ export default function Route() {
                                     <h6 className="pt-2">Set() y .add()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza .add() para agregar elementos a un objeto de tipo Set().
-                                        <Code>
+                                        <Code>{``}
                                             const lista = new Set();
                                             lista.add(1);
                                             lista.add(2).add(3);
@@ -937,7 +1047,7 @@ export default function Route() {
                                     <h6 className="pt-2">Object.entries()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza Object.entries() para transformar un objeto en un array.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
                                             console.log(Object.entries(paises)); 
@@ -956,7 +1066,7 @@ export default function Route() {
                                     <h6 className="pt-2">fromEntries()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para pasar de un array de arrays a un objeto.
-                                        <Code>
+                                        <Code>{``}
                                             const entradas = new Map(['name', 'Susana']), ['edad', 31];
                                             console.log(Object.fromEntries(entradas));
                                         </Code>
@@ -966,7 +1076,7 @@ export default function Route() {
                                     <h6 className="pt-2">Object.values()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza Object.values() para obtener solo los valores de un objeto en formato array.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
 
@@ -979,7 +1089,7 @@ export default function Route() {
                                     <h6 className="pt-2">window, global, selft y globalThis</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Para acceder al objeto global del navegador.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
 
@@ -996,7 +1106,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza String.padStart() y String.padEnd() para rellenar una cadena de caracteres, se le indican dos parámetros, 
                                         el primero será la cantidad de caracteres que debe tener la cadena al final, y el otro parámetro será el relleno.
-                                        <Code>
+                                        <Code>{``}
                                             const cadena = 'Holis';
 
                                             console.log(cadena.padStart(10. '!!')); // Mostrará: '!!!!!Holis'.
@@ -1008,7 +1118,7 @@ export default function Route() {
                                     <h6 className="pt-2">Trailing commas</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Trailing commas muestra los espacios vacíos de los elementos array.
-                                        <Code>
+                                        <Code>{``}
                                             const edades = [17, 76, 45, 32, , , 23];
 
                                             console.log(edades); // Mostrará: [17, 76, 45, 32, empty x2 , 23].
@@ -1017,20 +1127,28 @@ export default function Route() {
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">Regex</h6>
+                                    <h6 className="pt-2">Expresiones Regulares (Regex)</h6>
+                                    <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">
+                                        Ver más en documentación de MDN
+                                    </Link>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                    <Code>
-                                        const regex = /(\d{4})-(\d{2})-(\d{2})/;
-                                        const matchers = regex.exec("2022-01-01");
-                                        console.table(matchers);
-                                    </Code>
+                                    En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora para capturar
+                                    valores en grupo que estén dentro de una expresión regular. <br />
+                                    En el siguiente ejemplo, se validará una fecha de acuerdo a la cantidad de 
+                                    caracteres que tiene el grupo entre los guiones. Es decir, si en el primer grupo '(\d{4})' 
+                                    tiene 4 caracteres, pasará la validación 'match'.
+<Code>{` // Regex de manejo de fechas
+const regex = /(\d{4})-(\d{2})-(\d{2})/;
+const matchers = regex.exec("2024-01-01");
+console.table(matchers);`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">matchAll()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Uso de matchAll()
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const regex = /\b(Blanco)+\b/g;
                                             const colores = ['Verde', 'Rosado', 'Amarillo', 'blanco', 'Negro', 'Blanco'];
@@ -1045,16 +1163,14 @@ export default function Route() {
                                 <li>
                                     <h6 className="pt-2">Spread</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Para separar valores de un objeto.
-                                        <Code>
-                                            {/*
-                                            const user = { usuario: 'Susana', edad:31, pais: 'VE'};
-                                            const { usuario, ...valores } = user;
+                                        En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora de en 
+                                        <kbd>spread</kbd> para copiar y separar los valores de un objeto.
+<Code>{`const user = { usuario: 'Susana', edad:31, pais: 'VE'};
+const { usuario, ...valores } = user;
 
-                                            console.log(usuario); // Mostrará: 'Susana'.
-                                            console.log(valores); // Mostrará: {edad:31, pais: 'VE'}
-                                            */}
-                                        </Code>
+console.log(usuario); // Mostrará: 'Susana'.
+console.log(valores); // Mostrará: {edad:31, pais: 'VE'}`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -1066,7 +1182,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Javascript permite crear funciones personalizadas para poder reutilizar 
                                         codigo.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declara la función:
                                             function nombreDeFuncion() {
@@ -1084,7 +1200,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se puede enviar variables que se utilizaran dentro de la función, 
                                         a estas variables se le llama parámetros.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declara la función:
                                             function miFuncion(param1, param2) {
@@ -1102,7 +1218,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se puede enviar variables que se utilizaran dentro de la función, 
                                         a estas variables se le llama parámetros.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declara la función:
                                             function sumarTres(num) {
@@ -1121,7 +1237,7 @@ export default function Route() {
                                     <h6 className="pt-2">Funciones asíncronas</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Uso de promesas, async y await.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declara la función que será la promesa:
                                             const miAsincrona = () => {
@@ -1147,7 +1263,7 @@ export default function Route() {
                                     <h6 className="pt-2">.allsettled()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Uso de promise allsettled .
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declaran las funciones de promesa:
                                             const promesaUno = new Promise((resolve, reject) => reject('Reject'));
@@ -1163,28 +1279,29 @@ export default function Route() {
                                 </li>
                                 <li>
                                     <h6 className="pt-2">.finally()</h6>
+                                        En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora
+                                        a las promesas. Finally permitirá mostrar una funciona anonima para 
+                                        que ejecute algo cuando termine la promesa.
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Uso de Finally.
-                                        <Code>
-                                            {/*
-                                            // Se declara la función que será la promesa:
-                                            const miAsincrona = () => {
-                                                return new Promise((resolve, reject) => {
-                                                    if (true) { // La pregunta
-                                                        setTimeout(() => resolve('Es asíncrona!'), 2000); // True
-                                                    } else {
-                                                        reject(new Error('Error!')); // False
-                                                    }
-                                                })
-                                            }
+<Code>{`
+// Se declara la función que será la promesa:
+const miAsincrona = () => {
+    return new Promise((resolve, reject) => {
+        if (true) { // La pregunta
+            setTimeout(() => resolve('Es asíncrona!'), 2000); // True
+        } else {
+            reject(new Error('Error!')); // False
+        }
+    })
+}
 
-                                            // Se llama la promesa y se utiliza el then(), catch() y finally()
-                                            miAsincrona()
-                                                .then(response => console.log(response))
-                                                .catch(error => console.log(error))
-                                                .finally(() => console.log('Ha terminado!'));
-                                            */}
-                                        </Code>
+// Se llama la promesa y se utiliza el then(), catch() y finally()
+miAsincrona()
+    .then(response => console.log(response))
+    .catch(error => console.log(error))
+    .finally(() => console.log('Ha terminado!'));
+`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -1197,7 +1314,7 @@ export default function Route() {
                                         Scope se refiere a la capacidad de visibilidad de la variable. Cuando una variable 
                                         es global, puede ser consultada en todo el código. Las variables creadas con 
                                         <kbd>let</kbd> y <kbd>const</kbd> son autimáticamente globales mientras el codigo se esté ejecutando.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const global = "Hola";
 
@@ -1217,7 +1334,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Scope se refiere a la capacidad de visibilidad de la variable que 
                                         puede ser consultada en su zona local del código.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Se declara la función:
                                             function nombreDeFuncion() {
@@ -1237,7 +1354,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Scope se refiere a la capacidad de visibilidad de la variable que 
                                         puede ser consultada en su zona local del código.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             const miVar = "Sombrero";
                                             // Se declara la función:
@@ -1262,7 +1379,7 @@ export default function Route() {
                                         Palabras reservadas para importar y exportar fragmentos de codigo como módulos. 
                                         En archivos de javascript vanilla, se debe crear el archivo package.json y agregar 
                                         la linea <kbd>"type": "module"</kbd> para que acepte los módulos.
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Declarar un modulo a exportar
                                             // Nombre del archivo '/modulo_nuevo.js'
@@ -1286,7 +1403,7 @@ export default function Route() {
                                     <h6 className="pt-2">Dinamic import</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Para importar los elementos de forma dinamica mientas se carga el sitio web
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // ejemplo nombre del archivo 'modulo.js'.
                                             export function hola() {
@@ -1298,7 +1415,7 @@ export default function Route() {
 
                                             {/*
                                             // ejemplo nombre del archivo 'miApp.js'.
-                                            const boton = document.getElementById('miBoton');
+                                            const boton = document.getElementBñyId('miBoton');
                                             boton.addEventListener('click', asycn function () {
                                                 const module = await import('./module.js');
                                                 console.log(module);
@@ -1307,7 +1424,7 @@ export default function Route() {
                                             */}
                                         </Code>
                                         Otra forma de importar un modulo directamente en el archivo HTML
-                                        <Code>
+                                        <Code>{``}
                                             &lt;!DOCTYPE html&gt;
                                             &lt;html lang="en"&gt;
                                             &lt;head&gt;
@@ -1331,7 +1448,7 @@ export default function Route() {
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Tipo de función que retorna valores recordando el estado por lo que no será 
                                         necesario colocar el incide el caso que se quiera iterar en un arreglo
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             // Declara la funcion 
                                             function iterar(array) {
@@ -1352,34 +1469,30 @@ export default function Route() {
                                 <li>
                                     <h6 className="pt-2">Generator con async</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Tipo de función que retorna valores recordando el estado por lo que no será 
-                                        necesario colocar el incide el caso que se quiera iterar en un arreglo
-                                        <Code>
-                                            {/*
-                                            // Declara la funcion 
-                                            async function* otroGenerador() {
-                                                yield await Promise.resolve(1);
-                                                yield await Promise.resolve(2);
-                                                yield await Promise.resolve(3);
-                                            }
+                                        En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora a 
+                                        los <kbd>Generadores</kbd> para que sea asíncrona 'Async Generators'.
+<Code>{`// Declara la funcion 
+async function* otroGenerador() {
+    yield await Promise.resolve(1);
+    yield await Promise.resolve(2);
+    yield await Promise.resolve(3);
+}
 
-                                            const otro = otroGenerador();
+const otro = otroGenerador();
 
-                                            otro.next().then(response => console.log(response.value));
-                                            otro.next().then(response => console.log(response.value));
-                                            otro.next().then(response => console.log(response.value));
-                                            */}
-
-                                            {/*
-                                            // Declara la funcion 
-                                            async function* arrayDeNombres(array) {
-                                                for await (let value of array) {
-                                                    console.log(value);
-                                                }
-                                            }
-                                            const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);
-                                            */}
-                                        </Code>
+otro.next().then(response => console.log(response.value));
+otro.next().then(response => console.log(response.value));
+otro.next().then(response => console.log(response.value));`}
+</Code>
+                                        Utilizando un bucle <kbd>for</kbd>:
+<Code>{`// Declara la funcion 
+async function* arrayDeNombres(array) {
+    for await (let value of array) {
+        console.log(value);
+    }
+}
+const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -1389,7 +1502,7 @@ export default function Route() {
                                 <li>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Concepto
-                                        <Code>
+                                        <Code>{``}
                                             //Declara la clase
                                             className Usuario {};
 
@@ -1416,7 +1529,7 @@ export default function Route() {
                                     <h6 className="pt-2">Herencias</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Concepto
-                                        <Code>
+                                        <Code>{``}
                                             {/*
                                             //Declara la clase
                                             className Usuario {
