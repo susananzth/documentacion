@@ -1014,6 +1014,86 @@ do {
 </Code>
                                     </div>
                                 </li>
+                                <li>
+                                    <h6>Reemplazo de bucle por recursión</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Se puede crear una función que se llame a sí misma y a este concepto 
+                                        se le llama recursión
+<Code>
+{`function multiply(arr, n) {
+    let product = 1;
+    for (let i = 0; i < n; i++) {
+        product *= arr[i];
+    }
+    return product;
+}
+// Se puede reemplazar el bucle for por recursión
+function multiply(arr, n) {
+    if (n <= 0) {
+        return 1;
+    } else {
+        return multiply(arr, n - 1) * arr[n - 1];
+    }
+}
+function sum(arr, n) {
+    if (n <= 0) {
+        return 0;
+    } else {
+        return sum(arr, n - 1) + arr[n - 1];
+    }
+}`}
+</Code>
+<Code>
+{`// Ejercicio
+const contacts = [
+    {
+        firstName: "Akira",
+        lastName: "Laine",
+        number: "0543236543",
+        likes: ["Pizza", "Coding", "Brownie Points"],
+    },
+    {
+        firstName: "Harry",
+        lastName: "Potter",
+        number: "0994372684",
+        likes: ["Hogwarts", "Magic", "Hagrid"],
+    },
+    {
+        firstName: "Sherlock",
+        lastName: "Holmes",
+        number: "0487345643",
+        likes: ["Intriguing Cases", "Violin"],
+    },
+    {
+        firstName: "Kristian",
+        lastName: "Vos",
+        number: "unknown",
+        likes: ["JavaScript", "Gaming", "Foxes"],
+    },
+];
+
+function lookUpProfile(name, prop, index = 0) {
+    // Cambia solo el código debajo de esta línea
+    if (index >= contacts.length) {
+        return "No such contact";
+    }
+
+    if (contacts[index].firstName === name) {
+        if (contacts[index].hasOwnProperty(prop)) {
+            return contacts[index][prop];
+        } else {
+            return "No such property";
+        }
+    }
+
+    return lookUpProfile(name, prop, index + 1);
+    // Cambia solo el código encima de esta línea
+}
+
+lookUpProfile("Akira", "likes");`}
+</Code>
+                                    </div>
+                                </li>
                             </AccordionItem>
                         </li>
                         <li className="accordion">
