@@ -931,6 +931,82 @@ checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false`}
                             </AccordionItem>
                         </li>
                         <li className="accordion">
+                            <AccordionItem id="loops" title="Bucles">
+                                Se utilizan los bucles para ejecutar un mismo bloque de código multiples veces.
+                                <li className="mt-3">
+                                    <h6>Bucle while (Mientras)</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Este bucle permite ejecutar el bloque de código mientras la condicion sea verdadera.
+<Code>
+{`const miArray = [];
+let i = 0;
+
+// Mientras i sea menor que 5, ejecuta el bloque de código.
+while (i < 5) {
+    miArray.push(i);
+    i++;
+}`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6>Bucle for (Por)</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Este bucle permite ejecutar el bloque de código por una cantidad de veces.
+                                        Este se declaran con tres expresiones opcionales separadas por punto y 
+                                        coma: <kbd>for (a; b; c)</kbd>, donde <kbd>a</kbd> es la sentencia de 
+                                        inicialización, <kbd>b</kbd> es la sentencia condicional, y <kbd>c</kbd> es la expresión final.
+<Code>
+{`const miArray = [];
+
+for (let i = 0; i < 5; i++) {
+  miArray.push(i);
+}
+
+// Un ejemplo iterando en numeros impares
+const miArray = [];
+
+for (let i = 0; i < 10; i += 2) {
+    miArray.push(i);
+}
+
+// Iterar en un arreglo
+const arr = [10, 9, 8, 7, 6];
+
+for (let i = 0; i < arr.length; i++) {
+   console.log(arr[i]);
+}
+const arr = [
+    [1, 2], [3, 4], [5, 6]
+];
+
+for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+    console.log(arr[i][j]);
+    }
+}`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6>Bucle do..while (Haz... mientras)</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Este bucle permite ejecutar el bloque de código primero y luego revisa si 
+                                        la condicion es verdadera para volver a ejecutar el ciclo.
+<Code>
+{`const miArray = [];
+let i = 0;
+
+do {
+    miArray.push(i);
+    i++;
+} while (i < 5);`}
+</Code>
+                                    </div>
+                                </li>
+                            </AccordionItem>
+                        </li>
+                        <li className="accordion">
                             <AccordionItem id="properties" title="Propiedades o funciones nativas">
                                 <li>
                                     <h6 className="pt-2">.length</h6>
