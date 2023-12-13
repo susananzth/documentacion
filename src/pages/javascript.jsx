@@ -912,19 +912,29 @@ checkForProperty({ top: 'hat', bottom: 'pants' }, 'middle'); // false`}
                                         </div>
                                     </li>
                                     <li>
-                                        <h6 className="pt-2">try / catch</h6>
+                                        <h6 className="pt-2">try ... catch</h6>
                                         <div className="border border-primary rounded pt-2 px-3">
-                                            Manejo de errores
-                                            <Code>{``}
-                                                {/*
-                                                // Se declara la función:
-                                                try {
-                                                    hello();
-                                                } catch {
-                                                    console.log(error)
-                                                }
-                                                */}
-                                            </Code>
+                                            En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>try...catch</kbd> 
+                                            para manejo de errores. Donde <kbd>try</kbd> significa 'Intenta' y <kbd>catch</kbd> 
+                                            captura el error si el intento ha fallado.
+                                            <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/try...catch">
+                                                Ver más en documentación de MDN
+                                            </Link>
+<Code>
+{`try {
+    hola();
+} catch (error) { // (error) es opcional
+    console.log(error);
+    // Mostrará: ReferenceError: hola is not defined
+}
+
+try {
+    hola();
+} catch {
+    console.log("Hay un error");
+}
+`}
+</Code>
                                         </div>
                                     </li>
                                 </ul>
@@ -1087,24 +1097,65 @@ do {
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">.flat(), .flatMap(), trimStart() y trimEnd()</h6>
+                                    <h6 className="pt-2">.flat() | Array.prototype.flat()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza .flat() para aplanar una matris o arreglo de varios niveles.
-                                        <Code>{``}
-                                            const array = [1,1,2,3,4, [1,3,5,6,[1,2,4]]];
-                                            console.log(array.flat(3));
-                                        </Code>
-                                        Se utiliza .flatMap() para aplanar una matris o arreglo de varios niveles y realizar ecuaciones en el proceso.
-                                        <Code>{``}
-                                            const array2 = [1,2,3,4,5];
-                                            console.log(array2.flatMap(value =&lt; [value, value * 2]));
-                                        </Code>
-                                        Se utiliza .trimStart() y trimEnd() para quitar espacios en blanco antes o después de un string respectivamente.
-                                        <Code>{``}
-                                            const textoConEspacios = '      Hola      ';
-                                            console.log(textoConEspacios.trimStart); // Mostrará: 'Hola      '.
-                                            console.log(textoConEspacios.trimEnd); // Mostrará: '      Hola'.
-                                        </Code>
+                                        Se utiliza <kbd>.flat()</kbd> para aplanar una matriz o arreglo de varios niveles. 
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flat">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const array = [1,1,2,3,4, [1,3,5,6,[1,2,4]]];
+console.log(array.flat(3));
+// Mostrará: [1, 1, 2, 3, 4, 1, 3, 5, 6, 1, 2, 4].`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.flatMap() | Array.prototype.flatMap()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.flatMap()</kbd> 
+                                        y se utiliza para aplanar una matriz o arreglo de varios niveles y realizar ecuaciones en el proceso. 
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const array1 = [1,2,3,4,5];
+console.log(array1.flatMap(value => [value, value * 2]));
+// Mostrará: [1, 2, 2, 4, 3, 6, 4, 8, 5, 10].
+
+const array2 = [1, 2, 1];
+const result = array2.flatMap((value) => (value === 2 ? [2, 2] : 1));
+console.log(result);
+// Mostrará: [1, 2, 2, 1].`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.trimStart() | String.prototype.trimStart()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.trimStart()</kbd> 
+                                        y se utiliza para quitar espacios en blanco al inicio de una cadena de texto o <kbd>string</kbd>.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const textoConEspacios = '      Hola      ';
+console.log(textoConEspacios.trimStart); // Mostrará: 'Hola      '.`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.trimEnd() | String.prototype.trimEnd()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.trimEnd()</kbd> 
+                                        y Se utiliza para quitar espacios en blanco al final de una cadena de texto o <kbd>string</kbd>.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd">
+                                            Ver más en documentación de MDN
+                                        </Link>
+                                        <Code>
+{`const textoConEspacios = '      Hola      ';
+console.log(textoConEspacios.trimEnd); // Mostrará: '      Hola'.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1139,13 +1190,17 @@ do {
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">fromEntries()</h6>
+                                    <h6 className="pt-2">.fromEntries() | Object.fromEntries()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza para pasar de un array de arrays a un objeto.
-                                        <Code>{``}
-                                            const entradas = new Map(['name', 'Susana']), ['edad', 31];
-                                            console.log(Object.fromEntries(entradas));
-                                        </Code>
+                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.fromEntries()</kbd> 
+                                        y se utiliza para pasar de un array de arrays a un objeto.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const entradas = new Map(['name', 'Susana']), ['edad', 31];
+console.log(Object.fromEntries(entradas));`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1714,9 +1769,15 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
                     </AccordionItem>
                     <AccordionItem id="sources" title="Fuentes">
                         <li>
+                            <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" 
+                                target="_blank" rel="noopener noreferrer">
+                                <span className="badge text-bg-info">12/2023</span> Javascript | MDN Web Docs
+                            </a>
+                        </li>
+                        <li>
                             <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" 
                                 target="_blank" rel="noopener noreferrer">
-                                <span className="badge text-bg-info">09/2023</span> Javascript algorithms and data structures | Freecodecamp
+                                <span className="badge text-bg-info">12/2023</span> Javascript algorithms and data structures | Freecodecamp
                             </a>
                         </li>
                         <li>
