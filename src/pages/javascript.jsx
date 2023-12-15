@@ -444,13 +444,36 @@ console.log(resultado); // Mostrará: 81.`}
                                     <h6 className="pt-2">Operador ternario</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         El operador condicional (ternario) es el único operador en JavaScript que tiene tres operandos. 
-                                        Este operador se usa con frecuencia como atajo para la instrucción if.
-                                        <Code>{``}
-                                            // condición ? expr1 : expr2;
+                                        Este operador se usa con frecuencia como atajo para la instrucción if. La sintaxis 
+                                        es <kbd>a ? b : c</kbd> donde <kbd>a</kbd> es la condición, <kbd>b</kbd> es el código a 
+                                        ejecutar cuando la condición devuelve <kbd>true</kbd>, y <kbd>c</kbd> es el código a 
+                                        ejecutar cuando la condición devuelve <kbd>false</kbd>.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Conditional_operator">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>{`const condicion = true;
+condicion ? 'Es verdad' : ' Es falso';
 
-                                            const condicion = true;
-                                            condicion ? 'Es verdad' : ' Es falso';
-                                        </Code>
+// Ejemplo con if 
+function findGreater(a, b) {
+    if (a > b) {
+        return "a is greater";
+    }
+    else {
+        return "b is greater or equal";
+    }
+}
+// Cambiando a operador ternario:
+function findGreater(a, b) {
+    return a > b ? "a is greater" : "b is greater or equal";
+}
+// tambien se puede encadenar como una condicion if elseif else:
+function findGreaterOrEqual(a, b) {
+    return (a === b) ? "a and b are equal" 
+      : (a > b) ? "a is greater" 
+      : "b is greater";
+}`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -471,19 +494,28 @@ console.log(resultado); // Mostrará: 81.`}
                                 <li>
                                     <h6 className="pt-2">Optional chaining</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        El operador para validar si existe la propiedad de un array u objeto es <kbd>?</kbd>
-                                        y se coloca después del nombre de la variable a consultar:
-                                        <Code>{``}
-                                            {/*
-                                            const usuarios = {
-                                                Susana: { pais: 'VE', edad: 31},
-                                                Maria: { pais: 'VE', edad: 45},
-                                                Pedro: { pais: 'VE', edad: 20},
-                                            }*/}
-                                            console.log(usuarios.Susana.ciudad); // Mostrará: undefined.
-                                            console.log(usuarios.Pablo.pais); // Dará error y detendrá la ejecusión del sistema.
-                                            console.log(usuarios?.Pablo?.pais); // Mostrará: undefined y no dará error.
-                                        </Code>
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el operador 
+                                        para validar si existe la propiedad de un array u objeto es <kbd>?</kbd>
+                                        y se coloca después del nombre de la variable a consultar.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Optional_chaining">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+const usuarios = {
+    Susana: { pais: 'VE', edad: 31},
+    Maria: { pais: 'VE', edad: 45},
+    Pedro: { pais: 'VE', edad: 20},
+console.log(usuarios.Susana.ciudad); // Mostrará: undefined.
+console.log(usuarios.Pablo.pais); // Dará error y detendrá la ejecusión del sistema.
+console.log(usuarios?.Pablo?.pais); // Mostrará: undefined y no dará error.
+// Otros usos:
+obj?.prop // Saber si la propiedad de ese objeto existe.
+obj?.[expr]  // Saber si la expresión de ese objeto existe.
+arr?.[index]  // Saber si el index de ese array existe.
+func?.(args) //  // Saber si el argumento de esa función existe.
+`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -540,13 +572,15 @@ console.log(resultado); // Mostrará: 81.`}
                                 <li>
                                     <h6>Separar numeros</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Separador de números con guión bajo <kbd>_</kbd> para que se lea más facil en el código, 
-                                        pero no afecta su representación en el calculo de valores:
-                                        <Code>{``}
-                                            const unNumeroSeparado = 100_000_000_000_000;
-                                            // Mostrará: 100000000000000 sin los guines bajos.
-                                            console.log(unNumeroSeparado);
-                                        </Code>
+                                        En Junio del 2021, en los ECMAScript 12 (ES12) se agregó el separador 
+                                        de números con guión bajo <kbd>_</kbd> para que se lea más facil en el código, 
+                                        pero no afecta su representación en el cálculo de valores:
+<Code>
+{`const unNumeroSeparado = 100_000_000_000_000;
+// Mostrará: 100000000000000 sin los guines bajos.
+console.log(unNumeroSeparado);
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1044,6 +1078,18 @@ function sum(arr, n) {
 }`}
 </Code>
 <Code>
+{` // Ejercicio de recursiva con número aleatorio:
+function rangeOfNumbers(startNum, endNum) {
+    if (endNum < startNum) {
+        return [];
+    } else {
+          const numbers = rangeOfNumbers(startNum, endNum - 1);
+          numbers.push(endNum);
+          return numbers;
+    }
+}`}
+</Code>
+<Code>
 {`// Ejercicio
 const contacts = [
     {
@@ -1299,17 +1345,37 @@ console.log(Object.fromEntries(entradas));`}
                                 <li>
                                     <h6 className="pt-2">window, global, selft y globalThis</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Para acceder al objeto global del navegador.
-                                        <Code>{``}
-                                            {/*
-                                            const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el
+                                        uso de <kbd>globalThis</kbd> para acceder al objeto global del navegador.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/globalThis">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
 
-                                            console.log(window); // Accede a los elementos del navegador.
-                                            console.log(global); // Accede a los elementos de node.
-                                            console.log(selft); // Accede a los elementos de webworker.
-                                            console.log(globalThis); // Accede a todos los elementos englobando window, global y seflt.
-                                            */}
-                                        </Code>
+console.log(window); // Accede a los elementos del navegador.
+console.log(global); // Accede a los elementos de node.
+console.log(selft); // Accede a los elementos de webworker.
+console.log(globalThis); // Accede a todos los elementos englobando window, global y seflt.
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.replaceAll() | String.prototype.replaceAll()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2021, en los ECMAScript 12 (ES12) se agregó el  
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+const string = "Esta es, es una cadena de texto";
+const stringSeparado = string.replaceAll("es", "is");
+console.log.(stringSeparado);
+// Mostrará: Esta is, is una cadena de texto
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1356,19 +1422,23 @@ console.table(matchers);`}
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">matchAll()</h6>
+                                    <h6 className="pt-2">.matchAll() | String.prototype.matchAll()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Uso de matchAll()
-                                        <Code>{``}
-                                            {/*
-                                            const regex = /\b(Blanco)+\b/g;
-                                            const colores = ['Verde', 'Rosado', 'Amarillo', 'blanco', 'Negro', 'Blanco'];
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el <kbd>matchAll()</kbd> 
+                                        para generar diferentes reglas para filtrar o buscar según sea el caso. 
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+const regex = /\b(Blanco)+\b/g;
+const colores = 'Verde, Rosado, Amarillo, blanco, Negro, Blanco';
 
-                                            for (const match of colores.matchAll(regex)) {
-                                                console.log(match);
-                                            }
-                                            */}
-                                        </Code>
+for (const match of colores.matchAll(regex)) {
+    console.log(match);
+}
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1381,6 +1451,56 @@ const { usuario, ...valores } = user;
 
 console.log(usuario); // Mostrará: 'Susana'.
 console.log(valores); // Mostrará: {edad:31, pais: 'VE'}`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Math.random()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Función global de Javascript para generar un número decimal aleatorio 
+                                        entre 0 y 1, pero nunca 1 sino cerca de 1.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Math/random">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`console.log(Math.random());
+// Mostrará un número entre 0 y <1 como 0.42124407248267604.
+
+// Para devolver un número entero, se multiplica x 10 y se redondea:
+Math.floor(Math.random() * 10);
+
+// Para obtener un número aleatorio pero con un valor máximo y mñinimo:
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">parseInt()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Función global de Javascript convertir un string a un entero.
+                                        Un argumento que se puede añadir es <kbd>Radix</kbd> y este puede ser un entero 
+                                        entre 2 y 36
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/parseInt">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+parseInt(string, radix);
+const a = parseInt("007");
+const a = parseInt("11", 2);
+parseInt("FXX123", 16);
+parseInt("Hello", 8); // Mostrará NaN. No es un número en absoluto.
+
+// Una calculadora de binario a entero:
+function convertToInteger(str) {
+    return parseInt(str, 2);
+}
+  
+convertToInteger("10011");
+`}
 </Code>
                                     </div>
                                 </li>
@@ -1471,21 +1591,32 @@ console.log(valores); // Mostrará: {edad:31, pais: 'VE'}`}
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">.allsettled()</h6>
+                                    <h6 className="pt-2">.allSettled() | Promise.allSettled()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Uso de promise allsettled .
-                                        <Code>{``}
-                                            {/*
-                                            // Se declaran las funciones de promesa:
-                                            const promesaUno = new Promise((resolve, reject) => reject('Reject'));
-                                            const promesaDos = new Promise((resolve, reject) => resolve('Resolve'));
-                                            const promesatres = new Promise((resolve, reject) => resolve('Resolve 2'));
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el
+                                        uso de promise con <kbd>.allSettled()</kbd> (Si todo ha sido resuelto).
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`// Se declaran las funciones de promesa:
+const promesaUno = new Promise((resolve, reject) => reject('Reject'));
+const promesaDos = new Promise((resolve, reject) => resolve('Resolve'));
+const promesatres = new Promise((resolve, reject) => resolve('Resolve 2'));
 
-                                            // Se pasan en un array todas las promesas
-                                            Promise.allSettled([promesaUno, promesaDos, promesatres])
-                                                then(response => console.log(response));
-                                            */}
-                                        </Code>
+// Se pasan en un array todas las promesas
+Promise.allSettled([promesaUno, promesaDos, promesatres])
+    .then(response => console.log(response));
+/*
+* Muestra: 
+* [
+*   {status: 'rejected', reason: 'Reject'},
+*   {status: 'fulfilled', value: 'Resolve'},
+*   {status: 'fulfilled', value: 'Resolve 2'}
+* ]
+*/
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1511,6 +1642,29 @@ miAsincrona()
     .then(response => console.log(response))
     .catch(error => console.log(error))
     .finally(() => console.log('Ha terminado!'));
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.any() | Promise.any()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2021, en los ECMAScript 12 (ES12) se agregó el
+                                        uso de promise con <kbd>.any()</kbd> (Cualquiera), donde se le ingresa 
+                                        un array de promesas y retornará la primera que haya sido satisfactoria.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/any">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`// Se declaran las funciones de promesa:
+const promesaUno = new Promise((resolve, reject) => reject('Reject'));
+const promesaDos = new Promise((resolve, reject) => resolve('Resolve'));
+const promesatres = new Promise((resolve, reject) => resolve('Resolve 2'));
+
+// Se pasan en un array todas las promesas
+Promise.any([promesaUno, promesaDos, promesatres])
+    .then(response => console.log(response));
+// Muestra: Resolve.
 `}
 </Code>
                                     </div>
@@ -1611,44 +1765,57 @@ miAsincrona()
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">Dinamic import</h6>
+                                    <h6 className="pt-2">Dynamic import</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Para importar los elementos de forma dinamica mientas se carga el sitio web
-                                        <Code>{``}
-                                            {/*
-                                            // ejemplo nombre del archivo 'modulo.js'.
-                                            export function hola() {
-                                                console.log('Hola mundo');
-                                            }
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el 
+                                        importe dinámico de elementos de mientas se carga el sitio web.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import#import_a_module_for_its_side_effects_only">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+(async () => {
+    if (somethingIsTrue) {
+        // import module for side effects
+        await import("/modules/my-module.js");
+    }
+})();
+`}
+</Code>
+<Code>
+{`// ejemplo nombre del archivo 'modulo.js'.
+export function hola() {
+    console.log('Hola mundo');
+}
 
-                                            export default hola;
-                                            */}
+export default hola;
 
-                                            {/*
-                                            // ejemplo nombre del archivo 'miApp.js'.
-                                            const boton = document.getElementBñyId('miBoton');
-                                            boton.addEventListener('click', asycn function () {
-                                                const module = await import('./module.js');
-                                                console.log(module);
-                                                module.hola();
-                                            })
-                                            */}
-                                        </Code>
+// ejemplo nombre del archivo 'miApp.js'.
+const boton = document.getElementById('miBoton');
+boton.addEventListener('click', asycn function () {
+    const module = await import('./module.js');
+    console.log(module);
+    module.hola();
+})
+`}
+</Code>
                                         Otra forma de importar un modulo directamente en el archivo HTML
-                                        <Code>{``}
-                                            &lt;!DOCTYPE html&gt;
-                                            &lt;html lang="en"&gt;
-                                            &lt;head&gt;
-                                                &lt;meta charset="UTF-8"&gt;
-                                                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                                                &lt;title&gt;Dinamic import&lt;/title&gt;
-                                            &lt;/head&gt;
-                                            &lt;body&gt;
-                                                &lt;button id="miBoton"&gt;Click&lt;/button&gt;
-                                                &lt;script type="module" src="miApp.js"&gt;&lt;/script&gt;
-                                            &lt;/body&gt;
-                                            &lt;/html&gt;
-                                        </Code>
+<Code>
+{`
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic import</title>
+</head>
+<body>
+    <button id="miBoton">Click</button>
+    <script type="module" src="miApp.js"></script>
+</body>
+</html>
+`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -1722,7 +1889,7 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
 
                                             {/*
                                             //Declara la clase
-                                            className Usuario {
+                                            class Usuario {
                                                 saludos() {
                                                     return "Hola";
                                                 }
@@ -1743,7 +1910,7 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
                                         <Code>{``}
                                             {/*
                                             //Declara la clase
-                                            className Usuario {
+                                            class Usuario {
                                                 // Constructor
                                                 constructor() {
                                                     console.log("Me ejecuto solo cuando llaman a la clase")
@@ -1761,7 +1928,7 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
 
                                             {/*
                                             //Declara la clase
-                                            className Usuario {
+                                            class Usuario {
                                                 // Constructor
                                                 constructor(nombre) {
                                                     this.nombre = nombre;
@@ -1782,7 +1949,7 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
 
                                             {/*
                                             //Declara la clase
-                                            className Usuario {
+                                            class Usuario {
                                                 // Constructor
                                                 constructor(nombre, edad) {
                                                     this.nombre = nombre;
@@ -1808,9 +1975,54 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
 
                                             // Instancia del objeto
                                             const objeto = new Usuario('Susana', 31);
-                                            console.log(object.uEdad); // Mostrará: 31.
-                                            console.log(object.uEdad = 30); // Mostrará: 30.
+                                            console.log(objeto.uEdad); // Mostrará: 31.
+                                            console.log(objeto.uEdad = 30); // Mostrará: 30.
                                             */}
+                                        </Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Métodos privados | Private class fields</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2021, en los ECMAScript 12 (ES12) se agregó el
+                                        uso de <kbd>#</kbd> para definir cuando un método de una clase es 
+                                        privada.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Private_properties">
+                                            Ver más en documentación de MDN
+                                        </Link>
+                                        <Code>
+                                            {`
+                                            //Declara la clase
+                                            class Usuario {
+                                                // Constructor
+                                                constructor(nombre, edad) {
+                                                    this.nombre = nombre;
+                                                    this.edad = edad;
+                                                }
+
+                                                fragmento() {
+                                                    return "Hola";
+                                                }
+
+                                                // Métodos privados
+                                                #saludos() {
+                                                    return \`${this.fragmento} ${this.name}\`;
+                                                }
+
+                                                get #uEdad() {
+                                                    return this.edad;
+                                                }
+
+                                                set #uEdad(n) {
+                                                    this.edad = n;
+                                                }
+                                            };
+
+                                            // Instancia del objeto
+                                            const objeto = new Usuario('Susana', 31);
+                                            console.log(objeto.uEdad); // Mostrará: undefined.
+                                            console.log(objeto.uEdad = 30); // Mostrará: undefined.
+                                            `}
                                         </Code>
                                     </div>
                                 </li>
