@@ -79,7 +79,7 @@ var miNombre = "Susana"; // se declara y se asigna el valor en la misma línea.`
 </Code>
                                             Con la declaracion de variables utilizando la palabra 
                                             <kbd>var</kbd>, podemor reescribir o reasignar
-                                            el valor de la variable:
+                                            el valor de la variable, además que tiene un alcance global (gloabl scope):
 <Code>
 {`var miVar = 5; // Se declara y asigna el valor '5'
 var miNumero; // Se declara una nueva variable
@@ -93,22 +93,33 @@ console.log(nombre); // // Se imprimirá en consola: 'David' -> tipo String
 </Code>
                                     </div>
                                     <div className="border border-primary rounded my-2 pt-2 px-3">
-                                        <u>Palabra reservada (<em>keywork</em>)<kbd>let</kbd></u>: 
-                                        Para prevenir el error de re-declarar la misma variable, se puede utilizar la 
-                                        palabra <kbd>let</kbd>. De esta forma, saldrá un error en la consola:
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade nueva forma de declarar variable. 
+                                        <u>Palabra reservada (<em>keywork</em>)<kbd>let</kbd></u>: este tipo de variable tiene 
+                                        un alcance local (local scope) y se utiliza para prevenir el error de re-declarar 
+                                        la misma variable o para no ocupar espacio en la memoria:
 <Code>
 {`let nombre = "James";
-let nombre = "David";`}
+let nombre = "Susana"; // Dará un error en consola.`}
 </Code>
                                     </div>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        <u>Palabra reservada (<em>keywork</em>)<kbd>conts</kbd></u>: 
-                                        En ES6, se puede declarar variables de solo lectura con la palabra <kbd>const</kbd>. 
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade nueva forma de declarar variable. 
+                                        <u>Palabra reservada (<em>keywork</em>)<kbd>conts</kbd></u>: este tipo de variable tiene 
+                                        un alcance local (local scope), esta se utiliza para declarar variables de solo lectura. 
                                         Esta tiene todas las cualidades que <kbd>let</kbd> con el plus que no se puede cambiar 
                                         el valor porque es solo lectura:
 <Code>
 {`const FAV_PET = "Cats";
 FAV_PET = "Dogs"; // Dará un error en consola.`}
+</Code>
+                                        Sin embargo, es importante comprender que los objetos (incluyendo arreglos y funciones), 
+                                        asignados a una variable usando <kbd>const</kbd> siguen siendo mutables. Usar la 
+                                        declaración <kbd>const</kbd> solo previene la reasignación del identificador de una variable.
+<Code>
+{`const s = [5, 6, 7]; // Se declara la constante.
+s = [1, 2, 3]; // Da error porque no se puede reasignar una constante por el identificador de la variable.
+s[2] = 45; // El contenido del arreglo, objeto o función si se puede modificar
+console.log(s); // Mostrará: [5, 6, 45]`}
 </Code>
                                     </div>
                                 </li>
@@ -138,6 +149,31 @@ const conversation = 'Finn exclaims to Jake, "Algebraic!"';`}
 <Code>
 {`const sampleStr = "Alan said, \"Peter is learning JavaScript\".";
 console.log(sampleStr); // Mostrará: Alan said, "Peter is learning JavaScript".`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Plantillas literales (plantillas de cadenas) | Template literals</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade una forma de 
+                                        incrustar expresiones en cadena de string utilizando comillas francesas:
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Template_literals">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`\`texto de cadena de caracteres\`
+\`línea 1 de la cadena de caracteres
+  línea 2 de la cadena de caracteres\`
+
+\`texto de cadena de caracteres ${expresión} texto adicional\`
+
+etiqueta\`texto de cadena de caracteres ${expresión} texto adicional\``}
+</Code>
+<Code>
+{`let saludo = 'Hola';
+let nombre = 'Susana';
+
+let textoCompleto = \`Este es el saludo: '${saludo}' para ${nombre}.\``}
 </Code>
                                     </div>
                                 </li>
@@ -356,6 +392,42 @@ console.log(texto); // El resultado: 'Hello, our name is freeCodeCamp, how are y
 </Code>
                                     </div>
                                 </li>
+                                <li>
+                                    <h6 className="pt-2">Operador Spread</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Permite a un elemento iterable tal como un arreglo o cadena ser expandido en lugares donde cero o más argumentos.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Operators/Spread_syntax">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr);
+
+const arr1 = ['JAN', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+
+arr2 = [...arr1];
+
+console.log(arr2); // Mostrará: ['JAN', 'FEB', 'MAR', 'APR', 'MAY'].
+`}
+</Code>
+                                        En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora de en 
+                                        <kbd>spread</kbd> para copiar y separar los valores de un array y un objeto.
+<Code>
+{`// Con array:
+let frutas = ['parchita', 'cambur', 'lechoza'];
+let [a, b] = frutas;
+console.log(a, b); // Mostrará: 'parchita', 'cambur'
+
+// Con un objeto
+const user = { usuario: 'Susana', edad:31, pais: 'VE'};
+const { usuario, ...valores } = user;
+
+console.log(usuario); // Mostrará: 'Susana'.
+console.log(valores); // Mostrará: {edad: 31, pais: 'VE'}`}
+</Code>
+                                    </div>
+                                </li>
                             </AccordionItem>
                         </li>
                         <li className="accordion">
@@ -433,7 +505,11 @@ console.log(texto); // El resultado: 'Hello, our name is freeCodeCamp, how are y
                                 <li>
                                     <h6 className="pt-2">Operador de exponencia</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        El operador para calcular la potencia de un número es <kbd>**</kbd>.
+                                        En Junio del 2016, en los ECMAScript 7 (ES7) se agregó 
+                                        el operador para calcular la potencia de un número es <kbd>**</kbd>.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Exponentiation">
+                                            Ver más en documentación de MDN
+                                        </Link>
 <Code>
 {`const resultado = 3 ** 4;
 console.log(resultado); // Mostrará: 81.`}
@@ -713,6 +789,23 @@ console.log(unNumeroSeparado);
 
 ourPets[0].names[1];
 ourPets[1].names[0];`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                    En Junio del 2015, en los ECMAScript 6 (ES6) se añade Objects Literals:
+<Code>
+{`function nuevoUsuario(name, edad, pais, uid) {
+    return {
+        name,
+        edad,
+        pais,
+        id: uid
+    };
+}
+console.log(nuevoUsuario('Susana', 31, 'VE', 2));
+`}
 </Code>
                                     </div>
                                 </li>
@@ -1087,7 +1180,12 @@ function rangeOfNumbers(startNum, endNum) {
           numbers.push(endNum);
           return numbers;
     }
-}`}
+}
+const factorial = function fac(n) {
+    return n < 2 ? 1 : n * fac(n - 1);
+};
+  
+console.log(factorial(3));`}
 </Code>
 <Code>
 {`// Ejercicio
@@ -1211,15 +1309,29 @@ lookUpProfile("Akira", "likes");`}
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">.include()</h6>
+                                    <h6 className="pt-2">.includes() | Array.prototype.includes() | String.prototype.includes()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza .include() para consultar si dentro de un array está el valor buscado.
-                                        Es case sensitive, es decir, los valores tipo string debe ser exactamente igual para que dé el resultado deseado.
-                                        <Code>{``}
-                                            let numeros = [1, 2, 3, 4, 5];
-                                            console.log(numeros.include(1)); // Mostrará: true.
-                                            console.log(numeros.include(9)); // Mostrará: false.
-                                        </Code>
+                                        En Junio del 2016, en los ECMAScript 7 (ES7) 
+                                        Se utiliza .includess() para consultar si dentro de un array 
+                                        está el valor buscado (filtrar y buscar). Es case sensitive, es decir, 
+                                        los valores tipo string debe ser exactamente igual para que dé el resultado deseado.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/includes">
+                                            Ver más en documentación de MDN para Arrays
+                                        </Link>
+                                        // Agregar documentacion y ejemplo aparte.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/includes">
+                                            Ver más en documentación de MDN para Strings
+                                        </Link>
+<Code>
+{`let numeros = [1, 2, 3, 4, 5];
+console.log(numeros.includes(1)); // Mostrará: true.
+console.log(numeros.includes(9)); // Mostrará: false.
+
+// Con string
+let nombres = ['Susana', 'María', 'Pedro'];
+console.log(nombres.includes('Susana')); // Mostrará: true.
+console.log(nombres.includes('susana')); // Mostrará: false.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1278,41 +1390,49 @@ console.log(textoConEspacios.trimStart); // Mostrará: 'Hola      '.`}
                                         <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd">
                                             Ver más en documentación de MDN
                                         </Link>
-                                        <Code>
+<Code>
 {`const textoConEspacios = '      Hola      ';
 console.log(textoConEspacios.trimEnd); // Mostrará: '      Hola'.`}
 </Code>
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">Set() y .add()</h6>
+                                    <h6 className="pt-2">Set() y .add() | Set.prototype.add()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se agregó <kbd>.add()</kbd> 
                                         Se utiliza .add() para agregar elementos a un objeto de tipo Set().
-                                        <Code>{``}
-                                            const lista = new Set();
-                                            lista.add(1);
-                                            lista.add(2).add(3);
-                                            console.log(lista); // Mostrará: [1, 2, 3].
-                                        </Code>
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Set/add">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+const lista = new Set();
+lista.add(1);
+lista.add(2).add(3); // Se puede encadenar
+console.log(lista); // Mostrará: [1, 2, 3].
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">Object.entries()</h6>
+                                    <h6 className="pt-2">.entries() | Object.entries()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza Object.entries() para transformar un objeto en un array.
-                                        <Code>{``}
-                                            {/*
-                                            const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
-                                            console.log(Object.entries(paises)); 
-                                            /* Mostrará: 
-                                                [
-                                                    [VE, 'Venezuela'],
-                                                    [PE, 'Perú'],
-                                                    [CO, 'Colombia']
-                                                ]
-                                            */ /*
-                                            */}
-                                        </Code>
+                                        En Junio del 2017, en los ECMAScript 8 (ES8) se agregó <kbd>.entries()</kbd> y 
+                                        se utiliza Object.entries() para transformar un objeto en un array.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/entries">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
+console.log(Object.entries(paises)); 
+/* Mostrará: 
+    [
+        [VE, 'Venezuela'],
+        [PE, 'Perú'],
+        [CO, 'Colombia']
+    ]
+*/`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1330,16 +1450,17 @@ console.log(Object.fromEntries(entradas));`}
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">Object.values()</h6>
+                                    <h6 className="pt-2">.values() | Object.values()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza Object.values() para obtener solo los valores de un objeto en formato array.
-                                        <Code>{``}
-                                            {/*
-                                            const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
-
-                                            console.log(Object.values(paises)); // Mostrará: ['Venezuela', 'Perú', 'Colombia'].
-                                            */}
-                                        </Code>
+                                        En Junio del 2017, en los ECMAScript 8 (ES8) se agregó <kbd>.values()</kbd> y
+                                        se utiliza Object.values() para obtener solo los valores de un objeto en formato array.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/values">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const paises = {VE: 'Venezuela', PE: 'Perú', CO: 'Colombia'};
+console.log(Object.values(paises)); // Mostrará: ['Venezuela', 'Perú', 'Colombia'].`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1381,76 +1502,34 @@ console.log.(stringSeparado);
                                 <li>
                                     <h6 className="pt-2">String.padding()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza String.padStart() y String.padEnd() para rellenar una cadena de caracteres, se le indican dos parámetros, 
+                                        En Junio del 2017, en los ECMAScript 8 (ES8) se agregó <kbd>.padStart()</kbd> y <kbd>.padEnd()</kbd> y 
+                                        se utiliza String.padStart() y String.padEnd() para rellenar una cadena de caracteres, se le indican dos parámetros, 
                                         el primero será la cantidad de caracteres que debe tener la cadena al final, y el otro parámetro será el relleno.
-                                        <Code>{``}
-                                            const cadena = 'Holis';
-
-                                            console.log(cadena.padStart(10. '!!')); // Mostrará: '!!!!!Holis'.
-                                            console.log(cadena.padEnd(10. '!!')); // Mostrará: 'Holis!!!!!'.
-                                        </Code>
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/padStart">
+                                            Ver más en documentación de MDN para padStart
+                                        </Link>
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd">
+                                            Ver más en documentación de MDN para padEnd
+                                        </Link>
+<Code>
+{`const cadena = 'Holis';
+console.log(cadena.padStart(10. '!!')); // Mostrará: '!!!!!Holis'.
+console.log(cadena.padEnd(10. '!!')); // Mostrará: 'Holis!!!!!'.`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Trailing commas</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Trailing commas muestra los espacios vacíos de los elementos array.
-                                        <Code>{``}
-                                            const edades = [17, 76, 45, 32, , , 23];
-
-                                            console.log(edades); // Mostrará: [17, 76, 45, 32, empty x2 , 23].
-                                            console.log(edades.length); // Mostrará: 4'.
-                                        </Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">Expresiones Regulares (Regex)</h6>
-                                    <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">
-                                        Ver más en documentación de MDN
-                                    </Link>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                    En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora para capturar
-                                    valores en grupo que estén dentro de una expresión regular. <br />
-                                    En el siguiente ejemplo, se validará una fecha de acuerdo a la cantidad de 
-                                    caracteres que tiene el grupo entre los guiones. Es decir, si en el primer grupo '(\d{4})' 
-                                    tiene 4 caracteres, pasará la validación 'match'.
-<Code>{` // Regex de manejo de fechas
-const regex = /(\d{4})-(\d{2})-(\d{2})/;
-const matchers = regex.exec("2024-01-01");
-console.table(matchers);`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">.matchAll() | String.prototype.matchAll()</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el <kbd>matchAll()</kbd> 
-                                        para generar diferentes reglas para filtrar o buscar según sea el caso. 
-                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll">
+                                        En Junio del 2017, en los ECMAScript 8 (ES8) se agrega las 
+                                        <kbd>Trailing commas</kbd> muestra los espacios vacíos de los elementos array.
+                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Trailing_commas">
                                             Ver más en documentación de MDN
                                         </Link>
 <Code>
-{`
-const regex = /\b(Blanco)+\b/g;
-const colores = 'Verde, Rosado, Amarillo, blanco, Negro, Blanco';
-
-for (const match of colores.matchAll(regex)) {
-    console.log(match);
-}
-`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">Spread</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora de en 
-                                        <kbd>spread</kbd> para copiar y separar los valores de un objeto.
-<Code>{`const user = { usuario: 'Susana', edad:31, pais: 'VE'};
-const { usuario, ...valores } = user;
-
-console.log(usuario); // Mostrará: 'Susana'.
-console.log(valores); // Mostrará: {edad:31, pais: 'VE'}`}
+{`const edades = [17, 76, 45, 32, , , 23];
+console.log(edades); // Mostrará: [17, 76, 45, 32, empty x2 , 23].
+console.log(edades.length); // Mostrará: 4'.`}
 </Code>
                                     </div>
                                 </li>
@@ -1504,28 +1583,262 @@ convertToInteger("10011");
 </Code>
                                     </div>
                                 </li>
+                                <li>
+                                    <h6 className="pt-2">.at() | Array.prototype.at()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2022, en los ECMAScript 13 (ES13) se agregó <kbd>.at()</kbd> 
+                                        y se utiliza para obtener un elemento de un arreglo indicando su posición. 
+                                        Una versión más simple que usar la notación con corchetes.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/at">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const array = ["one", "two", "three", "four", "five", "six"];
+
+console.log(array[array.length - 1]);
+console.log(array.at(-1));
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.freeze() | Object.freeze()()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Se utiliza para prevenir la mutación del contenido de un objeto; 
+                                        impide que se puedan eliminar las propiedades ya existentes o agregar nuevas.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Object/freeze">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`let obj = {
+  name:"FreeCodeCamp",
+  review:"Awesome"
+};
+Object.freeze(obj);
+// Mostrará error
+obj.review = "bad";
+obj.newProp = "Test";
+console.log(obj);
+
+function freezeObj() {
+    const MATH_CONSTANTS = {
+        PI: 3.14
+    };
+
+    Object.freeze(MATH_CONSTANTS);
+
+    try {
+        MATH_CONSTANTS.PI = 99;
+    } catch(ex) {
+        console.log(ex);
+    }
+    return MATH_CONSTANTS.PI;
+}
+const PI = freezeObj();`}
+</Code>
+                                    </div>
+                                </li>
+                            </AccordionItem>
+                        </li>
+                        <li className="accordion">
+                            <AccordionItem id="RegExp" title="Expresiones Regulares (Regex)">
+                                <li>
+                                    <h6 className="pt-2"></h6>
+                                    <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec">
+                                        Ver más en documentación de MDN
+                                    </Link>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        Concepto
+<Code>{`//
+// Se utiliza g para buscar todos los repetidos.
+// Se utiliza i para que no sea case sensitive.
+let testStr = "Repeat, Repeat, Repeat";
+let ourRegex = /Repeat/;
+testStr.match(ourRegex);
+
+// Se utiliza + para buscar uno o más caracteres.
+// Se utiliza * para buscar CEro o más caracteres.
+// Se puede específicar qué cantidad de caracteres con llaves: {}.
+let A4 = "haaaah";
+let A3 = "haaah";
+let multipleHA = /ha{3}h/;
+multipleHA.test(A4); // true
+multipleHA.test(A3); // false
+
+// Si se quiere espeificar el mínimo y el máximo:
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/;
+multipleA.test(A4); // true
+multipleA.test(A2); // false
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/;
+let result = ohRegex.test(ohStr); // false
+
+// Si solo se especifica el mínimo sería así:
+let A4 = "haaaah";
+let A2 = "haah";
+let A100 = "h" + "a".repeat(100) + "h";
+let multipleA = /ha{3,}h/;
+multipleA.test(A4); // true
+multipleA.test(A2); // false
+multipleA.test(A100); // true
+
+// Se utiliza el punto(.) para que coincida con cualquier caracter de ahí en adelante.
+let humStr = "I'll hum a song";
+let hugStr = "Bear hug";
+let huRegex = /hu./;
+huRegex.test(humStr); // Mostrará: true
+huRegex.test(hugStr); // Mostrará: true
+
+// Para una expresion literal y flexible se utilizan corchetes [ y ]
+let bigStr = "big";
+let bagStr = "bag";
+let bugStr = "bug";
+let bogStr = "bog";
+let bgRegex = /b[aiu]g/;
+bigStr.match(bgRegex);
+bagStr.match(bgRegex);
+bugStr.match(bgRegex);
+bogStr.match(bgRegex);
+
+// El caso contrario sería con el caracter de intercalación ^
+let bgRegex = /[^aeiou]/gi; // Este NO estaría buscando las vocales.
+
+// Para crear un conjunto se utiliza el guión -.
+let catStr = "cat";
+let batStr = "bat";
+let matStr = "mat";
+let bgRegex = /[a-e]at/;
+catStr.match(bgRegex);
+batStr.match(bgRegex);
+matStr.match(bgRegex);
+
+let jennyStr = "Jenny8675309";
+let myRegex = /[a-z0-9]/ig;
+jennyStr.match(myRegex);
+
+// Ahora, si se utiliza ^ fuera de un conjunto, buscará la coincidencia al principio de la cadera:
+let firstString = "Ricky is first and can be found.";
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString); // true
+let notFirst = "You can't find Ricky now.";
+firstRegex.test(notFirst); // false
+
+// Para buscar una expresión al final de una cadena se utiliza $:
+let theEnding = "This is a never ending story";
+let storyRegex = /story$/;
+storyRegex.test(theEnding); // true
+let noEnding = "Sometimes a story will have to end";
+storyRegex.test(noEnding); // false
+
+// Un atajo para el siguiente conjunto: [A-Za-z0-9_] sería: \w.
+let longHand = /[A-Za-z0-9_]+/;
+let shortHand = /\w+/;
+let numbers = "42";
+let varNames = "important_var";
+longHand.test(numbers); // true
+shortHand.test(numbers); // true
+longHand.test(varNames); // true
+shortHand.test(varNames); // true
+
+// Lo contrario sería \W, un atajo para [^A-Za-z0-9_].
+let shortHand = /\W/;
+let numbers = "42%";
+let sentence = "Coding!";
+numbers.match(shortHand); // %
+sentence.match(shortHand) // !
+
+// Un atajo para el conjunto [0-9] sería: \d
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g;
+let result = movieName.match(numRegex).length; // 4
+
+// Lo opuesto sería \D, un atajo para [^0-9]:
+let movieName = "2001: A Space Odyssey";
+let noNumRegex = /\D/g;
+let result = movieName.match(noNumRegex).length; // 17
+
+// Para los espacios en blanco, tablador, salto de línea está \s, equivale a: [\r\t\f\n\v]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let spaceRegex = /\s/g;
+whiteSpace.match(spaceRegex);
+
+// Lo opuesto sería \S equivale a: [^\r\t\f\n\v]
+let whiteSpace = "Whitespace. Whitespace everywhere!"
+let nonSpaceRegex = /\S/g;
+whiteSpace.match(nonSpaceRegex).length; // 32
+
+// Una validacion de username sería:
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
+let result = userCheck.test(username);
+/* Donde: 
+^ - start of input
+[a-z] - first character is a letter
+[a-z]+ - following characters are letters
+\d*$ - input ends with 0 or more digits
+| - or
+^[a-z] - first character is a letter
+\d\d+ - following characters are 2 or more digits
+$ - end of input
+*/
+
+// Otro ejemplo:
+const userCheck = /^[a-z]([0-9]{2,}|[a-z]+\d*)$/i;
+/* Donde: 
+^ - start of input
+[a-z] - first character is a letter
+[0-9]{2,} - ends with two or more numbers
+| - or
+[a-z]+ - has one or more letters next
+\d* - and ends with zero or more numbers
+$ - end of input
+i - ignore case of input
+*/
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Grupos de expresiones</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                    En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora para capturar
+                                    valores en grupo que estén dentro de una expresión regular. <br />
+                                    En el siguiente ejemplo, se validará una fecha de acuerdo a la cantidad de 
+                                    caracteres que tiene el grupo entre los guiones. Es decir, si en el primer grupo '(\d{4})' 
+                                    tiene 4 caracteres, pasará la validación 'match'.
+<Code>{` // Regex de manejo de fechas
+const regex = /(\d{4})-(\d{2})-(\d{2})/;
+const matchers = regex.exec("2024-01-01");
+console.table(matchers);`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">.matchAll() | String.prototype.matchAll()</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2020, en los ECMAScript 11 (ES11) se agregó el <kbd>matchAll()</kbd> 
+                                        para generar diferentes reglas para filtrar o buscar según sea el caso. 
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/matchAll">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`
+const regex = /\b(Blanco)+\b/g;
+const colores = 'Verde, Rosado, Amarillo, blanco, Negro, Blanco';
+
+for (const match of colores.matchAll(regex)) {
+    console.log(match);
+}
+`}
+</Code>
+                                    </div>
+                                </li>
                             </AccordionItem>
                         </li>
                         <li className="accordion">
                             <AccordionItem id="functions" title="Funciones, reutilización de código">
-                                <li>
-                                    <h6>Declarar y llamar una función</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        Javascript permite crear funciones personalizadas para poder reutilizar 
-                                        codigo.
-                                        <Code>{``}
-                                            {/*
-                                            // Se declara la función:
-                                            function nombreDeFuncion() {
-                                                console.log("Holis");
-                                            }
-
-                                            // Se llama la función:
-                                            nombreDeFuncion();
-                                            */}
-                                        </Code>
-                                    </div>
-                                </li>
                                 <li>
                                     <h6 className="pt-2">Funciones con parámetros</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
@@ -1542,6 +1855,44 @@ convertToInteger("10011");
                                             miFuncion("Hola", 2); // Mostrará: "Hola", 2.
                                             */}
                                         </Code>
+                                        parámetro default, se utiliza para definir los parametros en caso 
+                                        que al llamar la variable, no se envien los parámetros.
+                                        Se agregó en Junio del 2015, en los ECMAScript 6 (ES6).
+                                        <Code>
+                                            {`function nuevoUsuario(nombre = 'Susana', edad = 31) {
+                                                console.log(nombre, edad);
+                                            }
+                                            nuevoUsuario(); // Llamo la funcion sin enviar valores.
+                                            // Mostrará: Susana, 31
+                                            nuevoUsuario('Pedro', 10); // Mostrará: Pedro, 10
+                                            `}
+                                        </Code>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h6 className="pt-2">Parámetros Rest</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) 
+                                        Con el parámetro rest, puedes crear funciones que tomen un número 
+                                        variable de argumentos. Estos argumentos se almacenan en un arreglo 
+                                        al que se puede acceder más tarde desde dentro de la función.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Functions/rest_parameters">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`// Con una función
+const sum = (...args) => {
+    let total = 0;
+    for (let i = 0; i < args.length; i++) {
+        total += args[i];
+    }
+    return total;
+}
+
+sum(1, 4, 1, 3, 9); // Toma todo los parámetros.
+// Mostrará: 18.
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1565,29 +1916,118 @@ convertToInteger("10011");
                                     </div>
                                 </li>
                                 <li>
+                                    <h6 className="pt-2">Funciones anónimas, funciones flecha</h6>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade funciones de flecha 
+                                        (arrow functions) Las funciones también se pueden crear mediante una 
+                                        expresión function. Una función puede ser anónima; 
+                                        no tiene por qué tener un nombre.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Functions#expresiones_function">
+                                            Ver más en documentación de MDN
+                                        </Link>
+<Code>
+{`const myFunc = function() {
+    const myVar = "value";
+    return myVar;
+}
+const myFunc = () => {
+    const myVar = "value";
+    return myVar;
+}
+const myFunc = () => "value";
+
+const square = function (number) {
+    return number * number;
+};
+var x = square(4); // x obtiene el valor 16
+
+const doubler = (item) => item * 2;
+doubler(4);
+
+const multiplier = (item, multi) => item * multi;
+multiplier(4, 2);
+
+const myConcat = (arr1, arr2) => arr1.concat(arr2);
+
+const greeting = (name = "Anonymous") => "Hello " + name;
+
+console.log(greeting("John"));
+console.log(greeting());
+`}
+</Code>
+                                    </div>
+                                </li>
+                                <li>
                                     <h6 className="pt-2">Funciones asíncronas</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Uso de promesas, async y await.
-                                        <Code>{``}
-                                            {/*
-                                            // Se declara la función que será la promesa:
-                                            const miAsincrona = () => {
-                                                return new Promise((resolve, reject) => {
-                                                    (true) // La pregunta
-                                                    ? setTimeout(() => resolve('Es asíncrona!'), 2000) // True
-                                                    : reject(new Error('Error!')); // False
-                                                })
-                                            }
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade el uso de 
+                                        promesas, async, await, then y .catch.
+<Code>
+{`// Se declara la función asíncrona
+const otraFuncion = async () => {
+    const mensaje = await miAsincrona();
+    console.log(mensaje);
+}
 
-                                            // Se declara la función asíncrona
-                                            const otraFuncion = async () => {
-                                                const mensaje = await miAsincrona();
-                                                console.log(mensaje);
-                                            }
+otraFuncion();
+`}
+</Code>
+                                        Uso de promesas con .then() y .catch():
+<Code>
+{`
+const makeServerRequest = new Promise((resolve, reject) => {
+    // responseFromServer es establecido a false para representar una respuesta no satisfactoria del servidor
+    let responseFromServer = false;
+    
+    if(responseFromServer) {
+        resolve("We got the data");
+    } else {  
+        reject("Data not received");
+    }
+});
+    
+makeServerRequest.then(result => {
+    console.log(result);
+});
+    
+makeServerRequest.catch(error => {
+    console.log(error);
+});`}
+</Code>
+                                    </div>
+                                    <div className="border border-primary rounded pt-2 px-3">
+                                    En Junio del 2017, en los ECMAScript 8 (ES8) se añade una mejora 
+                                    a las funciones asincrona anidadas.
+<Code>
+{`// Se declara la función que será la promesa:
+const miAsincrona = () => {
+    return new Promise((resolve, reject) => {
+        (true) // La pregunta
+        ? setTimeout(() => resolve('Es asíncrona!'), 2000) // True
+        : reject(new Error('Error!')); // False
+    })
+}
 
-                                            otraFuncion();
-                                            */}
-                                        </Code>
+// Ejemplo de ES8
+const otraAsincrona = async () => {
+    const algo = await miAsincrona();
+    console.log(algo);
+    console.log('Hola);
+}
+console.log('Antes');
+otraAsincrona();
+console.log('Después');
+
+// Mostrará: 
+/*
+Antes
+Después
+Es asíncrona!
+Hola
+*/
+
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1622,7 +2062,7 @@ Promise.allSettled([promesaUno, promesaDos, promesatres])
                                 <li>
                                     <h6 className="pt-2">.finally()</h6>
                                         En Junio del 2018, en los ECMAScript 9 (ES9), se agregó una mejora
-                                        a las promesas. Finally permitirá mostrar una funciona anonima para 
+                                        a las promesas. Finally permitirá mostrar una funciona anónima para 
                                         que ejecute algo cuando termine la promesa.
                                     <div className="border border-primary rounded pt-2 px-3">
 <Code>{`
@@ -1744,24 +2184,24 @@ Promise.any([promesaUno, promesaDos, promesatres])
                                         Palabras reservadas para importar y exportar fragmentos de codigo como módulos. 
                                         En archivos de javascript vanilla, se debe crear el archivo package.json y agregar 
                                         la linea <kbd>"type": "module"</kbd> para que acepte los módulos.
-                                        <Code>{``}
-                                            {/*
-                                            // Declarar un modulo a exportar
-                                            // Nombre del archivo '/modulo_nuevo.js'
-                                            const hola = () => {
-                                                console.log('Hola, soy un módulo');
-                                            }
+<Code>
+{`
+// Declarar un modulo a exportar
+// Nombre del archivo '/modulo_nuevo.js'
+const hola = () => {
+    console.log('Hola, soy un módulo');
+}
 
-                                            // Sintaxis para exportar el fragmento de código
-                                            export default hola;
-                                            */}
-                                            
-                                            // Sintaxis para importar un modulo desde el archivo
-                                            import hola from './modulo_nuevo.js'
+// Sintaxis para exportar el fragmento de código
+export default hola;
 
-                                            // Instancia del objeto
-                                            hola();
-                                        </Code>
+// Sintaxis para importar un modulo desde el archivo
+import hola from './modulo_nuevo.js'
+
+// Instancia del objeto
+hola();
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1824,24 +2264,31 @@ boton.addEventListener('click', asycn function () {
                             <AccordionItem id="generators" title="Generadores">
                                 <li>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Tipo de función que retorna valores recordando el estado por lo que no será 
-                                        necesario colocar el incide el caso que se quiera iterar en un arreglo
-                                        <Code>{``}
-                                            {/*
-                                            // Declara la funcion 
-                                            function iterar(array) {
-                                                for (let value of array) {
-                                                    yield value;
-                                                }
-                                            }
+                                        En Junio del 2015, en los ECMAScript 6 (ES6) se añade los <kbd>Generadores</kbd> para tener un
+                                        iterador personalizado para la funcion que retorna valores recordando el estado 
+                                        por lo que no será necesario colocar el incide el caso que se quiera iterar en un arreglo.
+                                        Para destacar un generator de una funcion normal se le agrega un <kbd>*</kbd>.
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/function*">
+                                            Ver más en documentación de MDN sobre funciones generadoras
+                                        </Link>
+                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Generator">
+                                            Ver más en documentación de MDN sobre Generators
+                                        </Link>
+<Code>
+{`// Declara la funcion 
+function* iterar(array) {
+    for (let value of array) {
+        yield value;
+    }
+}
 
-                                            const miArreglo = iterar([1, 2, 3, 4]);
+const miArreglo = iterar([1, 2, 3, 4]);
 
-                                            console.log(miArreglo.next().value); // Mostrará: 1.
-                                            console.log(miArreglo.next().value); // Mostrará: 2.
-                                            console.log(miArreglo.next().value); // Mostrará: 3.
-                                            */}
-                                        </Code>
+console.log(miArreglo.next().value); // Mostrará: 1.
+console.log(miArreglo.next().value); // Mostrará: 2.
+console.log(miArreglo.next().value); // Mostrará: 3.
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1879,106 +2326,105 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
                             <AccordionItem id="class" title="Clases">
                                 <li>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Concepto
-                                        <Code>{``}
-                                            //Declara la clase
-                                            className Usuario {};
+                                    son una mejora sintáctica sobre la herencia basada en prototipos de JavaScript. 
+                                    La sintaxis de las clases no introduce un nuevo modelo de herencia orientada a 
+                                    objetos en JavaScript. Las clases de JavaScript proveen una sintaxis mucho más clara 
+                                    y simple para crear objetos y lidiar con la herencia.
+                                    <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes">
+                                        Ver más en documentación de MDN
+                                    </Link>
+<Code>
+{`//Declara la clase
+className Usuario {};
 
-                                            // Instancia del objeto
-                                            const nuevoUsuario = new Usuario();
+// Instancia del objeto
+const nuevoUsuario = new Usuario();
 
-                                            {/*
-                                            //Declara la clase
-                                            class Usuario {
-                                                saludos() {
-                                                    return "Hola";
-                                                }
-                                            };
+//Declara la clase
+class Usuario {
+    saludos() {
+        return "Hola";
+    }
+};
 
-                                            // Instancia del objeto
-                                            const objeto = new Usuario();
+// Instancia del objeto
+const objeto = new Usuario();
 
-                                            console.log(objeto.saludos()); // Mostrará: Hola.
-                                            */}
-                                        </Code>
+console.log(objeto.saludos()); // Mostrará: Hola.
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
                                     <h6 className="pt-2">Herencias</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
-                                        Concepto
-                                        <Code>{``}
-                                            {/*
-                                            //Declara la clase
-                                            class Usuario {
-                                                // Constructor
-                                                constructor() {
-                                                    console.log("Me ejecuto solo cuando llaman a la clase")
-                                                }
+<Code>
+{`// Declara la clase
+class Usuario {
+    // Constructor
+    constructor() {
+        console.log("Me ejecuto solo cuando llaman a la clase")
+    }
 
-                                                saludos() {
-                                                    return "Hola";
-                                                }
-                                            };
+    saludos() {
+        return "Hola";
+    }
+};
 
-                                            // Instancia del objeto
-                                            const objeto = new Usuario();
-                                            */}
-                                            // Mostrará: Me ejecuto solo cuando llaman a la clase.
+// Instancia del objeto
+const objeto = new Usuario();
+// Mostrará: Me ejecuto solo cuando llaman a la clase.
 
-                                            {/*
-                                            //Declara la clase
-                                            class Usuario {
-                                                // Constructor
-                                                constructor(nombre) {
-                                                    this.nombre = nombre;
-                                                }
+// Declara la clase
+class Usuario {
+    // Constructor
+    constructor(nombre) {
+        this.nombre = nombre;
+    }
 
-                                                fragmento() {
-                                                    return "Hola";
-                                                }
-                                                saludos() {
-                                                    return `${this.fragmento} ${this.nombre}`;
-                                                }
-                                            };
+    fragmento() {
+        return "Hola";
+    }
+    saludos() {
+        return \`${this.fragmento} ${this.nombre}\`;
+    }
+};
 
-                                            // Instancia del objeto
-                                            const objeto = new Usuario('Susana');
-                                            // Mostrará: Hola Susana.
-                                            */}
+// Instancia del objeto
+const objeto = new Usuario('Susana');
+// Mostrará: Hola Susana.
 
-                                            {/*
-                                            //Declara la clase
-                                            class Usuario {
-                                                // Constructor
-                                                constructor(nombre, edad) {
-                                                    this.nombre = nombre;
-                                                    this.edad = edad;
-                                                }
+// Declara la clase
+class Usuario {
+    // Constructor
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 
-                                                fragmento() {
-                                                    return "Hola";
-                                                }
+    fragmento() {
+        return "Hola";
+    }
 
-                                                saludos() {
-                                                    return `${this.fragmento} ${this.name}`;
-                                                }
+    saludos() {
+        return \`${this.fragmento} ${this.nombre}\`;
+    }
 
-                                                get uEdad() {
-                                                    return this.edad;
-                                                }
+    get uEdad() {
+        return this.edad;
+    }
 
-                                                set uEdad(n) {
-                                                    this.edad = n;
-                                                }
-                                            };
+    set uEdad(n) {
+        this.edad = n;
+    }
+};
 
-                                            // Instancia del objeto
-                                            const objeto = new Usuario('Susana', 31);
-                                            console.log(objeto.uEdad); // Mostrará: 31.
-                                            console.log(objeto.uEdad = 30); // Mostrará: 30.
-                                            */}
-                                        </Code>
+// Instancia del objeto
+const objeto = new Usuario('Susana', 31);
+console.log(objeto.uEdad); // Mostrará: 31.
+console.log(objeto.uEdad = 30); // Mostrará: 30.
+`}
+</Code>
                                     </div>
                                 </li>
                                 <li>
@@ -1990,40 +2436,39 @@ const nombres = arrayDeNombres(['Susana', 'María', 'Pedro']);`}
                                         <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Classes/Private_properties">
                                             Ver más en documentación de MDN
                                         </Link>
-                                        <Code>
-                                            {`
-                                            //Declara la clase
-                                            class Usuario {
-                                                // Constructor
-                                                constructor(nombre, edad) {
-                                                    this.nombre = nombre;
-                                                    this.edad = edad;
-                                                }
+<Code>
+{`//Declara la clase
+class Usuario {
+    // Constructor
+    constructor(nombre, edad) {
+        this.nombre = nombre;
+        this.edad = edad;
+    }
 
-                                                fragmento() {
-                                                    return "Hola";
-                                                }
+    fragmento() {
+        return "Hola";
+    }
 
-                                                // Métodos privados
-                                                #saludos() {
-                                                    return \`${this.fragmento} ${this.name}\`;
-                                                }
+    // Métodos privados
+    #saludos() {
+        return \`${this.fragmento} ${this.name}\`;
+    }
 
-                                                get #uEdad() {
-                                                    return this.edad;
-                                                }
+    get #uEdad() {
+        return this.edad;
+    }
 
-                                                set #uEdad(n) {
-                                                    this.edad = n;
-                                                }
-                                            };
+    set #uEdad(n) {
+        this.edad = n;
+    }
+};
 
-                                            // Instancia del objeto
-                                            const objeto = new Usuario('Susana', 31);
-                                            console.log(objeto.uEdad); // Mostrará: undefined.
-                                            console.log(objeto.uEdad = 30); // Mostrará: undefined.
-                                            `}
-                                        </Code>
+// Instancia del objeto
+const objeto = new Usuario('Susana', 31);
+console.log(objeto.uEdad); // Mostrará: undefined.
+console.log(objeto.uEdad = 30); // Mostrará: undefined.
+`}
+</Code>
                                     </div>
                                 </li>
                             </AccordionItem>
