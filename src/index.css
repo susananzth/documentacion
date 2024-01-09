@@ -1,7 +1,5 @@
-html body {
-    display: block;
-}
+@import '/node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 
-.btn-primary {
-    --bs-btn-color: var(--bs-white);
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

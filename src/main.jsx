@@ -2,8 +2,6 @@ import * as React from 'react'
 import * as ReactDOM from 'react-dom/client'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import 'highlight.js/styles/androidstudio.css'
-import * as bootstrap from 'bootstrap'
-import './scss/styles.scss'
 import './index.css'
 
 import Fundamental from './pages/fundamental'
