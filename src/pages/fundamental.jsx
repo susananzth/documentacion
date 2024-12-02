@@ -23,49 +23,6 @@ export default function Route() {
                     </AccordionItem>
                     <AccordionItem id="content" title="Contenido">
                         <li className="accordion">
-                            <AccordionItem id="variable" title="Datos y tipos de datos">
-                                <h6>Datos</h6>
-                                <p>
-                                    Un dato es una porción de información muy concreta y específica 
-                                    que nos permite tomar decisiones, a través de diferentes operaciones y estructuras.
-                                </p>
-                                <p>
-                                    Los datos hacen parte de un algoritmo en una estructura más grande. 
-                                    También son la base sobre la cual partimos y llegamos, y además componen 
-                                    todas las estructuras para que puedan funcionar.
-                                </p>
-                                <h6>Tipos de datos</h6>
-                                <ul>
-                                    <li>
-                                        Tipo texto <span className="badge text-bg-secondary">string</span>: 
-                                        El tipo de dato texto consiste en un conjunto de caracteres. Los caracteres pueden 
-                                        ser letras, números, símbolos, espacios e incluso emojis
-                                    </li>
-                                    <li>
-                                        Tipo numérico <span className="badge text-bg-secondary">number</span>: 
-                                        son la representación de los números en un dato. A través de estos podemos realizar 
-                                        operaciones matemáticas básicas. Estos se dividen en dos tipos: enteros y flotantes.
-                                    </li>
-                                    <li>
-                                        Tipo numérico entero <span className="badge text-bg-secondary">integers</span> y 
-                                        <span className="badge text-bg-secondary">bigint</span>: Los tipos de datos enteros 
-                                        consisten en la representación del número sin la parte decimal.
-                                    </li>
-                                    <li>
-                                        Tipo numérico decimal o flotantes <span className="badge text-bg-secondary">decimal</span> y 
-                                        <span className="badge text-bg-secondary">float</span>: Los tipos de datos flotantes consisten 
-                                        en la representación del número con la parte decimal.
-                                    </li>
-                                    <li>
-                                        Tipo numérico boleanos <span className="badge text-bg-secondary">boolean</span>: 
-                                        Los tipos de datos booleanos consisten en representar la lógica binaria, únicamente dos valores 1 y 0. 
-                                        Esta representación binaria puede ser verdadero (`1`) y falso (`0`), 
-                                        o true y false.
-                                    </li>
-                                </ul>
-                            </AccordionItem>
-                        </li>
-                        <li className="accordion">
                             <AccordionItem id="conditionals" title="Condicionales">
                                 <p>
                                     Los condicionales son estructuras de control que te permiten evaluar diferentes 
@@ -171,10 +128,6 @@ export default function Route() {
                             </AccordionItem>
                         </li>
                     </AccordionItem>
-                    <AccordionItem id="projects" title="Proyectos - Ejercicios">
-                        <li>A</li>
-                        <li>B</li>
-                    </AccordionItem>
                     <AccordionItem id="certifications" title="Certificaciones">
                         <li>
                             <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" 
@@ -200,36 +153,6 @@ export default function Route() {
                                 <span className="badge text-bg-info">09/2023</span> Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones | Platzi
                             </a>
                         </li>
-                    </AccordionItem>
-                    <AccordionItem id="sources" title="Fuentes">
-                        <li>
-                            <a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" 
-                                target="_blank" rel="noopener noreferrer">
-                                <span className="badge text-bg-info">09/2023</span> Javascript algorithms and data structures | Freecodecamp
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://platzi.com/cursos/ecmascript-6/" 
-                                target="_blank" rel="noopener noreferrer">
-                                <span className="badge text-bg-info">09/2023</span> Curso de ECMAScript: Historia y Versiones de JavaScript | Platzi
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://platzi.com/cursos/basico-javascript/" 
-                                target="_blank" rel="noopener noreferrer">
-                                <span className="badge text-bg-info">09/2023</span> Curso básico de Javascript | Platzi
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://platzi.com/cursos/pensamiento-logico-estructuras/" 
-                                target="_blank" rel="noopener noreferrer">
-                                <span className="badge text-bg-info">09/2023</span> Curso de Pensamiento Lógico: Manejo de Datos, Estructuras y Funciones | Platzi
-                            </a>
-                        </li>
-                    </AccordionItem>
-                    <AccordionItem id="links" title="Enlaces relacionados">
-                        <li>A</li>
-                        <li>B</li>
                     </AccordionItem>
                 </div>
             </div>
