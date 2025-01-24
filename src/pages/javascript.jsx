@@ -76,19 +76,6 @@ console.log(valores); // Mostrará: {edad: 31, pais: 'VE'}`}
                         <li className="accordion">
                             <AccordionItem id="operators" title="Operadores">
                                 <li>
-                                    <h6>Operadores de igualdad</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        El operador de igualdad <kbd>==</kbd> compara 
-                                        dos valores y devuelve true (si) son equivalentes o false (no).
-<Code>
-{`1   ==  1  // true
-1   ==  2  // false
-1   == '1' // true
-"3" ==  3  // true`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
                                     <h6 className="pt-2">Operadores de igualdad estricta</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         A diferencia del operador de igualdad, el de igualdad estricta <kbd>===</kbd> compara 
@@ -235,38 +222,6 @@ arr?.[index]  // Saber si el index de ese array existe.
 func?.(args) //  // Saber si el argumento de esa función existe.
 `}
 </Code>
-                                    </div>
-                                </li>
-                            </AccordionItem>
-                        </li>
-                        <li className="accordion">
-                            <AccordionItem id="notation" title="Notación de corchetes en Strings">
-                                <li>
-                                    <h6>Notación de corchetes en Strings</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        Javascript es un lenguaje "Zero-based indexing" lo que significa que empieza a contar la posición 
-                                        de los elementos desde el cero '0' y no desde el uno '1'.
-                                        Para acceder a la posición de una letra de una cadena de texto, se puede utilizar los corchetes 
-                                        para mostrar el caracter en esa posición específica:
-                                        <Code>{``}
-                                            const miTexto = "Cantidad de caracteres.";
-                                            console.log(miTexto[0]); // Mostrará: C.
-                                            console.log(miTexto[2]); // Mostrará: n.
-                                            console.log(miTexto[miTexto.length -2]); // Mostrará: s.
-                                        </Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">Entender inmutabilidad de los Strings</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En JavaScript, los Strings son inmutables, lo que significa que 
-                                        no se puede modificar una vez se haya creado, se tendría que reemplazar 
-                                        todo el contenido de la variable. Por ejemplo:
-                                        <Code>{``}
-                                            let miTexto = "Susana";
-                                            miTexto[0] = "Z"; // Mostrará un error.
-                                            miTexto = "Zusana"; // Forma correcta.
-                                        </Code>
                                     </div>
                                 </li>
                             </AccordionItem>
@@ -841,22 +796,6 @@ lookUpProfile("Akira", "likes");`}
                         <li className="accordion">
                             <AccordionItem id="properties" title="Propiedades o funciones nativas">
                                 <li>
-                                    <h6 className="pt-2">.length</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        Se utiliza para contar los caracteres de una cadena de texto o cantidad de elementos de un array.
-                                        En el caso de los caracteres, tambien contará los espacios en blanco:
-                                        <Code>{``}
-                                            {/*
-                                            const miTexto = "Cantidad de caracteres.";
-                                            console.log(miTexto.length); // Mostrará: 26.
-
-                                            const miArray = [654, 97, 321];
-                                            console.log(miArray.length); // Mostrará: 3.
-                                            */}
-                                        </Code>
-                                    </div>
-                                </li>
-                                <li>
                                     <h6 className="pt-2">.push()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         Se utiliza para insertar uno o muchos elementos al final de un array.
@@ -967,34 +906,6 @@ console.log(result);
                                     </div>
                                 </li>
                                 <li>
-                                    <h6 className="pt-2">.trimStart() | String.prototype.trimStart()</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.trimStart()</kbd> 
-                                        y se utiliza para quitar espacios en blanco al inicio de una cadena de texto o <kbd>string</kbd>.
-                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart">
-                                            Ver más en documentación de MDN
-                                        </Link>
-<Code>
-{`const textoConEspacios = '      Hola      ';
-console.log(textoConEspacios.trimStart); // Mostrará: 'Hola      '.`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">.trimEnd() | String.prototype.trimEnd()</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Enero del 2019, en los ECMAScript 10 (ES10) se agregó <kbd>.trimEnd()</kbd> 
-                                        y Se utiliza para quitar espacios en blanco al final de una cadena de texto o <kbd>string</kbd>.
-                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd">
-                                            Ver más en documentación de MDN
-                                        </Link>
-<Code>
-{`const textoConEspacios = '      Hola      ';
-console.log(textoConEspacios.trimEnd); // Mostrará: '      Hola'.`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
                                     <h6 className="pt-2">Set() y .add() | Set.prototype.add()</h6>
                                     <div className="border border-primary rounded pt-2 px-3">
                                         En Junio del 2015, en los ECMAScript 6 (ES6) se agregó <kbd>.add()</kbd> 
@@ -1077,42 +988,6 @@ console.log(global); // Accede a los elementos de node.
 console.log(selft); // Accede a los elementos de webworker.
 console.log(globalThis); // Accede a todos los elementos englobando window, global y seflt.
 `}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">.replaceAll() | String.prototype.replaceAll()</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Junio del 2021, en los ECMAScript 12 (ES12) se agregó el  
-                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/replaceAll">
-                                            Ver más en documentación de MDN
-                                        </Link>
-<Code>
-{`
-const string = "Esta es, es una cadena de texto";
-const stringSeparado = string.replaceAll("es", "is");
-console.log.(stringSeparado);
-// Mostrará: Esta is, is una cadena de texto
-`}
-</Code>
-                                    </div>
-                                </li>
-                                <li>
-                                    <h6 className="pt-2">String.padding()</h6>
-                                    <div className="border border-primary rounded pt-2 px-3">
-                                        En Junio del 2017, en los ECMAScript 8 (ES8) se agregó <kbd>.padStart()</kbd> y <kbd>.padEnd()</kbd> y 
-                                        se utiliza String.padStart() y String.padEnd() para rellenar una cadena de caracteres, se le indican dos parámetros, 
-                                        el primero será la cantidad de caracteres que debe tener la cadena al final, y el otro parámetro será el relleno.
-                                        <Link href="https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/String/padStart">
-                                            Ver más en documentación de MDN para padStart
-                                        </Link>
-                                        <Link href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd">
-                                            Ver más en documentación de MDN para padEnd
-                                        </Link>
-<Code>
-{`const cadena = 'Holis';
-console.log(cadena.padStart(10. '!!')); // Mostrará: '!!!!!Holis'.
-console.log(cadena.padEnd(10. '!!')); // Mostrará: 'Holis!!!!!'.`}
 </Code>
                                     </div>
                                 </li>

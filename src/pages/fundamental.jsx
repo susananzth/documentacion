@@ -68,21 +68,6 @@ export default function Route() {
                         </li>
                         <li className="accordion">
                             <AccordionItem id="properties" title="Propiedades o funciones nativas">
-                                <h6>.length</h6>
-                                <p>
-                                    Se utiliza para contar los caracteres de una cadena de texto o cantidad 
-                                    de elementos de un array.
-                                </p>
-                                <p>
-                                    En el caso de los caracteres, tambien contará los espacios en blanco:
-                                </p>
-                                <Code>
-                                    const miTexto = "Cantidad de caracteres.";
-                                    console.log(miTexto.length); // Mostrará: 26.
-
-                                    const miArray = [654, 97, 321];
-                                    console.log(miArray.length); // Mostrará: 3.
-                                </Code>
                                 <h6>.push()</h6>
                                 <p>
                                     Se utiliza para insertar uno o muchos elementos al final de un array.
